@@ -48,7 +48,9 @@ def relocate_markdown_links(text, source_path, destination_path):
         if url.scheme or url.netloc or not url.path:
             return match.group(0)
         target = (source_path.parent / unquote(url.path)).resolve()
-        relative = os.path.relpath(target, destination_path.parent).replace('\\', '/')
+        # Resolve both sides: Windows TEMP may use a short-name alias while
+        # resolve() expands the target to its long path on GitHub runners.
+        relative = os.path.relpath(target, destination_path.parent.resolve()).replace('\\', '/')
         if url.fragment: relative += '#' + url.fragment
         return f'[{label}]({relative})'
     return re.sub(r'\[([^\]]*)\]\(([^)]+)\)', replace, text)

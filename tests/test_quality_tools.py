@@ -59,6 +59,24 @@ class PrerequisiteTests(unittest.TestCase):
         validate_graph([{'id':'a','path':'a.ipynb','prerequisites':[]}, {'id':'b','path':'b.ipynb','prerequisites':['a']}])
 
 class LinkTests(unittest.TestCase):
+    def test_archived_link_resolves_destination_alias_too(self):
+        # Simulate the runner's short-name TEMP alias without requiring
+        # privileged Windows symlink creation or a particular user profile.
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            alias, canonical = root/'alias', root/'canonical'
+            original_resolve = Path.resolve
+            def expand_alias(path):
+                resolved = original_resolve(path)
+                if resolved.is_relative_to(alias):
+                    return canonical / resolved.relative_to(alias)
+                return resolved
+            source = alias/'00_Module/lesson.ipynb'
+            destination = alias/'reports/executed/00_Module/lesson.ipynb'
+            with patch.object(Path, 'resolve', autospec=True, side_effect=expand_alias):
+                relocated = relocate_markdown_links('[next](../01_Module/next.ipynb#topic)', source, destination)
+            self.assertEqual(relocated, '[next](../../../01_Module/next.ipynb#topic)')
+
     def test_archived_notebook_keeps_original_link_target(self):
         root = Path(tempfile.gettempdir()) / 'academy-link-test'
         source = root/'00_Module/lesson.ipynb'
