@@ -10,4 +10,5 @@ artifacts/
 personal_notes/
 .env
 .env.*
+reports/runs/
 

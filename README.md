@@ -37,6 +37,8 @@ The first **17 mathematics lessons** are authored and tested. Follow the [mathem
 
 ## Verification
 
+To manually execute every notebook with live progress and saved JSON/CSV/HTML results, use [the all-notebook runner](RUN_ALL_NOTEBOOKS.md): `.\.venv\Scripts\python.exe run_all_notebooks.py`. This explicitly includes drafts and is separate from automatic static validation.
+
 From PowerShell in this directory:
 
 ```powershell
