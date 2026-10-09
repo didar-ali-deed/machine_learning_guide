@@ -11,6 +11,8 @@ Intended notebook: `01_variables_and_data_types.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](01_variables_and_data_types.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 00-03.
 Target: small CPU example with local or generated data.
 
@@ -20,6 +22,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `02_operators.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](02_operators.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-01.
 Target: small CPU example with local or generated data.
@@ -31,6 +35,8 @@ Intended notebook: `03_strings.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](03_strings.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-02.
 Target: small CPU example with local or generated data.
 
@@ -40,6 +46,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `04_lists_tuples_sets_and_dictionaries.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](04_lists_tuples_sets_and_dictionaries.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-03.
 Target: small CPU example with local or generated data.
@@ -51,6 +59,8 @@ Intended notebook: `05_conditions_and_loops.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](05_conditions_and_loops.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-04.
 Target: small CPU example with local or generated data.
 
@@ -60,6 +70,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `06_functions_and_parameters.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](06_functions_and_parameters.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-05.
 Target: small CPU example with local or generated data.
@@ -71,6 +83,8 @@ Intended notebook: `07_scope.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](07_scope.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-06.
 Target: small CPU example with local or generated data.
 
@@ -80,6 +94,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `08_list_comprehensions.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](08_list_comprehensions.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-07.
 Target: small CPU example with local or generated data.
@@ -91,6 +107,8 @@ Intended notebook: `09_modules_and_packages.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](09_modules_and_packages.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-08.
 Target: small CPU example with local or generated data.
 
@@ -100,6 +118,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `10_file_handling.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](10_file_handling.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-09.
 Target: small CPU example with local or generated data.
@@ -111,6 +131,8 @@ Intended notebook: `11_exceptions_and_debugging.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](11_exceptions_and_debugging.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-10.
 Target: small CPU example with local or generated data.
 
@@ -120,6 +142,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `12_classes_and_object_oriented_programming.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](12_classes_and_object_oriented_programming.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-11.
 Target: small CPU example with local or generated data.
@@ -131,6 +155,8 @@ Intended notebook: `13_numpy_basics.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](13_numpy_basics.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 00-03.
 Target: small CPU example with local or generated data.
 
@@ -140,6 +166,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `14_indexing_slicing_and_shapes.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](14_indexing_slicing_and_shapes.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-13.
 Target: small CPU example with local or generated data.
@@ -151,6 +179,8 @@ Intended notebook: `15_vectorization_and_broadcasting.ipynb`. Study estimate: 2 
 
 [Open notebook](15_vectorization_and_broadcasting.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-14.
 Target: small CPU example with local or generated data.
 
@@ -160,6 +190,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `16_pandas_basics.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](16_pandas_basics.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-13.
 Target: small CPU example with local or generated data.
@@ -171,6 +203,8 @@ Intended notebook: `17_filtering_grouping_and_merging.ipynb`. Study estimate: 2 
 
 [Open notebook](17_filtering_grouping_and_merging.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-16.
 Target: small CPU example with local or generated data.
 
@@ -180,6 +214,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `18_visualizing_data.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](18_visualizing_data.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-16.
 Target: small CPU example with local or generated data.
@@ -191,6 +227,8 @@ Intended notebook: `19_matplotlib.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](19_matplotlib.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-18.
 Target: small CPU example with local or generated data.
 
@@ -201,6 +239,8 @@ Intended notebook: `20_seaborn.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](20_seaborn.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-19.
 Target: small CPU example with local or generated data.
 
@@ -210,6 +250,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `21_exploratory_analysis.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](21_exploratory_analysis.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 01-20.
 Target: small CPU example with local or generated data.

@@ -221,4 +221,4 @@ else:
 
 ## 21. Summary and next steps
 
-Norms and feature scales define the geometry of similarity. Choose them deliberately and inspect contributions before trusting a nearest observation. Continue to [eigenvalues and eigenvectors](README.md#02-15), currently planned, to find directions preserved by a transformation.
+Norms and feature scales define the geometry of similarity. Choose them deliberately and inspect contributions before trusting a nearest observation. Continue to [eigenvalues and eigenvectors](15_eigenvalues_and_eigenvectors.ipynb) to find directions preserved by a transformation.

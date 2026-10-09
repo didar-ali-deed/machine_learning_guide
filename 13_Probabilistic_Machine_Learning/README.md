@@ -9,7 +9,9 @@ Distinguish likelihood, prior, posterior, approximation, and predictive uncertai
 
 Intended notebook: `01_bayesian_inference.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](01_bayesian_inference.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 12-01.
 Target: small CPU example with local or generated data.
@@ -19,7 +21,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `02_prior_likelihood_and_posterior.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](02_prior_likelihood_and_posterior.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-01.
 Target: small CPU example with local or generated data.
@@ -29,7 +33,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `03_maximum_likelihood_estimation.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](03_maximum_likelihood_estimation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-02.
 Target: small CPU example with local or generated data.
@@ -39,7 +45,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `04_maximum_a_posteriori_estimation.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](04_maximum_a_posteriori_estimation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-03.
 Target: small CPU example with local or generated data.
@@ -49,7 +57,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `05_bayesian_linear_regression.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](05_bayesian_linear_regression.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-04.
 Target: small CPU example with local or generated data.
@@ -59,7 +69,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `06_gaussian_mixture_models.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](06_gaussian_mixture_models.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-05.
 Target: small CPU example with local or generated data.
@@ -69,7 +81,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `07_hidden_markov_models.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](07_hidden_markov_models.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-06.
 Target: small CPU example with local or generated data.
@@ -79,7 +93,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `08_gaussian_processes.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](08_gaussian_processes.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-07.
 Target: small CPU example with local or generated data.
@@ -89,7 +105,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `09_variational_inference_intuition.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](09_variational_inference_intuition.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-08.
 Target: small CPU example with local or generated data.
@@ -99,7 +117,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `10_monte_carlo_sampling.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](10_monte_carlo_sampling.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-09.
 Target: small CPU example with local or generated data.
@@ -109,7 +129,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `11_uncertainty_estimation.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](11_uncertainty_estimation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-10.
 Target: small CPU example with local or generated data.
@@ -119,7 +141,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `12_probabilistic_predictions.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](12_probabilistic_predictions.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 13-11.
 Target: small CPU example with local or generated data.

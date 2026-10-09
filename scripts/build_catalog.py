@@ -74,6 +74,8 @@ def build():
     print(f'Inventory: {len(records)} notebooks across {len(MODULES)} modules; no placeholder notebooks created.')
 
 def render(records):
+    draft_path = ROOT / 'reference_materials/draft_lessons.json'
+    drafts = json.loads(draft_path.read_text(encoding='utf-8')) if draft_path.exists() else {}
     rows = ['# Complete Machine Learning Academy syllabus', '',
         'The full scope is planned here. A notebook link appears only after the file exists. Planned links open its module specification; the intended filename remains visible there. Status is maintained in [PROGRESS.md](PROGRESS.md).', '',
         'Hours include reading, manual calculations, experiments, and exercises. They are estimates, not deadlines. A beginner may need more time. The eight-lesson on-ramp precedes the full numbered sequence.', '']
@@ -87,13 +89,14 @@ def render(records):
         for r in module_records:
             exists = (ROOT / r['path']).is_file()
             target = r['path'] if exists else f'{directory}/README.md#{r["id"]}'
-            label = r['title'] + ('' if exists else ' — planned')
+            label = r['title'] + (' — draft, unexecuted' if r['id'] in drafts else ('' if exists else ' — planned'))
             pre = ', '.join(f'[{p}](#{p})' for p in r['prerequisites']) or 'None'
             # Prerequisite links point to stable syllabus IDs, even for planned lessons.
             rows += [f'| <a id="{r["id"]}"></a>{r["id"]} | [{label}]({target}) | {r["hours"]} | {pre} | {r["title"]} |']
             module_doc += [f'<a id="{r["id"]}"></a>', f'## {r["id"]}: {r["title"]}', '',
                 f'Intended notebook: `{Path(r["path"]).name}`. Study estimate: {r["hours"]} hours.', '',
                 ('[Open notebook](' + Path(r['path']).name + ')' if exists else 'Status: planned; no lesson file exists yet.'), '',
+                ('Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.' if r['id'] in drafts else 'See the source-matched execution and review status in PROGRESS.md.'), '',
                 f'Prerequisites: {", ".join(r["prerequisites"]) or "none"}.',
                 'Optional dependency or larger extension.' if r['optional'] else 'Target: small CPU example with local or generated data.', '']
         (ROOT / directory / 'README.md').write_text('\n'.join(module_doc), encoding='utf-8')

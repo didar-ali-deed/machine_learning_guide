@@ -9,7 +9,9 @@ Package, test, serve, monitor, and document a reproducible model safely.
 
 Intended notebook: `01_end_to_end_ml_pipelines.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](01_end_to_end_ml_pipelines.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 21-01.
 Target: small CPU example with local or generated data.
@@ -19,7 +21,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `02_saving_and_loading_models.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](02_saving_and_loading_models.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-01.
 Target: small CPU example with local or generated data.
@@ -29,7 +33,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `03_model_artifact_security.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](03_model_artifact_security.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-02.
 Target: small CPU example with local or generated data.
@@ -39,7 +45,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `04_fastapi_prediction_endpoints.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](04_fastapi_prediction_endpoints.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-03.
 Target: small CPU example with local or generated data.
@@ -49,7 +57,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `05_docker_fundamentals.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](05_docker_fundamentals.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-04.
 Target: small CPU example with local or generated data.
@@ -59,7 +69,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `06_experiment_tracking.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](06_experiment_tracking.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-05.
 Target: small CPU example with local or generated data.
@@ -69,7 +81,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `07_mlflow_fundamentals.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](07_mlflow_fundamentals.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-06.
 Optional dependency or larger extension.
@@ -79,7 +93,9 @@ Optional dependency or larger extension.
 
 Intended notebook: `08_model_versioning.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](08_model_versioning.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-07.
 Target: small CPU example with local or generated data.
@@ -89,7 +105,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `09_data_validation.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](09_data_validation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-08.
 Target: small CPU example with local or generated data.
@@ -99,7 +117,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `10_unit_testing.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](10_unit_testing.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-09.
 Target: small CPU example with local or generated data.
@@ -109,7 +129,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `11_integration_testing.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](11_integration_testing.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-10.
 Target: small CPU example with local or generated data.
@@ -119,7 +141,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `12_ci_fundamentals.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](12_ci_fundamentals.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-11.
 Target: small CPU example with local or generated data.
@@ -129,7 +153,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `13_model_monitoring.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](13_model_monitoring.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-12.
 Target: small CPU example with local or generated data.
@@ -139,7 +165,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `14_data_drift.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](14_data_drift.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-13.
 Target: small CPU example with local or generated data.
@@ -149,7 +177,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `15_concept_drift.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](15_concept_drift.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-14.
 Target: small CPU example with local or generated data.
@@ -159,7 +189,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `16_retraining_strategies.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](16_retraining_strategies.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-15.
 Target: small CPU example with local or generated data.
@@ -169,7 +201,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `17_reproducibility.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](17_reproducibility.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-16.
 Target: small CPU example with local or generated data.
@@ -179,7 +213,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `18_production_readiness.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](18_production_readiness.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-17.
 Target: small CPU example with local or generated data.
@@ -189,7 +225,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `19_model_documentation.ipynb`. Study estimate: 4 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](19_model_documentation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 22-18.
 Target: small CPU example with local or generated data.

@@ -4,12 +4,17 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+    inputs:
+      execute_notebooks:
+        description: 'Explicitly run authored notebooks (drafts excluded)'
+        type: boolean
+        default: false
 
 permissions:
   contents: read
 
 jobs:
-  windows-notebooks:
+  windows-static-checks:
     runs-on: windows-latest
     timeout-minutes: 45
     steps:
@@ -29,12 +34,15 @@ jobs:
         run: |
           .\.venv\Scripts\python.exe scripts/check_academy.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .\.venv\Scripts\python.exe scripts/check_static_logic.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           .\.venv\Scripts\python.exe -m unittest discover -s tests -v
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Execute authored CPU lessons
+        if: github.event_name == 'workflow_dispatch' && inputs.execute_notebooks
         shell: pwsh
         run: |
-          .\.venv\Scripts\python.exe scripts/execute_notebooks.py
+          .\.venv\Scripts\python.exe scripts/execute_notebooks.py --authored-only
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           .\.venv\Scripts\python.exe scripts/check_academy.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
@@ -46,4 +54,5 @@ jobs:
           path: |
             reports/execution_results.json
             reports/structural_checks.json
+            reports/static_logic_checks.json
             reports/executed/

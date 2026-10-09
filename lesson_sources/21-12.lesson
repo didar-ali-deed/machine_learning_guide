@@ -1,0 +1,42 @@
+# Data and model privacy
+
+> **GENERATED DRAFT — NOT EXECUTED OR EDUCATIONALLY VERIFIED.** This topic brief and code starting point was created under the user's generation-only instruction. It is not the academy's complete 21-section lesson. Full derivations, six worked exercises, plots, realistic comparisons, and manual review remain pending. Syntax validation does not prove numerical correctness or runtime compatibility.
+
+## Learning focus and prerequisites
+
+Learn to identify the central mechanism of **Data and model privacy**, inspect its inputs and outputs, and recognize the limitation described below. Read prerequisites first: [21-11: Model calibration](11_model_calibration.ipynb). Module objective: Audit explanations, subgroup performance, robustness, privacy, and uncertainty.
+
+## Topic explanation
+
+Data privacy and model privacy include access control, minimization, memorization, and attack risks. Removing a direct identifier is not a proof of anonymity or differential privacy.
+
+## Inspectable computational starting point
+
+The code uses `np` as the NumPy alias and `pd` as the pandas alias. `np.array` constructs an array, `@` denotes matrix multiplication, and `assert` states an expected invariant or worked value. Print the intermediate objects and check their shapes before interpreting a result. An assertion is a proposed check here; it has not been run in this draft.
+
+```python
+import numpy as np
+import pandas as pd
+```
+
+```python
+record={'name':'Example','age':30,'score':.8}; minimized={k:v for k,v in record.items() if k!='name'}; assert 'name' not in minimized; print('Illustrative minimization, not anonymization:',minimized)
+```
+
+## Experiment and reasoning tasks
+
+1. Predict the printed quantities from the supplied example before running any cells. Explain how each input contributes to the result.
+2. Change one relevant input or configuration and explain why the result should change. Identify an edge case where the displayed rule or model would be inappropriate.
+3. Separate what this example demonstrates from what a complete study of Data and model privacy would need to establish. Describe a validation boundary appropriate to its real application.
+
+The supplied assertions document some expected values or structural invariants. They are not a complete worked-solutions section. Write your reasoning in private study notes and consult the reviewed prerequisites when a mathematical or Python step is unfamiliar.
+
+## Assumptions, limitations, and pending work
+
+The included example uses local or synthetic observations. Any simplified mechanism is a teaching starting point, not a production-equivalent implementation. No paid API, credential, server, system installation, or optional plugin is required by the displayed starting point. The example must still receive numerical review and optional fresh-kernel testing before it can be labeled verified. Synthetic examples do not establish population performance. Any fitted preprocessing must use training observations only; future and test outcomes must stay outside model selection.
+
+Pending authoring: intuition and analogy expansion; symbol/unit/shape definitions for every equation; manual derivation; essential scratch mechanism; library comparison; meaningful plots; hyperparameter experiments; six exercises with detailed solutions; five answered knowledge questions; five explained interview questions. Algorithm topics must explain learned parameters, prediction internals, assumptions, failure modes, and alternatives. Capstone topics additionally need the complete business-to-report workflow. This explicit backlog prevents a populated file from being mistaken for a finished course chapter.
+
+## Navigation
+
+Continue to [Responsible AI principles](13_responsible_ai_principles.ipynb). Consult the [syllabus](../SYLLABUS.md), [student guide](../STUDENT_GUIDE.md), and [exact progress ledger](../PROGRESS.md) for the learning route and verification status.

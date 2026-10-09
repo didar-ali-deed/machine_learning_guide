@@ -222,9 +222,27 @@
     "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
   },
   "02-14": {
-    "source_sha256": "928042e6371e7c338354c993f68691bb9476623ed114308ffb7087af45a4fb78",
-    "reviewed_at_utc": "2026-10-09T04:09:28.233618+00:00",
+    "source_sha256": "a2bfeca990eb5881f1f428893f1bcee55cfad1a8e5e00a8108678b5ec12c36d9",
+    "reviewed_at_utc": "2026-10-09T04:38:47.687263+00:00",
     "reviewer": "authoring assistant",
-    "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
+    "scope": "Equations, hand calculations, actual executed output, figures, limits, exercises and solutions inspected before generation-only instruction; see eigen/SVD/limits entry in CONTENT_REVIEW.md."
+  },
+  "02-15": {
+    "source_sha256": "7c1e8393e7493baa531a0f64292692b1e860ee388226585f546f7bb32361aa59",
+    "reviewed_at_utc": "2026-10-09T04:38:47.687263+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Equations, hand calculations, actual executed output, figures, limits, exercises and solutions inspected before generation-only instruction; see eigen/SVD/limits entry in CONTENT_REVIEW.md."
+  },
+  "02-16": {
+    "source_sha256": "88de10c8148201b28727cbe587a37a5667f19fe1fce7343a132a12432774eebf",
+    "reviewed_at_utc": "2026-10-09T04:38:47.687263+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Equations, hand calculations, actual executed output, figures, limits, exercises and solutions inspected before generation-only instruction; see eigen/SVD/limits entry in CONTENT_REVIEW.md."
+  },
+  "02-17": {
+    "source_sha256": "51e1be6182954487ddeb3be490e9a46d6e014d75672b6d6f71ae2db4ea91191f",
+    "reviewed_at_utc": "2026-10-09T04:38:47.687263+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Equations, hand calculations, actual executed output, figures, limits, exercises and solutions inspected before generation-only instruction; see eigen/SVD/limits entry in CONTENT_REVIEW.md."
   }
 }

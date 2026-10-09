@@ -1,0 +1,215 @@
+# 1. Singular Value Decomposition
+
+After [eigenvalues and eigenvectors](15_eigenvalues_and_eigenvectors.ipynb), you can describe special directions of square matrices. Singular Value Decomposition, abbreviated SVD, extends the idea to rectangular tables by separating input directions from output directions. You will reconstruct a matrix by adding simple outer products, build a reduced approximation, and connect singular values to rank and pseudoinverse. All examples are small, dimensionless, and synthetic, with no downloads or fitted predictive model.
+
+## 2. What problem does this solve?
+
+A table may contain hundreds of correlated measurements but only a few strong patterns. We want to describe those patterns, compress the table, solve least-squares systems, or diagnose nearly lost information. Eigenvectors alone do not directly describe a rectangular matrix, since its input and output vectors have different lengths. SVD supplies matched directions in the two spaces and a strength for each match.
+
+## 3. Intuition and analogy
+
+Imagine changing to a convenient set of input coordinates, stretching those coordinate directions independently, and expressing the result in output coordinates. SVD describes any real matrix in that form. Rectangular transformations may discard directions or place results in a larger space. For compression, imagine stacking transparent sheets, each containing one simple stripe pattern. Adding all sheets recreates the table; retaining only the strongest sheets approximates it with less information.
+
+## 4. Terminology
+
+Singular values are nonnegative stretching factors, conventionally ordered from largest to smallest. Right singular vectors describe input directions; left singular vectors describe output directions. An outer product of a length-m vector and length-p vector creates an m-by-p table. A rank-one matrix is one nonzero outer-product pattern. A truncated SVD keeps only a chosen number of components. The Frobenius norm is the square root of the sum of squared matrix entries, measuring total reconstruction discrepancy across a table.
+
+## 5. Mathematical foundations
+
+For a real matrix \(A\) of shape \((m,p)\), let \(k=\min(m,p)\). The reduced decomposition is
+\[
+A=U\Sigma V^T=\sum_{i=1}^k\sigma_i u_i v_i^T.
+\]
+Here \(U\) has shape \((m,k)\), \(\Sigma\) is diagonal with shape \((k,k)\), and \(V^T\) has shape \((k,p)\). Columns \(u_i\) of U and \(v_i\) of V have lengths m and p respectively. The scalar \(\sigma_i\ge0\) is the ith singular value. These column sets are orthonormal. Multiplication gives \(Av_i=\sigma_i u_i\): a unit input direction becomes a scaled output direction.
+
+Keeping the first \(q\) terms, where \(0\le q\le k\), gives approximation \(A_q\). Its squared Frobenius error is
+\[
+\|A-A_q\|_F^2=\sum_{i=q+1}^k\sigma_i^2.
+\]
+The subscript F labels the matrix norm; the sum includes omitted components. Truncated SVD minimizes this error among matrices of rank at most q. This is a reconstruction claim, not a claim about predictive performance or preservation of every important rare event.
+
+## 6. Hand-calculated example
+
+Use \(A=[[2,1],[1,2],[0,0]]\), shape (3,2). Let \(v_1=[1,1]/\sqrt2\) and \(v_2=[1,-1]/\sqrt2\). Their output directions are \(u_1=[1,1,0]/\sqrt2\) and \(u_2=[1,-1,0]/\sqrt2\). Multiplication gives Av1=3u1 and Av2=u2, so singular values are 3 and 1. The first outer-product term is [[1.5,1.5],[1.5,1.5],[0,0]]. The second is [[.5,-.5],[-.5,.5],[0,0]]. Adding gives A. Keeping only the first leaves four discrepancies of magnitude .5; squared error is 4(.25)=1 and error norm is 1.
+
+## 7. Essential mechanism from scratch
+
+We assemble the hand-derived rank-one patterns with loops, before using an SVD library. This implements reconstruction and truncation, the core computational mechanism used in compression. It does not compute singular vectors for an arbitrary matrix; general SVD requires a dedicated numerical factorization. The previous lesson's symmetric example supplies our directions, extended with a zero output coordinate. `range` visits each component, and nested loops multiply every output-coordinate entry by every input-coordinate entry.
+
+```python
+import numpy as np
+
+A = np.array([[2., 1.], [1., 2.], [0., 0.]])
+singular_values = np.array([3., 1.])
+U_hand = np.array([[1., 1.], [1., -1.], [0., 0.]]) / np.sqrt(2)
+V_hand = np.array([[1., 1.], [1., -1.]]) / np.sqrt(2)
+
+def reconstruct_components(left, strengths, right, count):
+    # right contains vectors as columns, rather than the library's V transpose.
+    if not isinstance(count, int) or not 0 <= count <= len(strengths):
+        raise ValueError('Component count must be an integer in range.')
+    output = np.zeros((left.shape[0], right.shape[0]))
+    for component in range(count):
+        for row in range(left.shape[0]):
+            for column in range(right.shape[0]):
+                output[row, column] += (strengths[component]
+                    * left[row, component] * right[column, component])
+    return output
+
+rank_one = reconstruct_components(U_hand, singular_values, V_hand, 1)
+complete = reconstruct_components(U_hand, singular_values, V_hand, 2)
+assert np.allclose(rank_one, [[1.5, 1.5], [1.5, 1.5], [0, 0]])
+assert np.allclose(complete, A)
+assert np.isclose(np.sum((A-rank_one)**2), 1)
+print('First component reconstruction:', rank_one)
+```
+
+## 8. Inspecting intermediate values
+
+The squared entries of the original sum to 10: 4+1+1+4. The leading component retains squared strength 9, or 90 percent of that total. Calling this energy is a numerical analogy, not a claim about physical joules. Check both singular-direction equations and orthonormality before trusting an assembled decomposition. Keeping zero components creates the all-zero approximation.
+
+```python
+assert np.allclose(U_hand.T @ U_hand, np.eye(2))
+assert np.allclose(V_hand.T @ V_hand, np.eye(2))
+assert np.allclose(A @ V_hand, U_hand * singular_values)
+assert np.allclose(reconstruct_components(U_hand, singular_values, V_hand, 0), 0)
+print('Squared strengths:', singular_values**2)
+print('Leading fraction of squared strength:', 9/10)
+print('Omitted component:', A-rank_one)
+```
+
+## 9. Library implementation
+
+`np.linalg.svd(A, full_matrices=False)` returns U, a one-dimensional array of singular values, and V transpose. The final object already contains transposed right vectors; transposing it again in reconstruction gives the wrong operation. `full_matrices=False` requests reduced shapes, saving storage for rectangular tables. Vector signs can differ from our hand choices, but paired sign changes leave outer products unchanged.
+
+```python
+U, s, Vt = np.linalg.svd(A, full_matrices=False)
+assert (U.shape, s.shape, Vt.shape) == ((3, 2), (2,), (2, 2))
+assert np.allclose(s, [3, 1])
+assert np.allclose((U*s) @ Vt, A)
+assert np.allclose(A @ Vt.T, U*s)
+approximation = (U[:, :1]*s[:1]) @ Vt[:1, :]
+assert np.allclose(approximation, rank_one)
+print('Reduced shapes:', U.shape, s.shape, Vt.shape)
+```
+
+## 10. Visualization
+
+The heatmaps show original, retained component, and residual with the same color limits. The residual includes both positive and negative entries, so a diverging color scale centered on zero is appropriate. Equal-looking colors can only be compared because the limits are shared. The third row remains zero throughout, correctly reflecting an unused output direction rather than a missing observation to impute.
+
+```python
+import matplotlib.pyplot as plt
+from IPython.display import display
+fig, axes = plt.subplots(1, 3, figsize=(10, 4), constrained_layout=True)
+for ax, data, title in zip(axes, [A, rank_one, A-rank_one],
+                           ['Original', 'Rank-one approximation', 'Residual']):
+    image = ax.imshow(data, cmap='coolwarm', vmin=-2, vmax=2)
+    for row in range(3):
+        for column in range(2):
+            ax.text(column, row, f'{data[row, column]:.1f}', ha='center', va='center')
+    ax.set(title=title, xlabel='Input coordinate', ylabel='Output coordinate')
+    ax.set_xticks([0, 1])
+    ax.set_yticks([0, 1, 2])
+fig.colorbar(image, ax=axes, shrink=.7, label='Dimensionless entry')
+display(fig)
+plt.close(fig)
+```
+
+## 11. Synthetic low-rank measurement experiment
+
+We generate eight channels that all respond to one shared time pattern, plus bounded seeded random noise. SVD's first component approximates the shared structure. This is a denoising illustration: we can compare to noiseless truth only because we generated it. Real measurement systems generally do not provide that truth, and a weak component might represent a meaningful rare signal rather than noise.
+
+```python
+rng = np.random.default_rng(42)
+time_pattern = np.linspace(-1, 1, 30)
+channel_gains = np.linspace(.5, 2, 8)
+truth = np.outer(time_pattern, channel_gains)
+observed = truth + rng.normal(0, .08, size=truth.shape)
+sensor_U, sensor_s, sensor_Vt = np.linalg.svd(observed, full_matrices=False)
+filtered = (sensor_U[:, :1]*sensor_s[:1]) @ sensor_Vt[:1, :]
+raw_error = np.linalg.norm(observed-truth, ord='fro')
+filtered_error = np.linalg.norm(filtered-truth, ord='fro')
+assert filtered_error < raw_error
+print('Error against generated truth, raw and rank-one:', raw_error, filtered_error)
+print('Leading squared-strength fraction:', sensor_s[0]**2 / np.sum(sensor_s**2))
+```
+
+## 12. Configuration and learned structure
+
+Component count q is chosen, not a matrix entry learned by supervised training. Singular vectors and values are computed from the supplied table. A numerical cutoff also determines which very small singular values are treated as zero in rank or pseudoinverse calculations. In predictive representation learning, fit directions using training observations and apply the fixed transformation to validation/test observations. A low reconstruction error on the same table does not establish generalization.
+
+## 13. Evaluation
+
+Verify reconstruction, orthonormality, nonnegative descending singular values, and the error predicted by omitted squared strengths. For compression compare both storage and reconstruction quality. Reduced factors use m*q+q+q*p numbers; that can exceed m*p for tiny matrices, so our three-by-two example demonstrates algebra rather than storage savings. For the 30-by-8 experiment, one component stores 39 rather than 240 numbers, before metadata overhead.
+
+## 14. Assumptions and limitations
+
+SVD exists for any finite real matrix, but the interpretation depends on how rows and columns were constructed and scaled. Uncentered SVD does not automatically measure variance around a mean. Outliers can dominate squared reconstruction error. Singular directions with repeated strengths are not uniquely determined. Individual vectors can change sign between implementations without changing the decomposition or its reconstructed table.
+
+## 15. Mistakes and debugging
+
+Do not confuse `s`, shape (k,), with the diagonal matrix Sigma. `(U*s)` scales columns by broadcasting. Do not divide by zero singular values when constructing a pseudoinverse. Do not assume low numerical rank proves data quality or causality. Always check factor shapes; full and reduced decompositions return different-sized factors even though both represent the same matrix.
+
+## 16. Connections and alternatives
+
+Rank counts nonzero singular values in exact arithmetic. Pseudoinverse reciprocates retained nonzero singular values and reverses the input/output factors. PCA adds centering and a variance interpretation. Eigenvalues can be negative or complex, whereas singular values are always nonnegative. For a real symmetric positive matrix, singular values match its eigenvalues; that special relationship should not be generalized to every square matrix.
+
+## 17. Exercises
+
+1. **Beginner:** State the reduced factor shapes for a five-by-three matrix.
+2. **Beginner:** Calculate the squared error when retaining only singular value 3 in our example.
+3. **Beginner:** Explain why singular-vector sign changes need not change reconstruction.
+4. **Intermediate:** Construct the pseudoinverse of our matrix from its SVD.
+5. **Intermediate:** Compare one-component storage with original storage for the synthetic sensor table.
+6. **Challenge:** Handle a zero singular value explicitly when constructing a pseudoinverse; explain what information cannot be recovered.
+
+## 18. Worked solutions
+
+1. U is (5,3), the value array is (3,), Sigma is (3,3), and V transpose is (3,3).
+2. The omitted squared value is 1^2=1. The error norm is therefore 1, matching our four residual entries of magnitude .5.
+3. Negating both members of a matched vector pair multiplies their outer product by (-1)(-1)=1. Negating only one member would change the reconstruction.
+4. Reverse the factors and reciprocate 3 and 1: A-plus=V diag(1/3,1) U-transpose. Its shape is (2,3), and A-plus times A is the two-by-two identity because A has full column rank.
+5. Original storage is 30*8=240 numbers. One component uses 30+1+8=39 numbers. This ignores file formatting, compression, and metadata overhead.
+6. For diag(2,0), keep reciprocal 1/2 for the first direction and zero for the second. Inputs differing only in their second coordinate produce identical outputs. No inverse can recover that coordinate; minimum-length recovery sets it to zero.
+
+```python
+pseudoinverse = (Vt.T * (1/s)) @ U.T
+assert np.allclose(pseudoinverse, np.linalg.pinv(A))
+assert np.allclose(pseudoinverse @ A, np.eye(2))
+collapsed = np.diag([2., 0.])
+cu, cs, cvt = np.linalg.svd(collapsed, full_matrices=False)
+reciprocals = np.zeros_like(cs)
+retained = cs > 1e-12
+reciprocals[retained] = 1/cs[retained]
+collapsed_plus = (cvt.T * reciprocals) @ cu.T
+assert np.allclose(collapsed_plus, np.diag([.5, 0.]))
+assert np.allclose(collapsed @ collapsed_plus @ collapsed, collapsed)
+```
+
+## 19. Knowledge check
+
+**Can SVD handle rectangular matrices?** Yes; input and output directions occupy different spaces.
+
+**Are singular values signed?** No; they are nonnegative strengths.
+
+**What does truncation discard?** Components beyond the chosen count, including any useful structure they contain.
+
+**Does low reconstruction error guarantee useful predictions?** No; reconstruction and prediction are different objectives.
+
+**Must tiny examples save storage?** No; factor overhead can exceed original size.
+
+## 20. Interview preparation
+
+**How does SVD relate to numerical rank?** Count singular values above an explicitly understood numerical cutoff.
+
+**How does it construct a pseudoinverse?** Reverse the orthonormal factors and reciprocate retained nonzero strengths.
+
+**Why avoid comparing raw singular vectors across solvers?** Signs and bases in repeated-strength subspaces are not unique.
+
+**Why center before PCA?** PCA targets variation around a mean rather than uncentered magnitude.
+
+**What objective does truncated SVD optimize?** Minimum Frobenius reconstruction error at a bounded rank; it does not optimize every application metric.
+
+## 21. Summary and next steps
+
+SVD separates rectangular transformations into matched input/output directions and nonnegative strengths. It unifies rank, compression, and pseudoinverse, with careful treatment of discarded information. Continue to [limits and continuity](17_limits_and_continuity.ipynb) to begin the calculus sequence.

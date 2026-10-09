@@ -139,3 +139,9 @@ The authoring assistant reviewed equations, code, actual fresh-kernel outputs, e
 | 02-14 | Hand distances 7/5/4, pairwise table, circle/diamond/square boundaries; reference scaling reverses the nearest product; squared distance counterexample; invalid vectors and shape mismatch rejected. |
 | 02-11 | Only next-lesson prose link changed; fresh execution passed and previous figure/math review remains applicable. |
 
+# Eigenvalues, SVD, and limits review
+
+The three substantial authored lessons 02-15 through 02-17 were executed and their [actual figures](eigen_svd_limits_review.png) inspected before the user's generation-only instruction. Review covered characteristic roots 1/3, eigenpair residuals and sign ambiguity, repeated-transformation convergence assumptions, rectangular SVD reconstruction, rank-one error 1, masked zero-singular-value reciprocals, the removable hole and jump distinction, epsilon/delta bounds, cancellation, and misleading oscillation samples. Sensor reconstruction error decreased from 1.1154 to .4381 against generated truth; this is explicitly synthetic evidence. The next-step link in 02-14 was refreshed and its earlier figure review remains applicable.
+
+The later 386 generated drafts have **not** received this full review or execution. Their conservative static checks are documented separately in [GENERATION_ONLY_REPORT.md](GENERATION_ONLY_REPORT.md); no content-review hashes are assigned to them.
+

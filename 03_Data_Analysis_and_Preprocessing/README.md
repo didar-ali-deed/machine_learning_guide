@@ -9,7 +9,9 @@ Build train-only transformations and detect data-quality failures before modelin
 
 Intended notebook: `01_loading_csv_json_and_excel.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](01_loading_csv_json_and_excel.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-01.
 Target: small CPU example with local or generated data.
@@ -19,7 +21,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `02_understanding_dataset_structure.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](02_understanding_dataset_structure.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-01.
 Target: small CPU example with local or generated data.
@@ -29,7 +33,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `03_exploratory_data_analysis.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](03_exploratory_data_analysis.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-02.
 Target: small CPU example with local or generated data.
@@ -39,7 +45,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `04_data_quality_assessment.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](04_data_quality_assessment.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-03.
 Target: small CPU example with local or generated data.
@@ -49,7 +57,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `05_missing_values_and_imputation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](05_missing_values_and_imputation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-04.
 Target: small CPU example with local or generated data.
@@ -59,7 +69,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `06_outlier_detection_and_handling.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](06_outlier_detection_and_handling.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-05.
 Target: small CPU example with local or generated data.
@@ -69,7 +81,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `07_duplicate_records.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](07_duplicate_records.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-06.
 Target: small CPU example with local or generated data.
@@ -79,7 +93,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `08_categorical_encoding.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](08_categorical_encoding.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-07.
 Target: small CPU example with local or generated data.
@@ -89,7 +105,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `09_one_hot_versus_ordinal_encoding.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](09_one_hot_versus_ordinal_encoding.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-08.
 Target: small CPU example with local or generated data.
@@ -99,7 +117,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `10_normalization_and_standardization.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](10_normalization_and_standardization.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-09.
 Target: small CPU example with local or generated data.
@@ -109,7 +129,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `11_feature_transformations.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](11_feature_transformations.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-10.
 Target: small CPU example with local or generated data.
@@ -119,7 +141,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `12_feature_construction.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](12_feature_construction.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-11.
 Target: small CPU example with local or generated data.
@@ -129,7 +153,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `13_feature_selection_introduction.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](13_feature_selection_introduction.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-12.
 Target: small CPU example with local or generated data.
@@ -139,7 +165,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `14_class_imbalance.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](14_class_imbalance.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-13.
 Target: small CPU example with local or generated data.
@@ -149,7 +177,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `15_data_leakage.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](15_data_leakage.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-14.
 Target: small CPU example with local or generated data.
@@ -159,7 +189,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `16_train_validation_and_test_splitting.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](16_train_validation_and_test_splitting.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-15.
 Target: small CPU example with local or generated data.
@@ -169,7 +201,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `17_data_preprocessing_pipelines.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](17_data_preprocessing_pipelines.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-16.
 Target: small CPU example with local or generated data.
@@ -179,7 +213,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `18_columntransformer.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](18_columntransformer.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-17.
 Target: small CPU example with local or generated data.
@@ -189,7 +225,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `19_data_validation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](19_data_validation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 03-18.
 Target: small CPU example with local or generated data.

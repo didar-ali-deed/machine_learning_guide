@@ -397,13 +397,46 @@
     "02-14": {
       "status": "passed",
       "path": "02_Mathematics_for_ML/14_norms_and_distances.ipynb",
-      "checked_at_utc": "2026-10-09T04:08:37.913034+00:00",
-      "source_sha256": "928042e6371e7c338354c993f68691bb9476623ed114308ffb7087af45a4fb78",
+      "checked_at_utc": "2026-10-09T04:14:50.434009+00:00",
+      "source_sha256": "a2bfeca990eb5881f1f428893f1bcee55cfad1a8e5e00a8108678b5ec12c36d9",
       "dependencies_sha256": {},
       "code_cells": 7,
       "figures": 1,
       "output": "reports/executed/02_Mathematics_for_ML/14_norms_and_distances.ipynb",
-      "seconds": 3.0
+      "seconds": 2.843
+    },
+    "02-15": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/15_eigenvalues_and_eigenvectors.ipynb",
+      "checked_at_utc": "2026-10-09T04:14:53.277039+00:00",
+      "source_sha256": "7c1e8393e7493baa531a0f64292692b1e860ee388226585f546f7bb32361aa59",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/15_eigenvalues_and_eigenvectors.ipynb",
+      "seconds": 1.579
+    },
+    "02-16": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/16_singular_value_decomposition.ipynb",
+      "checked_at_utc": "2026-10-09T04:14:54.848157+00:00",
+      "source_sha256": "88de10c8148201b28727cbe587a37a5667f19fe1fce7343a132a12432774eebf",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/16_singular_value_decomposition.ipynb",
+      "seconds": 1.734
+    },
+    "02-17": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/17_limits_and_continuity.ipynb",
+      "checked_at_utc": "2026-10-09T04:14:56.593165+00:00",
+      "source_sha256": "51e1be6182954487ddeb3be490e9a46d6e014d75672b6d6f71ae2db4ea91191f",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/17_limits_and_continuity.ipynb",
+      "seconds": 1.672
     }
   },
   "environment": {
@@ -416,5 +449,5 @@
     "ipykernel": "7.4.0"
   },
   "python": "3.11.9",
-  "checked_at_utc": "2026-10-09T04:08:32.961655+00:00"
+  "checked_at_utc": "2026-10-09T04:14:50.434009+00:00"
 }

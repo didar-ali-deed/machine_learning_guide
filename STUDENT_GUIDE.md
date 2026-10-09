@@ -25,3 +25,6 @@ Next review date:
 Use [the assessment rubric](assessments/README.md) to assess understanding. Aim to explain the idea, compute the tiny example, implement the core operation, and diagnose a changed-input failure. Repository verification records software construction, not your mastery; keep those two kinds of progress separate.
 
 The [36-week plan](STUDY_PLAN_36_WEEKS.md) is the recommended core route. The [12-week plan](STUDY_PLAN_12_WEEKS.md) is an intensive introduction with later study still required. Neither schedule promises mastery of every advanced extension in the 427-notebook inventory.
+
+
+All 427 notebook files now exist. The 386 files labeled generated draft contain preliminary topic briefs and code examples; they still need full teaching expansion and verification. Begin with the 41 reviewed lessons, and use PROGRESS.md to distinguish repository status from your personal mastery.

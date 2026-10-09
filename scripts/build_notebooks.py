@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def build():
     inventory = json.loads((ROOT / 'reference_materials/notebook_inventory.json').read_text())
+    draft_path = ROOT / 'reference_materials/draft_lessons.json'
+    drafts = json.loads(draft_path.read_text(encoding='utf-8')) if draft_path.exists() else {}
     lookup = {entry['id']: entry for entry in inventory}
     count = 0
     for source in sorted((ROOT / 'lesson_sources').glob('*.lesson')):
@@ -35,10 +37,13 @@ def build():
         })
         if record.get('dependencies'):
             notebook.metadata.academy['dependencies'] = record['dependencies']
+        if ident in drafts:
+            notebook.metadata.academy['authoring_status'] = 'draft'
+            notebook.metadata.academy['validation_policy'] = 'static-only'
         nbformat.validate(notebook)
         nbformat.write(notebook, ROOT / record['path'])
         count += 1
     render(inventory)
-    print(f'Built {count} authored notebooks; no planned placeholders written.')
+    print(f'Built {count} populated notebooks: {count-len(drafts)} authored lessons and {len(drafts)} explicit drafts. No cells executed.')
 
 if __name__ == '__main__': build()

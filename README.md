@@ -4,7 +4,7 @@
 
 A permanent, incremental self-study repository that begins with datasets and basic Python and progresses toward classical ML, neural networks, deployment, and nine capstones. This existing workspace is the project root; a second nested copy is unnecessary.
 
-**Start with [START_HERE.md](START_HERE.md).** The [syllabus](SYLLABUS.md) preserves all 427 planned notebooks across 24 modules. The [progress ledger](PROGRESS.md) distinguishes actual lessons, passing executions, and unfinished work. Module specification pages are plans, not completed tutorials.
+**Start with [START_HERE.md](START_HERE.md).** The [syllabus](SYLLABUS.md) links to all **427 notebook files across 24 modules**: **41 reviewed lessons and 386 incomplete, unexecuted drafts**. The [progress ledger](PROGRESS.md) distinguishes actual lessons, passing executions, and unfinished work. Drafts contain topic briefs and code starting points; the full university-level curriculum remains incomplete.
 
 Use the [student guide](STUDENT_GUIDE.md) to study actively, the [GitHub setup guide](GITHUB_SETUP.md) to clone or connect the repository, and [contribution instructions](CONTRIBUTING.md) to add tested lessons. The project is published at [machine_learning_guide](https://github.com/didar-ali-deed/machine_learning_guide). The badge links to actual GitHub validation results.
 
@@ -25,7 +25,7 @@ Each lesson includes manual arithmetic, executable examples, plots, six exercise
 
 All **21 Python foundation lessons** are authored and tested. Follow the [numbered Python index](01_Python_Foundations/README.md) from variables through NumPy, pandas, plotting, and exploratory analysis. Each lesson includes a small worked example and exercises with solutions.
 
-The first **14 mathematics lessons** are also authored and tested. Start with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb) and follow the [mathematics index](02_Mathematics_for_ML/README.md) through equations, logarithms, vectors, dot products, matrix multiplication, transpose, inverse matrices, rank, and distances. The [latest batch report](reports/INVERSE_RANK_DISTANCES_REPORT.md) records verification and precise next steps. Remaining mathematics and later modules are still planned; consult [PROGRESS.md](PROGRESS.md) for every exact status.
+The first **17 mathematics lessons** are authored and tested. Follow the [mathematics index](02_Mathematics_for_ML/README.md) through SVD and limits. Every remaining module now has populated draft notebooks. The [generation report](reports/GENERATION_ONLY_REPORT.md) documents the files, static checks, and educational limitations. New drafts were not executed; automatic GitHub checks are static-only. Consult [PROGRESS.md](PROGRESS.md) for exact status.
 
 ## Navigate
 
@@ -42,10 +42,12 @@ From PowerShell in this directory:
 ```powershell
 .\.venv\Scripts\python.exe scripts\check_academy.py
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe scripts\execute_notebooks.py
+.\.venv\Scripts\python.exe scripts\check_static_logic.py
 .\.venv\Scripts\python.exe scripts\update_progress.py
 ```
 
 The last command records evidence; it does not turn an unreviewed lesson into a verified one. Execution reports include source hashes, runtimes, cell counts, and plot counts. Structural checks cannot replace mathematical and pedagogical review.
 
-The current examples are small, synthetic, and CPU-friendly. They require no paid API, data account, GPU, or optional plugin. Advanced modules and expanded reference guides remain planned where the progress ledger says so.
+Notebook execution is a manual opt-in; use `scripts/execute_notebooks.py --authored-only` only when intentionally changing the current generation-only policy.
+
+The current examples are small, synthetic, and CPU-friendly. They require no paid API, data account, GPU, or optional plugin. Advanced notebooks are incomplete drafts, and expanded reference guides remain unfinished where the progress ledger says so.

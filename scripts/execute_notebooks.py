@@ -13,6 +13,7 @@ from academy_tools import ROOT, configure_local_runtime, inventory, source_hash,
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--ids', nargs='*', help='Inventory IDs; default: every created notebook')
+    parser.add_argument('--authored-only', action='store_true', help='Exclude generated drafts from explicit execution')
     args = parser.parse_args()
     expected = ROOT / '.venv' / ('Scripts/python.exe' if sys.platform == 'win32' else 'bin/python')
     if Path(sys.executable).resolve() != expected.resolve():
@@ -36,6 +37,8 @@ def main():
     report['checked_at_utc'] = datetime.now(timezone.utc).isoformat()
     failures = 0
     selected = [r for r in entries if (args.ids is None and (ROOT / r['path']).exists()) or (args.ids and r['id'] in args.ids)]
+    if args.authored_only:
+        selected = [r for r in selected if nbformat.read(ROOT/r['path'], as_version=4).metadata.get('academy', {}).get('authoring_status') != 'draft']
     if not selected: raise SystemExit('No authored notebooks selected.')
     for record in selected:
         ident = record['id']

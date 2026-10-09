@@ -33,7 +33,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe scripts\verify_environment.py
 .\.venv\Scripts\python.exe scripts\check_academy.py
 .\.venv\Scripts\python.exe -m unittest discover -s tests -v
-.\.venv\Scripts\python.exe scripts\execute_notebooks.py
+.\.venv\Scripts\python.exe scripts\check_static_logic.py
 ```
 
 Stop and read an error if any command fails. `verify_environment.py` registers the kernel inside `.venv`, verifies package consistency, executes the smoke notebook, and records the actual kernel executable. It does not register a system-wide or user-wide kernel. The verification scripts keep runtime caches inside ignored project directories.
@@ -50,3 +50,16 @@ Activation is optional when using the interpreter path directly, as explained in
 6. Use the [assessment rubric](assessments/README.md) to decide whether to revisit a prerequisite.
 
 Do not equate reading a notebook with mastering it. The [progress file](PROGRESS.md) tracks repository construction, not your personal learning completion. Keep personal notes separately so those meanings stay distinct.
+
+
+## Current generation-only policy
+
+All 427 notebook files exist; 386 are explicitly incomplete drafts. Read PROGRESS.md before choosing a lesson. Automatic checks validate syntax, links, and conservative static logic without executing cells:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/check_academy.py
+.\.venv\Scripts\python.exe scripts/check_static_logic.py
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Do not run the full notebook execution command as part of the current generation-only workflow. Prior execution evidence applies only to the source hashes recorded in reports. See [the generation report](reports/GENERATION_ONLY_REPORT.md) for limitations and next steps.

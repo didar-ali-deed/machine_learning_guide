@@ -11,6 +11,8 @@ Intended notebook: `01_fractions_percentages_and_exponents.ipynb`. Study estimat
 
 [Open notebook](01_fractions_percentages_and_exponents.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-18.
 Target: small CPU example with local or generated data.
 
@@ -20,6 +22,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `02_variables_and_equations.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](02_variables_and_equations.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-01.
 Target: small CPU example with local or generated data.
@@ -31,6 +35,8 @@ Intended notebook: `03_functions_and_derivatives.ipynb`. Study estimate: 2 hours
 
 [Open notebook](03_functions_and_derivatives.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-07.
 Target: small CPU example with local or generated data.
 
@@ -40,6 +46,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `04_functions_and_graphs.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](04_functions_and_graphs.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-03.
 Target: small CPU example with local or generated data.
@@ -51,6 +59,8 @@ Intended notebook: `05_linear_and_quadratic_equations.ipynb`. Study estimate: 2 
 
 [Open notebook](05_linear_and_quadratic_equations.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-04.
 Target: small CPU example with local or generated data.
 
@@ -60,6 +70,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `06_logarithms_and_exponentials.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](06_logarithms_and_exponentials.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-05.
 Target: small CPU example with local or generated data.
@@ -71,6 +83,8 @@ Intended notebook: `07_scalars_vectors_and_matrices.ipynb`. Study estimate: 2 ho
 
 [Open notebook](07_scalars_vectors_and_matrices.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 01-18.
 Target: small CPU example with local or generated data.
 
@@ -80,6 +94,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `08_vector_addition_and_multiplication.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](08_vector_addition_and_multiplication.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-07.
 Target: small CPU example with local or generated data.
@@ -91,6 +107,8 @@ Intended notebook: `09_dot_products.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](09_dot_products.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-08.
 Target: small CPU example with local or generated data.
 
@@ -100,6 +118,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `10_matrix_multiplication.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](10_matrix_multiplication.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-09.
 Target: small CPU example with local or generated data.
@@ -111,6 +131,8 @@ Intended notebook: `11_matrix_transpose.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](11_matrix_transpose.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-10.
 Target: small CPU example with local or generated data.
 
@@ -120,6 +142,8 @@ Target: small CPU example with local or generated data.
 Intended notebook: `12_matrix_inverse_and_pseudoinverse.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](12_matrix_inverse_and_pseudoinverse.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-11.
 Target: small CPU example with local or generated data.
@@ -131,6 +155,8 @@ Intended notebook: `13_rank.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](13_rank.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-12.
 Target: small CPU example with local or generated data.
 
@@ -141,6 +167,8 @@ Intended notebook: `14_norms_and_distances.ipynb`. Study estimate: 2 hours.
 
 [Open notebook](14_norms_and_distances.ipynb)
 
+See the source-matched execution and review status in PROGRESS.md.
+
 Prerequisites: 02-13.
 Target: small CPU example with local or generated data.
 
@@ -149,7 +177,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `15_eigenvalues_and_eigenvectors.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](15_eigenvalues_and_eigenvectors.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-14.
 Target: small CPU example with local or generated data.
@@ -159,7 +189,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `16_singular_value_decomposition.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](16_singular_value_decomposition.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-15.
 Target: small CPU example with local or generated data.
@@ -169,7 +201,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `17_limits_and_continuity.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](17_limits_and_continuity.ipynb)
+
+See the source-matched execution and review status in PROGRESS.md.
 
 Prerequisites: 02-16.
 Target: small CPU example with local or generated data.
@@ -179,7 +213,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `18_derivatives.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](18_derivatives.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-17.
 Target: small CPU example with local or generated data.
@@ -189,7 +225,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `19_partial_derivatives.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](19_partial_derivatives.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-18.
 Target: small CPU example with local or generated data.
@@ -199,7 +237,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `20_chain_rule.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](20_chain_rule.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-19.
 Target: small CPU example with local or generated data.
@@ -209,7 +249,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `21_gradients.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](21_gradients.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-20.
 Target: small CPU example with local or generated data.
@@ -219,7 +261,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `22_gradient_descent.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](22_gradient_descent.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-21.
 Target: small CPU example with local or generated data.
@@ -229,7 +273,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `23_multivariable_differentiation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](23_multivariable_differentiation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-22.
 Target: small CPU example with local or generated data.
@@ -239,7 +285,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `24_backpropagation_mathematics.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](24_backpropagation_mathematics.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-23.
 Target: small CPU example with local or generated data.
@@ -249,7 +297,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `25_probability_rules.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](25_probability_rules.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-24.
 Target: small CPU example with local or generated data.
@@ -259,7 +309,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `26_conditional_probability.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](26_conditional_probability.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-25.
 Target: small CPU example with local or generated data.
@@ -269,7 +321,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `27_bayes_theorem.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](27_bayes_theorem.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-26.
 Target: small CPU example with local or generated data.
@@ -279,7 +333,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `28_random_variables.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](28_random_variables.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-27.
 Target: small CPU example with local or generated data.
@@ -289,7 +345,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `29_bernoulli_distribution.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](29_bernoulli_distribution.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-28.
 Target: small CPU example with local or generated data.
@@ -299,7 +357,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `30_binomial_distribution.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](30_binomial_distribution.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-29.
 Target: small CPU example with local or generated data.
@@ -309,7 +369,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `31_normal_distribution.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](31_normal_distribution.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-30.
 Target: small CPU example with local or generated data.
@@ -319,7 +381,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `32_poisson_distribution.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](32_poisson_distribution.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-31.
 Target: small CPU example with local or generated data.
@@ -329,7 +393,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `33_mean_median_and_mode.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](33_mean_median_and_mode.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-32.
 Target: small CPU example with local or generated data.
@@ -339,7 +405,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `34_variance_and_standard_deviation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](34_variance_and_standard_deviation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-33.
 Target: small CPU example with local or generated data.
@@ -349,7 +417,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `35_covariance_and_correlation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](35_covariance_and_correlation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-34.
 Target: small CPU example with local or generated data.
@@ -359,7 +429,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `36_sampling.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](36_sampling.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-35.
 Target: small CPU example with local or generated data.
@@ -369,7 +441,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `37_central_limit_theorem.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](37_central_limit_theorem.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-36.
 Target: small CPU example with local or generated data.
@@ -379,7 +453,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `38_confidence_intervals.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](38_confidence_intervals.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-37.
 Target: small CPU example with local or generated data.
@@ -389,7 +465,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `39_hypothesis_testing.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](39_hypothesis_testing.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-38.
 Target: small CPU example with local or generated data.
@@ -399,7 +477,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `40_maximum_likelihood_estimation.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](40_maximum_likelihood_estimation.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-39.
 Target: small CPU example with local or generated data.
@@ -409,7 +489,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `41_loss_functions.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](41_loss_functions.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-40.
 Target: small CPU example with local or generated data.
@@ -419,7 +501,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `42_convexity.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](42_convexity.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-41.
 Target: small CPU example with local or generated data.
@@ -429,7 +513,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `43_regularization.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](43_regularization.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-42.
 Target: small CPU example with local or generated data.
@@ -439,7 +525,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `44_gradient_descent_variants.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](44_gradient_descent_variants.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-43.
 Target: small CPU example with local or generated data.
@@ -449,7 +537,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `45_entropy.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](45_entropy.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-44.
 Target: small CPU example with local or generated data.
@@ -459,7 +549,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `46_cross_entropy.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](46_cross_entropy.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-45.
 Target: small CPU example with local or generated data.
@@ -469,7 +561,9 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `47_kl_divergence.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](47_kl_divergence.ipynb)
+
+Status: generated draft; syntax checked only. Full teaching treatment, execution, and review pending.
 
 Prerequisites: 02-46.
 Target: small CPU example with local or generated data.
