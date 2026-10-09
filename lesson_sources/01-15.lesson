@@ -1,0 +1,253 @@
+# 1. Vectorization and broadcasting: whole-array arithmetic with explicit shapes
+
+You will replace a small loop with array operations, predict broadcasting shapes, and center held-out observations using training-derived column means. Prerequisites: [indexing, slicing, and shapes](14_indexing_slicing_and_shapes.ipynb), arithmetic, and functions. Read the shape annotations as carefully as the arithmetic. A vectorized operation can be fast and still answer the wrong question.
+
+Our synthetic examples use a table of room area in square meters and monthly electricity use in kilowatt-hours. We are transforming features, not fitting a predictor. The purpose is to understand how NumPy combines arrays and how to avoid accidental all-pairs calculations.
+
+## 2. What problem does this solve?
+
+Loops explain calculations one item at a time. Real datasets may contain thousands of rows and many columns. Repeating arithmetic through NumPy operations usually avoids Python-level work per element and makes the intended calculation shorter. Broadcasting allows one feature offset per column to be reused for every observation without manually building a full offset table.
+
+The danger is ambiguity: subtracting shapes `(3,1)` and `(3,)` produces `(3,3)`, not three corresponding differences. NumPy follows structural rules, not the story you intended. We will compare scratch loops with vectorized answers and assert shapes before interpreting results.
+
+## 3. Intuition and analogy
+
+Imagine applying the same correction to every reading from an instrument. You could write the correction beside every row, or state it once and repeat it conceptually. Broadcasting is the second approach. The smaller array acts as though its singleton dimensions were repeated, without requiring you to allocate a tiled copy first.
+
+For a two-column table, a row of two corrections can be applied to every observation. A column of three corrections instead applies one correction per observation to all features. Both operations can be legal, but their meanings differ. Decide which quantities share a correction before choosing shapes.
+
+## 4. Terminology
+
+**Vectorization** expresses operations over arrays rather than explicit Python iteration over their elements. A NumPy **ufunc**, such as `np.add`, applies an operation elementwise with broadcasting support. **Broadcasting** determines compatible shapes for these operations. A **singleton axis** has length one. A **reduction** combines values along an axis, as a mean does.
+
+NumPy aligns dimensions from the right. Two aligned lengths are compatible when equal or when one is one. Missing leading axes behave as length one. The result uses the larger compatible length on each axis. `axis=0` reduces across rows, producing one result per feature. `keepdims=True` retains the reduced axis with length one, making the result shape easier to track.
+
+## 5. Mathematical foundations
+
+Let $X$ contain $n=3$ training observations and $d=2$ features. Its shape is $(3,2)$. For each column $j$, calculate
+
+$$\mu_j=\frac{1}{n}\sum_{i=0}^{n-1}X_{i,j},\qquad Z_{i,j}=X_{i,j}-\mu_j.$$
+
+$i$ is a zero-based observation index and $j$ is a zero-based feature index. $\mu_j$ is the training mean for feature $j$, with that feature's units. $Z$ has shape $(3,2)$, and each column retains its units. Store the means as shape $(1,2)$; broadcasting repeats that conceptual row across observations.
+
+For held-out table $U$ with shape $(m,2)$, use $V_{i,j}=U_{i,j}-\mu_j$. Here $m$ can differ from $n$, but the feature count and column order must match. Learning the mean is a fit operation; subtracting the stored mean is a transformation. Computing new means from held-out data would change the reference using evaluation information.
+
+## 6. Hand-calculated example
+
+Use training rows `[10,100]`, `[20,140]`, and `[30,180]`. Area mean is $(10+20+30)/3=20$ square meters. Electricity mean is $(100+140+180)/3=140$ kilowatt-hours. Subtract these separately to obtain `[-10,-40]`, `[0,0]`, and `[10,40]`.
+
+A held-out row `[40,220]` becomes `[20,80]` using the same training means. Do not add the two means together or calculate one grand mean across both columns: their units differ. A global numerical mean would not provide a meaningful shared physical reference.
+
+## 7. Implementation from scratch
+
+```python
+training_rows = [[10.0, 100.0], [20.0, 140.0], [30.0, 180.0]]
+n_rows, n_features = len(training_rows), len(training_rows[0])
+means = []
+for column in range(n_features):
+    total = 0.0
+    for row in training_rows:
+        total += row[column]
+    means.append(total / n_rows)
+centered_loop = []
+for row in training_rows:
+    centered_loop.append([row[column] - means[column] for column in range(n_features)])
+assert means == [20.0, 140.0]
+assert centered_loop == [[-10.0, -40.0], [0.0, 0.0], [10.0, 40.0]]
+print('Column means:', means)
+print('Loop result:', centered_loop)
+```
+
+The nested loops make the two axes explicit. They assume a nonempty rectangular input with finite numerical values. A production input boundary should validate those conditions before the calculation. This teaching example establishes a reference result for the vectorized version.
+
+## 8. Step-by-step shape inspection
+
+```python
+import numpy as np
+X_train = np.array(training_rows)
+train_mean = X_train.mean(axis=0, keepdims=True)
+Z_train = X_train - train_mean
+assert X_train.shape == (3, 2)
+assert train_mean.shape == (1, 2)
+assert Z_train.shape == (3, 2)
+np.testing.assert_allclose(train_mean, [means])
+np.testing.assert_allclose(Z_train, centered_loop)
+for name, value in [('training', X_train), ('mean', train_mean), ('centered', Z_train)]:
+    print(name, 'shape=', value.shape, 'values=', value.tolist())
+```
+
+Reading shapes from the right: feature lengths 2 and 2 agree; observation lengths 3 and 1 are compatible. The output shape is `(3,2)`. Without `keepdims`, the mean shape would be `(2,)`, which also broadcasts correctly here because its sole axis aligns with features.
+
+## 9. NumPy and library implementations
+
+Define a small interface that validates dimensions and finiteness before arithmetic. `np.asarray(..., dtype=float)` accepts array-like numeric input; conversion failures are allowed to propagate. This helper applies an already supplied reference; it does not fit itself or secretly change the mean.
+
+```python
+def center_with_reference(values, reference):
+    table = np.asarray(values, dtype=float)
+    offsets = np.asarray(reference, dtype=float)
+    if table.ndim != 2 or offsets.ndim != 2 or offsets.shape[0] != 1:
+        raise ValueError('Use a table and a one-row reference.')
+    if table.shape[1] != offsets.shape[1]:
+        raise ValueError('Feature counts must match.')
+    if not np.isfinite(table).all() or not np.isfinite(offsets).all():
+        raise ValueError('Values and reference must be finite.')
+    return table - offsets
+
+X_test = np.array([[40.0, 220.0]])
+Z_test = center_with_reference(X_test, train_mean)
+np.testing.assert_allclose(Z_test, [[20.0, 80.0]])
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler(with_std=False).fit(X_train)
+np.testing.assert_allclose(scaler.transform(X_train), Z_train)
+np.testing.assert_allclose(scaler.transform(X_test), Z_test)
+print('Held-out transformation:', Z_test.tolist())
+```
+
+The library adds estimator behavior and broader validation. Our function makes the broadcasting contract visible. Neither code path should fit using test observations. Centering may help later algorithms, but it cannot by itself demonstrate better predictive performance.
+
+## 10. Visualization
+
+Plot the area column separately so unlike units are not mixed. Training values become -10, 0, and 10; the held-out value becomes 20. The training transformed mean is zero, while the held-out mean need not be. That difference is expected when reusing a reference.
+
+```python
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6, 3))
+ax.scatter([1, 2, 3], Z_train[:, 0], label='Training', s=60)
+ax.scatter([4], Z_test[:, 0], marker='s', label='Held out', s=60)
+ax.axhline(0, color='black', linestyle='--', label='Training mean reference')
+ax.set(xticks=[1, 2, 3, 4], xlabel='Observation position', ylabel='Centered area (square meters)',
+       title='Reuse the training reference for new rows')
+ax.legend()
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Experiment: a legal operation with the wrong meaning
+
+Suppose three predictions and three targets should be subtracted pairwise. A column-shaped prediction and vector-shaped target instead generate all nine combinations. Explicitly match their shapes before computing a loss. Flattening is appropriate here because both arrays represent a single target per observation; it would be wrong to flatten a multi-target table indiscriminately.
+
+```python
+prediction_column = np.array([[1.0], [2.0], [3.0]])
+target_vector = np.array([1.0, 2.0, 3.0])
+accidental = prediction_column - target_vector
+assert accidental.shape == (3, 3)
+assert np.mean(accidental ** 2) > 0
+pairwise_predictions = prediction_column.ravel()
+assert pairwise_predictions.shape == target_vector.shape
+correct = pairwise_predictions - target_vector
+assert correct.shape == (3,) and np.mean(correct ** 2) == 0
+print('Accidental all-pairs differences:\n', accidental)
+print('Intended corresponding differences:', correct)
+```
+
+## 12. Configuration choices
+
+Choosing an axis, keeping dimensions, and reshaping inputs are software choices. Column means are fitted numerical state when estimated from training data. This lesson has no predictor hyperparameters. If later scaling by a standard deviation, define a zero-variance policy rather than allowing division by zero. That additional operation changes units and should be taught separately.
+
+## 13. Evaluation
+
+Compare the vectorized result with the independent loop and hand calculation. Assert output shape, finite values, unchanged inputs, and approximately zero training column means. These checks are more relevant than timing a tiny array. Vectorization is often faster at scale, but performance depends on allocation, layout, and the actual workload; no speed benchmark is claimed here.
+
+```python
+np.testing.assert_allclose(Z_train.mean(axis=0), [0.0, 0.0], atol=1e-12)
+np.testing.assert_array_equal(X_train, training_rows)
+np.testing.assert_allclose(train_mean, [[20.0, 140.0]])
+for invalid in [np.array([1.0, 2.0]), np.array([[1.0]]), np.array([[np.nan, 2.0]])]:
+    try:
+        center_with_reference(invalid, train_mean)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid shape or value was accepted.')
+print('Reference, shape, and input-preservation checks passed.')
+```
+
+## 14. Assumptions and limitations
+
+Columns have the same meanings and order in every table. NumPy cannot detect swapped feature names. A finite mean does not imply that the input distribution is suitable for every later model. The helper allows an empty row table with the right feature count, but does not estimate means from empty data. Large broadcast outputs can still consume large amounts of memory even when inputs are small.
+
+## 15. Common mistakes and debugging
+
+Print operand shapes before debugging numerical values. Right alignment explains most surprises. `(3,2)` and `(3,)` cannot broadcast because their final lengths differ; `(3,1)` and `(3,)` can broadcast but produce all pairs. Do not use `np.vectorize` as a promise of compiled numerical speed: it is mainly a convenience wrapper for Python functions.
+
+Avoid constructing a large tiled mean table with `np.tile` when broadcasting suffices. Avoid integer in-place subtraction when the correction is floating-point; use a floating-point array or an expression returning a new array. Never make shapes fit merely to silence an error without checking observation and feature meaning.
+
+## 16. Alternatives
+
+Explicit loops are excellent for teaching and irregular control flow. NumPy is appropriate for homogeneous numerical arrays. pandas supports arithmetic aligned by labels, which can prevent some ordering mistakes but may introduce missing values when labels differ. Compiled loops can help specialized workloads later; adding more tools is unnecessary for this foundation example.
+
+## 17. Exercises
+
+- **Beginner:** Predict the result shape of `(4,2)` minus `(1,2)` and explain each axis.
+- **Beginner:** Calculate the centered result for a new row `[15,120]` using the stored training means.
+- **Beginner:** Explain why `(3,2)` minus `(3,)` fails under the broadcasting rules.
+- **Intermediate:** Apply one row correction per observation using shape `(3,1)` and check a hand-calculated cell.
+- **Intermediate:** Show the distinction between adding two vectors elementwise and creating their outer sum.
+- **Challenge:** Implement a shape-checked mean-squared-error function for corresponding one-dimensional predictions and targets. Reject mismatched shapes, empty vectors, and nonfinite values before subtraction.
+
+## 18. Detailed solutions
+
+The first result has shape `(4,2)`: two features agree, and the one reference row is reused across four observations. The new centered row is `[-5,-20]`, retaining each column's original units. Lengths 2 and 3 disagree on the last axis in the failing example. A `(3,1)` correction has one value per row and expands across columns.
+
+An outer sum deliberately inserts an axis to compute every pair; elementwise addition requires matching corresponding entries. For the challenge, mean squared error is $\mathrm{MSE}=\frac{1}{n}\sum_i(p_i-t_i)^2$, where $p_i$ and $t_i$ are prediction and target for the same observation. Its units are the target units squared. For predictions 2,4 and targets 1,6, squared errors are 1 and 4, so MSE is 2.5.
+
+```python
+assert (np.ones((4, 2)) - np.ones((1, 2))).shape == (4, 2)
+np.testing.assert_allclose(center_with_reference([[15, 120]], train_mean), [[-5, -20]])
+row_corrections = np.array([[1.0], [2.0], [3.0]])
+corrected_rows = X_train - row_corrections
+assert corrected_rows[1, 1] == 138.0
+a, b = np.array([1, 2]), np.array([10, 20])
+np.testing.assert_array_equal(a + b, [11, 22])
+np.testing.assert_array_equal(a[:, None] + b[None, :], [[11, 21], [12, 22]])
+
+def checked_mse(predictions, targets):
+    predicted, actual = np.asarray(predictions, dtype=float), np.asarray(targets, dtype=float)
+    if predicted.ndim != 1 or actual.ndim != 1 or predicted.shape != actual.shape:
+        raise ValueError('Use matching one-dimensional vectors.')
+    if predicted.size == 0 or not np.isfinite(predicted).all() or not np.isfinite(actual).all():
+        raise ValueError('Use nonempty finite vectors.')
+    return float(np.mean((predicted - actual) ** 2))
+
+assert checked_mse([2, 4], [1, 6]) == 2.5
+for predicted, actual in [([[1], [2]], [1, 2]), ([1], [1, 2]), ([], []), ([np.nan], [1])]:
+    try:
+        checked_mse(predicted, actual)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid metric inputs were accepted.')
+print('Broadcasting exercises and checked MSE passed.')
+```
+
+The challenge function is a teaching implementation and does not protect against overflow for arbitrarily large finite numbers or implement sample weighting. Those limitations do not justify allowing silent shape expansion.
+
+## 19. Knowledge check
+
+**Which end of shapes is aligned?** The rightmost dimensions align first.
+
+**When are two lengths compatible?** When they are equal or one is one.
+
+**Does broadcasting always allocate tiled inputs?** No; conceptual reuse avoids explicit tiling, although outputs may be large.
+
+**Why keep the mean's reduced axis?** A one-row reference makes its feature-oriented meaning explicit.
+
+**Should held-out centered means equal zero?** Not necessarily; the training reference remains fixed.
+
+## 20. Interview preparation
+
+**Why can broadcasting corrupt a loss silently?** A column and a vector can produce an all-pairs matrix instead of corresponding errors.
+
+**How do you verify vectorization?** Compare against a small loop and manual result, then check shapes and invariants.
+
+**Is np.vectorize a performance guarantee?** No. It provides convenient calling semantics rather than replacing arbitrary Python code with compiled arithmetic.
+
+**How can broadcasting exhaust memory?** Compatible small inputs can imply an enormous output, such as every pair of many observations.
+
+**Where does centering leakage arise?** When means are fit using held-out data or all data before a split, rather than training observations only.
+
+## 21. Summary and next steps
+
+Vectorization expresses whole-array operations; broadcasting follows shape rules that must match your intended semantics. Learn references from training data and reuse them. Continue with [pandas basics](16_pandas_basics.ipynb), then [filtering, grouping, and merging](17_filtering_grouping_and_merging.ipynb) for labeled table operations.

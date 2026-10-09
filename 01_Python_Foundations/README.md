@@ -139,7 +139,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `14_indexing_slicing_and_shapes.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](14_indexing_slicing_and_shapes.ipynb)
 
 Prerequisites: 01-13.
 Target: small CPU example with local or generated data.
@@ -149,7 +149,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `15_vectorization_and_broadcasting.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](15_vectorization_and_broadcasting.ipynb)
 
 Prerequisites: 01-14.
 Target: small CPU example with local or generated data.
@@ -169,7 +169,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `17_filtering_grouping_and_merging.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](17_filtering_grouping_and_merging.ipynb)
 
 Prerequisites: 01-16.
 Target: small CPU example with local or generated data.

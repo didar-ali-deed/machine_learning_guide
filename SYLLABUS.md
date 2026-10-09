@@ -45,10 +45,10 @@ Write small Python programs and inspect, transform, and visualize tabular arrays
 | <a id="01-11"></a>01-11 | [Exceptions and debugging](01_Python_Foundations/11_exceptions_and_debugging.ipynb) | 2 | [01-10](#01-10) | Exceptions and debugging |
 | <a id="01-12"></a>01-12 | [Classes and object-oriented programming](01_Python_Foundations/12_classes_and_object_oriented_programming.ipynb) | 2 | [01-11](#01-11) | Classes and object-oriented programming |
 | <a id="01-13"></a>01-13 | [NumPy basics](01_Python_Foundations/13_numpy_basics.ipynb) | 2 | [00-03](#00-03) | NumPy basics |
-| <a id="01-14"></a>01-14 | [Indexing slicing and shapes — planned](01_Python_Foundations/README.md#01-14) | 2 | [01-13](#01-13) | Indexing slicing and shapes |
-| <a id="01-15"></a>01-15 | [Vectorization and broadcasting — planned](01_Python_Foundations/README.md#01-15) | 2 | [01-14](#01-14) | Vectorization and broadcasting |
+| <a id="01-14"></a>01-14 | [Indexing slicing and shapes](01_Python_Foundations/14_indexing_slicing_and_shapes.ipynb) | 2 | [01-13](#01-13) | Indexing slicing and shapes |
+| <a id="01-15"></a>01-15 | [Vectorization and broadcasting](01_Python_Foundations/15_vectorization_and_broadcasting.ipynb) | 2 | [01-14](#01-14) | Vectorization and broadcasting |
 | <a id="01-16"></a>01-16 | [Pandas basics](01_Python_Foundations/16_pandas_basics.ipynb) | 2 | [01-13](#01-13) | Pandas basics |
-| <a id="01-17"></a>01-17 | [Filtering grouping and merging — planned](01_Python_Foundations/README.md#01-17) | 2 | [01-16](#01-16) | Filtering grouping and merging |
+| <a id="01-17"></a>01-17 | [Filtering grouping and merging](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb) | 2 | [01-16](#01-16) | Filtering grouping and merging |
 | <a id="01-18"></a>01-18 | [Visualizing data](01_Python_Foundations/18_visualizing_data.ipynb) | 2 | [01-16](#01-16) | Visualizing data |
 | <a id="01-19"></a>01-19 | [Matplotlib — planned](01_Python_Foundations/README.md#01-19) | 2 | [01-18](#01-18) | Matplotlib |
 | <a id="01-20"></a>01-20 | [Seaborn — planned](01_Python_Foundations/README.md#01-20) | 2 | [01-19](#01-19) | Seaborn |

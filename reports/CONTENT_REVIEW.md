@@ -68,3 +68,15 @@ These three lessons passed execution in separate fresh kernels. Source explanati
 | 01-12 | Training mean 2 centers `[1,3]` to `[-1,1]`, held-out 100 to 98; independent instance mean 20; failed refit preserves state; scikit-learn agreement and distance invariants; challenge range scaler extrapolates to 2 and rejects constant data |
 
 The previous modules lesson was re-executed after updating its next-step link to the new file-handling notebook. No dependency changed. The scratch classes intentionally support ordinary Python numeric values and one feature, without claiming production estimator compatibility. Synthetic examples support teaching checks, not population conclusions. A separate contact-sheet rendering attempt hit a Tk backend configuration error; using the noninteractive Agg backend resolved that review-tool issue without installing software. Notebook execution was unaffected.
+
+## Array selection, broadcasting, and relational tables
+
+Fresh-kernel execution passed for 01-14, 01-15, and 01-17. Manual calculations, code, printed outputs, exercise solutions, and [the three rendered figures](python_array_tables_review.png) were inspected. The indexing plot was given extra margins to keep identifiers clear of its border and re-executed after that adjustment.
+
+| ID | Evidence and teaching boundary |
+|---|---|
+| 01-14 | IDs 102/103 retain targets 7/9; selected mean 8 hours; vector/column and row/table shapes differ; basic slice edits reach their source while advanced-index copies do not; paired versus rectangular indexing and empty selections checked |
+| 01-15 | Column means 20/140 agree with loops; held-out row centers to 20/80; accidental 3x3 loss contrasts with zero corresponding error; finite/shape guards and checked-MSE exercise verified |
+| 01-17 | Paid IDs 101/102/104 total 80 dollars; group counts 2/1 and means 20/40; weighted mean 80/3; duplicate reference keys rejected; unmatched order 104 retained; source table preserved |
+
+These lessons teach transformations and table integrity, not predictive performance. The functions have deliberately restricted contracts, and neither shape agreement nor count conservation alone proves semantic correctness.

@@ -1,9 +1,9 @@
 {
   "status": "passed",
   "planned": 427,
-  "created": 20,
+  "created": 23,
   "documents_checked": 50,
-  "executed_copies_link_checked": 20,
+  "executed_copies_link_checked": 23,
   "notebooks": {
     "00-01": {
       "words": 1677,
@@ -85,10 +85,25 @@
       "code_cells": 8,
       "source_sha256": "4fec38f0fa6a6c7bb13c93c46686f2bb56d4a6b3b75f3a6aeb3675ff8f8dca4b"
     },
+    "01-14": {
+      "words": 1616,
+      "code_cells": 9,
+      "source_sha256": "19431f8836c4e06b41a65de8fe7d691749a0dd6c4ec57e198d4754d6e82aef7b"
+    },
+    "01-15": {
+      "words": 1773,
+      "code_cells": 8,
+      "source_sha256": "7d3a6417f1f549b38cb95b327565572d1bf42faa28151e321f12546f36079d7b"
+    },
     "01-16": {
       "words": 1456,
       "code_cells": 7,
       "source_sha256": "92691215b0ae707e3754035a77b4d7ebb6e6390bc0721f59615ff7ca16498440"
+    },
+    "01-17": {
+      "words": 1698,
+      "code_cells": 7,
+      "source_sha256": "7cab5ea722765b8d36b76d83b83ed29b996b13833a2e44e21f9a76428c591209"
     },
     "01-18": {
       "words": 1584,
