@@ -150,9 +150,27 @@
     "scope": "Source, manual examples, actual outputs, exercise solutions and all figures reviewed; see plotting and EDA review in CONTENT_REVIEW.md. For 01-17, refreshed next links and execution reviewed."
   },
   "01-21": {
-    "source_sha256": "5336ccb661f786ec1da8fcd41f5991955acb235691c30eda1ab26abf08f69ad5",
-    "reviewed_at_utc": "2026-10-09T03:12:14.839188+00:00",
+    "source_sha256": "136111c12e36f08b654ab1fce5c4b02ee379885ccb33a49171b929ce9bfc0e28",
+    "reviewed_at_utc": "2026-10-09T03:21:10.546762+00:00",
     "reviewer": "authoring assistant",
-    "scope": "Source, manual examples, actual outputs, exercise solutions and all figures reviewed; see plotting and EDA review in CONTENT_REVIEW.md. For 01-17, refreshed next links and execution reviewed."
+    "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
+  },
+  "02-01": {
+    "source_sha256": "0c936acbb6cf14ec4ff94d56c0e4b21a7b1a2af41680170cca3339b435caddbf",
+    "reviewed_at_utc": "2026-10-09T03:21:10.561428+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
+  },
+  "02-02": {
+    "source_sha256": "ae97458456f2a36413d4762e16ad35a295a93092dec04813d3992742b816b869",
+    "reviewed_at_utc": "2026-10-09T03:21:10.562906+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
+  },
+  "02-04": {
+    "source_sha256": "3db27f80fba3e7c317af05e88e942168c4fb180765a316a6b42382960ad38f6b",
+    "reviewed_at_utc": "2026-10-09T03:21:10.578836+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
   }
 }

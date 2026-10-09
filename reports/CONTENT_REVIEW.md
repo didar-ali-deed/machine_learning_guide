@@ -92,3 +92,15 @@ Fresh-kernel execution passed for 01-19, 01-20, and 01-21. The source, manual ar
 | 01-21 | Missing fraction 25% and observed mean 20 versus zero-filled 15; 21 raw rows become 20 unique records; split retains 15 training/5 test rows; 14 complete training pairs support the inspected association; conflicting repeated ID rejected |
 
 The training Pearson correlation of approximately 0.990 follows the synthetic data generator and is not an empirical or causal claim. EDA leaves the test outcomes out of exploratory relationship analysis. All plots identify their quantities and units, and all new source notebooks remain free of execution outputs.
+
+## Elementary arithmetic, equations, and functions
+
+Fresh-kernel execution passed for 02-01, 02-02, and 02-04. Source explanations, hand calculations, actual intermediate outputs, six worked exercise solutions per lesson, and [all three figures](mathematics_on_ramp_review.png) were inspected. The EDA notebook was re-executed after linking directly to the new arithmetic lesson.
+
+| ID | Evidence and mathematical boundary |
+|---|---|
+| 02-01 | 6/8 = 3/4 = 75%; increase to 7/8 is 12.5 percentage points and 16.67% relative; negative-base parentheses, exact fractions, library accuracy, sample-size sensitivity, and integer count validation checked |
+| 02-02 | 2 dollars/km × 4 km + 3 dollars = 11 dollars; inverse and NumPy solve agree; price below fee rejected; substitution residuals checked; zero coefficient classified as all values or no solution |
+| 02-04 | Linear outputs `[-3,-1,1,3,5]` and squares `[4,1,0,1,4]`; rate, intercept shift, inverse-domain restriction, and piecewise courier threshold checked; functions are specified rather than learned |
+
+The functions use deliberately simple scalar domains. Monetary examples are not production billing systems, computed percentages are not uncertainty estimates, and finite grid plots are not proofs over infinitely many inputs.

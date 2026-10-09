@@ -60,10 +60,10 @@ Calculate and interpret the algebra, derivatives, probabilities, and objectives 
 
 | ID | Notebook or planned specification | Hours | Prerequisites | Outcome focus |
 |---|---|---:|---|---|
-| <a id="02-01"></a>02-01 | [Fractions percentages and exponents — planned](02_Mathematics_for_ML/README.md#02-01) | 2 | [01-18](#01-18) | Fractions percentages and exponents |
-| <a id="02-02"></a>02-02 | [Variables and equations — planned](02_Mathematics_for_ML/README.md#02-02) | 2 | [02-01](#02-01) | Variables and equations |
+| <a id="02-01"></a>02-01 | [Fractions percentages and exponents](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb) | 2 | [01-18](#01-18) | Fractions percentages and exponents |
+| <a id="02-02"></a>02-02 | [Variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb) | 2 | [02-01](#02-01) | Variables and equations |
 | <a id="02-03"></a>02-03 | [Functions and derivatives](02_Mathematics_for_ML/03_functions_and_derivatives.ipynb) | 2 | [02-07](#02-07) | Functions and derivatives |
-| <a id="02-04"></a>02-04 | [Functions and graphs — planned](02_Mathematics_for_ML/README.md#02-04) | 2 | [02-03](#02-03) | Functions and graphs |
+| <a id="02-04"></a>02-04 | [Functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb) | 2 | [02-03](#02-03) | Functions and graphs |
 | <a id="02-05"></a>02-05 | [Linear and quadratic equations — planned](02_Mathematics_for_ML/README.md#02-05) | 2 | [02-04](#02-04) | Linear and quadratic equations |
 | <a id="02-06"></a>02-06 | [Logarithms and exponentials — planned](02_Mathematics_for_ML/README.md#02-06) | 2 | [02-05](#02-05) | Logarithms and exponentials |
 | <a id="02-07"></a>02-07 | [Scalars vectors and matrices](02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb) | 2 | [01-18](#01-18) | Scalars vectors and matrices |

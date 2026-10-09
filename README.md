@@ -25,6 +25,8 @@ Each lesson includes manual arithmetic, executable examples, plots, six exercise
 
 All **21 Python foundation lessons** are authored and tested. Follow the [numbered module index](01_Python_Foundations/README.md) from variables through NumPy, pandas, Matplotlib, Seaborn, and exploratory analysis. The newest lessons cover [indexing and shapes](01_Python_Foundations/14_indexing_slicing_and_shapes.ipynb), [broadcasting](01_Python_Foundations/15_vectorization_and_broadcasting.ipynb), [validated table joins](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb), [Matplotlib](01_Python_Foundations/19_matplotlib.ipynb), [Seaborn](01_Python_Foundations/20_seaborn.ipynb), and [exploratory analysis](01_Python_Foundations/21_exploratory_analysis.ipynb). Mathematics and later modules remain in development; the [latest continuation report](reports/GITHUB_BUILD_REPORT.md) records what was actually delivered.
 
+The mathematics sequence now begins with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb), [variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb), the existing derivative preview, and [functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb). See the [mathematics continuation report](reports/MATHEMATICS_ON_RAMP_REPORT.md) for the latest batch and next actions.
+
 ## Navigate
 
 - [Roadmap](ROADMAP.md), [learning objectives](LEARNING_OBJECTIVES.md), [36-week plan](STUDY_PLAN_36_WEEKS.md), [12-week plan](STUDY_PLAN_12_WEEKS.md).

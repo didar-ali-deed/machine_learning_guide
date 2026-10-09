@@ -9,7 +9,7 @@ Calculate and interpret the algebra, derivatives, probabilities, and objectives 
 
 Intended notebook: `01_fractions_percentages_and_exponents.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](01_fractions_percentages_and_exponents.ipynb)
 
 Prerequisites: 01-18.
 Target: small CPU example with local or generated data.
@@ -19,7 +19,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `02_variables_and_equations.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](02_variables_and_equations.ipynb)
 
 Prerequisites: 02-01.
 Target: small CPU example with local or generated data.
@@ -39,7 +39,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `04_functions_and_graphs.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](04_functions_and_graphs.ipynb)
 
 Prerequisites: 02-03.
 Target: small CPU example with local or generated data.

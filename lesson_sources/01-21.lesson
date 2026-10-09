@@ -254,4 +254,4 @@ The helper assumes a declared record ID column and tabular values that support d
 
 ## 21. Summary and next steps
 
-EDA links data meaning, quality checks, descriptive statistics, and visualization. Preserve raw observations, document decisions, and keep final evaluation separate. This completes the authored Python foundation sequence. Continue with [fractions, percentages, and exponents](../02_Mathematics_for_ML/README.md#02-01), currently planned, and use [PROGRESS.md](../PROGRESS.md) to follow upcoming mathematics and preprocessing lessons.
+EDA links data meaning, quality checks, descriptive statistics, and visualization. Preserve raw observations, document decisions, and keep final evaluation separate. This completes the authored Python foundation sequence. Continue with [fractions, percentages, and exponents](../02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb), and use [PROGRESS.md](../PROGRESS.md) to follow upcoming mathematics and preprocessing lessons.

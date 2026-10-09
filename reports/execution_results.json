@@ -265,13 +265,46 @@
     "01-21": {
       "status": "passed",
       "path": "01_Python_Foundations/21_exploratory_analysis.ipynb",
-      "checked_at_utc": "2026-10-09T03:06:37.244088+00:00",
-      "source_sha256": "5336ccb661f786ec1da8fcd41f5991955acb235691c30eda1ab26abf08f69ad5",
+      "checked_at_utc": "2026-10-09T03:20:39.671055+00:00",
+      "source_sha256": "136111c12e36f08b654ab1fce5c4b02ee379885ccb33a49171b929ce9bfc0e28",
       "dependencies_sha256": {},
       "code_cells": 8,
       "figures": 1,
       "output": "reports/executed/01_Python_Foundations/21_exploratory_analysis.ipynb",
-      "seconds": 3.25
+      "seconds": 3.031
+    },
+    "02-01": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb",
+      "checked_at_utc": "2026-10-09T03:18:37.602597+00:00",
+      "source_sha256": "0c936acbb6cf14ec4ff94d56c0e4b21a7b1a2af41680170cca3339b435caddbf",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb",
+      "seconds": 2.984
+    },
+    "02-02": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/02_variables_and_equations.ipynb",
+      "checked_at_utc": "2026-10-09T03:18:40.592238+00:00",
+      "source_sha256": "ae97458456f2a36413d4762e16ad35a295a93092dec04813d3992742b816b869",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/02_variables_and_equations.ipynb",
+      "seconds": 1.609
+    },
+    "02-04": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/04_functions_and_graphs.ipynb",
+      "checked_at_utc": "2026-10-09T03:18:42.198082+00:00",
+      "source_sha256": "3db27f80fba3e7c317af05e88e942168c4fb180765a316a6b42382960ad38f6b",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/04_functions_and_graphs.ipynb",
+      "seconds": 1.703
     }
   },
   "environment": {
@@ -284,5 +317,5 @@
     "ipykernel": "7.4.0"
   },
   "python": "3.11.9",
-  "checked_at_utc": "2026-10-09T03:11:45.892154+00:00"
+  "checked_at_utc": "2026-10-09T03:20:39.671055+00:00"
 }

@@ -1,5 +1,7 @@
 # GitHub build and Python foundations completion
 
+This is the snapshot at Python-module completion. For the subsequent mathematics batch, see [MATHEMATICS_ON_RAMP_REPORT.md](MATHEMATICS_ON_RAMP_REPORT.md) and the current [progress ledger](../PROGRESS.md).
+
 This continuation authored and verified **six new notebooks**, completing all **21 Python foundation lessons**. The academy now has **26 created and reviewed lessons** out of **427 planned**; **401 remain unwritten**. Modules 00 and 02 are still in progress at 3/15 and 2/47; modules 03–23 remain planned. Completing Python is not completion of the entire academy.
 
 ## New learning files
