@@ -241,4 +241,4 @@ The pricing helper uses ordinary floating-point arithmetic and a simplified busi
 
 ## 21. Summary and next steps
 
-A function assigns one output to each allowed input. Formulas, tables, code, and graphs should agree while making domains and units clear. Next study [linear and quadratic equations](README.md#02-05), currently planned, followed by logarithms and exponentials. See [PROGRESS.md](../PROGRESS.md) for the precise construction status.
+A function assigns one output to each allowed input. Formulas, tables, code, and graphs should agree while making domains and units clear. Next study [linear and quadratic equations](05_linear_and_quadratic_equations.ipynb), followed by [logarithms and exponentials](06_logarithms_and_exponentials.ipynb). See [PROGRESS.md](../PROGRESS.md) for the precise construction status.

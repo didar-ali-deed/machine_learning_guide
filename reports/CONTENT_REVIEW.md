@@ -104,3 +104,15 @@ Fresh-kernel execution passed for 02-01, 02-02, and 02-04. Source explanations, 
 | 02-04 | Linear outputs `[-3,-1,1,3,5]` and squares `[4,1,0,1,4]`; rate, intercept shift, inverse-domain restriction, and piecewise courier threshold checked; functions are specified rather than learned |
 
 The functions use deliberately simple scalar domains. Monetary examples are not production billing systems, computed percentages are not uncertainty estimates, and finite grid plots are not proofs over infinitely many inputs.
+
+## Quadratics, logarithms, and vector arithmetic
+
+Fresh-kernel execution passed for 02-05, 02-06, and 02-08. Source derivations, dimensions/units, printed outputs, worked exercise solutions, and [the three figures](algebra_logs_vectors_review.png) were inspected. Lesson 02-04 was re-executed after linking to the actual new notebooks.
+
+| ID | Evidence and boundaries |
+|---|---|
+| 02-05 | Roots 2/3, discriminant 1, vertex `(2.5,-0.25)`; constant shifts yield 2/1/0 real roots; complex library results kept distinct from real roots; dispatcher tests quadratic, linear, infinite, and no-solution cases |
+| 02-06 | Ten tokens double to 80 in three rounds and invert exactly; shifted log-sum-exp gives about 1001.313 while naive computation overflows; log1p retains `1e-16`; domain, base-change, inverse, and common-shift checks pass |
+| 02-08 | Movement sum `[4,1]`, scalar scale `[2,4]`, calibration `[2,1]`; weighted point `[2.5,-0.25]`; cumulative final `[3,2]`; list concatenation, zip truncation, coordinate units, shape, and weighted-average failures explained and checked |
+
+The scratch quadratic solver is intentionally restricted to small well-behaved coefficients and does not promise cancellation-free general solving. The log-sum-exp helper accepts finite inputs only. Vector arithmetic requires matching coordinate systems, not just matching dimensions. The diagrams support these specific mechanisms rather than population or predictive claims.

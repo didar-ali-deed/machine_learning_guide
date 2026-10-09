@@ -298,13 +298,46 @@
     "02-04": {
       "status": "passed",
       "path": "02_Mathematics_for_ML/04_functions_and_graphs.ipynb",
-      "checked_at_utc": "2026-10-09T03:18:42.198082+00:00",
-      "source_sha256": "3db27f80fba3e7c317af05e88e942168c4fb180765a316a6b42382960ad38f6b",
+      "checked_at_utc": "2026-10-09T03:42:06.629569+00:00",
+      "source_sha256": "d4c44ae96393093cc7696b98be1e558926b92396897103daa1eb6e0d7a3e46bf",
       "dependencies_sha256": {},
       "code_cells": 8,
       "figures": 1,
       "output": "reports/executed/02_Mathematics_for_ML/04_functions_and_graphs.ipynb",
-      "seconds": 1.703
+      "seconds": 1.844
+    },
+    "02-05": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb",
+      "checked_at_utc": "2026-10-09T03:42:08.480181+00:00",
+      "source_sha256": "18ebd2ab7dcc36a7bfccc2f08cd1a2fbe8f7d1dc955ecb5191b1e41f96e8ac4c",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb",
+      "seconds": 1.796
+    },
+    "02-06": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb",
+      "checked_at_utc": "2026-10-09T03:42:10.277399+00:00",
+      "source_sha256": "01e25011d2deba012d29c43602bff0e34528b88370f1ab704ef0fc571458815f",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb",
+      "seconds": 1.985
+    },
+    "02-08": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb",
+      "checked_at_utc": "2026-10-09T03:42:12.254625+00:00",
+      "source_sha256": "d39d0dfb7f019d26d18322c37715547519a82c3d3497bc69e0e1b140e56ed9f9",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb",
+      "seconds": 1.719
     }
   },
   "environment": {
@@ -317,5 +350,5 @@
     "ipykernel": "7.4.0"
   },
   "python": "3.11.9",
-  "checked_at_utc": "2026-10-09T03:20:39.671055+00:00"
+  "checked_at_utc": "2026-10-09T03:42:06.629569+00:00"
 }

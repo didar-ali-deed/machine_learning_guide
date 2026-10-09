@@ -49,7 +49,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `05_linear_and_quadratic_equations.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](05_linear_and_quadratic_equations.ipynb)
 
 Prerequisites: 02-04.
 Target: small CPU example with local or generated data.
@@ -59,7 +59,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `06_logarithms_and_exponentials.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](06_logarithms_and_exponentials.ipynb)
 
 Prerequisites: 02-05.
 Target: small CPU example with local or generated data.
@@ -79,7 +79,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `08_vector_addition_and_multiplication.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](08_vector_addition_and_multiplication.ipynb)
 
 Prerequisites: 02-07.
 Target: small CPU example with local or generated data.

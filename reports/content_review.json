@@ -168,9 +168,27 @@
     "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
   },
   "02-04": {
-    "source_sha256": "3db27f80fba3e7c317af05e88e942168c4fb180765a316a6b42382960ad38f6b",
-    "reviewed_at_utc": "2026-10-09T03:21:10.578836+00:00",
+    "source_sha256": "d4c44ae96393093cc7696b98be1e558926b92396897103daa1eb6e0d7a3e46bf",
+    "reviewed_at_utc": "2026-10-09T03:43:39.530056+00:00",
     "reviewer": "authoring assistant",
-    "scope": "Manual examples, source, actual outputs, plots and worked solutions reviewed; see mathematics on-ramp review in CONTENT_REVIEW.md. For 01-21, new next-step link and repeated execution checked."
+    "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
+  },
+  "02-05": {
+    "source_sha256": "18ebd2ab7dcc36a7bfccc2f08cd1a2fbe8f7d1dc955ecb5191b1e41f96e8ac4c",
+    "reviewed_at_utc": "2026-10-09T03:43:39.531057+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
+  },
+  "02-06": {
+    "source_sha256": "01e25011d2deba012d29c43602bff0e34528b88370f1ab704ef0fc571458815f",
+    "reviewed_at_utc": "2026-10-09T03:43:39.531057+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
+  },
+  "02-08": {
+    "source_sha256": "d39d0dfb7f019d26d18322c37715547519a82c3d3497bc69e0e1b140e56ed9f9",
+    "reviewed_at_utc": "2026-10-09T03:43:39.532048+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
   }
 }

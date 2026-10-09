@@ -1,13 +1,13 @@
 # Academy progress — authoritative status
 
-Inventory: **427** notebooks. Created: **29**. Executed and reviewed at the current source hash: **29**. Unwritten: **398**.
+Inventory: **427** notebooks. Created: **32**. Executed and reviewed at the current source hash: **32**. Unwritten: **395**.
 
 A lesson is verified only when its current source matches a passing fresh-kernel execution and a recorded content review. Changed sources invalidate earlier evidence. Optional means planned with extra dependencies; it does not mean completed.
 
 ## Immediate next actions
 
 1. Read the latest reports and resolve any failed or stale notebooks below.
-2. Implement the next foundation batch: 02-05 Linear and quadratic equations, 02-06 Logarithms and exponentials, 02-08 Vector addition and multiplication. Then fill mathematics and preprocessing prerequisites.
+2. Implement the next foundation batch: 02-09 Dot products, 02-10 Matrix multiplication, 02-11 Matrix transpose. Then fill mathematics and preprocessing prerequisites.
 3. Prioritize the classical algorithm sequence after those prerequisites: regression/gradient descent, logistic regression, KNN, Naive Bayes, trees/forests, SVM, boosting, evaluation/CV/tuning, K-Means, PCA, DBSCAN.
 4. Expand the reference guides alongside their lessons; the current comparison and interview guides are foundation/core editions, not complete advanced textbooks.
 
@@ -29,7 +29,7 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 |---|---:|---:|---:|
 | 00 | 3 | 15 | 3 |
 | 01 | 21 | 21 | 21 |
-| 02 | 5 | 47 | 5 |
+| 02 | 8 | 47 | 8 |
 | 03 | 0 | 19 | 0 |
 | 04 | 0 | 16 | 0 |
 | 05 | 0 | 25 | 0 |
@@ -52,7 +52,7 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 | 22 | 0 | 19 | 0 |
 | 23 | 0 | 9 | 0 |
 
-## Executed and verified (29)
+## Executed and verified (32)
 
 - 00-01 [What is Machine Learning?](00_Getting_Started/01_what_is_machine_learning.ipynb)
 - 00-02 [Machine Learning types and terminology](00_Getting_Started/02_machine_learning_types_and_terminology.ipynb)
@@ -82,7 +82,10 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 - 02-02 [Variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb)
 - 02-03 [Functions and derivatives](02_Mathematics_for_ML/03_functions_and_derivatives.ipynb)
 - 02-04 [Functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb)
+- 02-05 [Linear and quadratic equations](02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb)
+- 02-06 [Logarithms and exponentials](02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb)
 - 02-07 [Scalars vectors and matrices](02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb)
+- 02-08 [Vector addition and multiplication](02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb)
 
 ## Executed; review pending (0)
 
@@ -109,7 +112,7 @@ None.
 - 21-06 [LIME](21_Interpretability_Ethics_and_Robustness/README.md#21-06)
 - 22-07 [MLflow fundamentals](22_MLOps_and_Deployment/README.md#22-07)
 
-## Planned (388)
+## Planned (385)
 
 - 00-04 [What is Artificial Intelligence?](00_Getting_Started/README.md#00-04)
 - 00-05 [Machine Learning versus Deep Learning](00_Getting_Started/README.md#00-05)
@@ -123,9 +126,6 @@ None.
 - 00-13 [How to use notebooks](00_Getting_Started/README.md#00-13)
 - 00-14 [Introduction to Git and GitHub](00_Getting_Started/README.md#00-14)
 - 00-15 [A first complete Machine Learning example](00_Getting_Started/README.md#00-15)
-- 02-05 [Linear and quadratic equations](02_Mathematics_for_ML/README.md#02-05)
-- 02-06 [Logarithms and exponentials](02_Mathematics_for_ML/README.md#02-06)
-- 02-08 [Vector addition and multiplication](02_Mathematics_for_ML/README.md#02-08)
 - 02-09 [Dot products](02_Mathematics_for_ML/README.md#02-09)
 - 02-10 [Matrix multiplication](02_Mathematics_for_ML/README.md#02-10)
 - 02-11 [Matrix transpose](02_Mathematics_for_ML/README.md#02-11)
@@ -502,4 +502,4 @@ None.
 
 ## Exact continuation prompt
 
-> Continue building complete-machine-learning-academy in this workspace. Read AGENTS.md, PROGRESS.md, and reports first. Preserve the 427-notebook inventory. Implement 02-05 Linear and quadratic equations, 02-06 Logarithms and exponentials, 02-08 Vector addition and multiplication with lesson-specific explanations, manual examples, runnable code, six exercises and worked solutions, and answered knowledge/interview questions. Use the existing .venv, execute each new notebook in a fresh kernel, inspect its outputs, run structural/link checks and infrastructure tests, record content reviews tied to source and declared dependency hashes, and regenerate PROGRESS.md. Do not install optional packages unless the selected lessons require them. Report exact created and verified counts and the next batch.
+> Continue building complete-machine-learning-academy in this workspace. Read AGENTS.md, PROGRESS.md, and reports first. Preserve the 427-notebook inventory. Implement 02-09 Dot products, 02-10 Matrix multiplication, 02-11 Matrix transpose with lesson-specific explanations, manual examples, runnable code, six exercises and worked solutions, and answered knowledge/interview questions. Use the existing .venv, execute each new notebook in a fresh kernel, inspect its outputs, run structural/link checks and infrastructure tests, record content reviews tied to source and declared dependency hashes, and regenerate PROGRESS.md. Do not install optional packages unless the selected lessons require them. Report exact created and verified counts and the next batch.

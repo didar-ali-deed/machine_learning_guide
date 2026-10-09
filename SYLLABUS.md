@@ -64,10 +64,10 @@ Calculate and interpret the algebra, derivatives, probabilities, and objectives 
 | <a id="02-02"></a>02-02 | [Variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb) | 2 | [02-01](#02-01) | Variables and equations |
 | <a id="02-03"></a>02-03 | [Functions and derivatives](02_Mathematics_for_ML/03_functions_and_derivatives.ipynb) | 2 | [02-07](#02-07) | Functions and derivatives |
 | <a id="02-04"></a>02-04 | [Functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb) | 2 | [02-03](#02-03) | Functions and graphs |
-| <a id="02-05"></a>02-05 | [Linear and quadratic equations — planned](02_Mathematics_for_ML/README.md#02-05) | 2 | [02-04](#02-04) | Linear and quadratic equations |
-| <a id="02-06"></a>02-06 | [Logarithms and exponentials — planned](02_Mathematics_for_ML/README.md#02-06) | 2 | [02-05](#02-05) | Logarithms and exponentials |
+| <a id="02-05"></a>02-05 | [Linear and quadratic equations](02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb) | 2 | [02-04](#02-04) | Linear and quadratic equations |
+| <a id="02-06"></a>02-06 | [Logarithms and exponentials](02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb) | 2 | [02-05](#02-05) | Logarithms and exponentials |
 | <a id="02-07"></a>02-07 | [Scalars vectors and matrices](02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb) | 2 | [01-18](#01-18) | Scalars vectors and matrices |
-| <a id="02-08"></a>02-08 | [Vector addition and multiplication — planned](02_Mathematics_for_ML/README.md#02-08) | 2 | [02-07](#02-07) | Vector addition and multiplication |
+| <a id="02-08"></a>02-08 | [Vector addition and multiplication](02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb) | 2 | [02-07](#02-07) | Vector addition and multiplication |
 | <a id="02-09"></a>02-09 | [Dot products — planned](02_Mathematics_for_ML/README.md#02-09) | 2 | [02-08](#02-08) | Dot products |
 | <a id="02-10"></a>02-10 | [Matrix multiplication — planned](02_Mathematics_for_ML/README.md#02-10) | 2 | [02-09](#02-09) | Matrix multiplication |
 | <a id="02-11"></a>02-11 | [Matrix transpose — planned](02_Mathematics_for_ML/README.md#02-11) | 2 | [02-10](#02-10) | Matrix transpose |

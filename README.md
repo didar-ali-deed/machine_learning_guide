@@ -27,6 +27,8 @@ All **21 Python foundation lessons** are authored and tested. Follow the [number
 
 The mathematics sequence now begins with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb), [variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb), the existing derivative preview, and [functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb). See the [mathematics continuation report](reports/MATHEMATICS_ON_RAMP_REPORT.md) for the latest batch and next actions.
 
+Continue through [linear and quadratic equations](02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb), [logarithms and exponentials](02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb), and [vector arithmetic](02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb). The [algebra/logarithm/vector report](reports/ALGEBRA_LOGS_VECTORS_REPORT.md) records that batch's evidence and limitations.
+
 ## Navigate
 
 - [Roadmap](ROADMAP.md), [learning objectives](LEARNING_OBJECTIVES.md), [36-week plan](STUDY_PLAN_36_WEEKS.md), [12-week plan](STUDY_PLAN_12_WEEKS.md).
