@@ -1,0 +1,8 @@
+# Reference only: none are required by the first beginner batch.
+# These are deliberately NOT installed automatically and are not a tested lock.
+# Install individual packages when their corresponding lessons are implemented.
+# PyTorch CPU: python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+# Later examples: statsmodels, openpyxl, xgboost, lightgbm, catboost,
+# optuna, umap-learn, shap, lime, transformers, sentence-transformers,
+# fastapi, uvicorn, httpx, mlflow.
+# Choose and pin compatible versions in a separate tested optional lock at that time.

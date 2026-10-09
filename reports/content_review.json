@@ -1,0 +1,122 @@
+{
+  "00-01": {
+    "source_sha256": "f2a0d5863910925c62691c5a23058ffa99ae12c9adc974379b77c24dbe3f50ca",
+    "reviewed_at_utc": "2026-10-09T01:20:03.318564+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Resumed review of source, previously inspected executed outputs and figures; see second-batch table in CONTENT_REVIEW.md"
+  },
+  "00-02": {
+    "source_sha256": "1f5b8354aa9c6a49415b0ed97ec63fb7a506b3deba95d027596c60faae4c8167",
+    "reviewed_at_utc": "2026-10-09T01:20:03.334230+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Resumed review of source, previously inspected executed outputs and figures; see second-batch table in CONTENT_REVIEW.md"
+  },
+  "00-03": {
+    "source_sha256": "ec7779335557be1757dccef96b9e9de3c3ccd230d4f20c9d509953b715457d7f",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "01-13": {
+    "source_sha256": "4fec38f0fa6a6c7bb13c93c46686f2bb56d4a6b3b75f3a6aeb3675ff8f8dca4b",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "01-16": {
+    "source_sha256": "92691215b0ae707e3754035a77b4d7ebb6e6390bc0721f59615ff7ca16498440",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "01-18": {
+    "source_sha256": "64ec1cce13154625afe2554358cc39271cbb80f64d78e73fc82a4a90528f74b1",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "02-03": {
+    "source_sha256": "7271e6e2d8a62e76c39766c839f9f2346b4dfc12224940a8be1b8e81e1a16edf",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "02-07": {
+    "source_sha256": "d5a092b4269774e71a013ec86c45dad109d62107cde512be407f57de03eaffe6",
+    "reviewed_at_utc": "2026-10-08T21:52:06.074861+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Prose, manual mathematics, executed outputs, figures, exercises and solutions; see CONTENT_REVIEW.md"
+  },
+  "01-01": {
+    "source_sha256": "254d9100aa2b55181e66a6d6e633a2f5205ff15e765c3495c4b0b23a21cd06b5",
+    "reviewed_at_utc": "2026-10-09T01:20:03.349916+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Resumed review of source, previously inspected executed outputs and figures; see second-batch table in CONTENT_REVIEW.md"
+  },
+  "01-02": {
+    "source_sha256": "6b42a4211d6ee9eae6d3ab5b0bcf1fbfa684a1ac096d5f1800fcf11b9d7b7c92",
+    "reviewed_at_utc": "2026-10-09T01:20:03.357731+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Resumed review of source, previously inspected executed outputs and figures; see second-batch table in CONTENT_REVIEW.md"
+  },
+  "01-03": {
+    "source_sha256": "8840b8aeb431566ab52a814b83c611596b4584d3dac1a536ca791bf2b2037dc2",
+    "reviewed_at_utc": "2026-10-09T01:35:40.842674+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, mathematics, exercises, actual printed outputs and rendered plots; navigation-only changes reviewed; local dependency hash included where declared. See CONTENT_REVIEW.md."
+  },
+  "01-04": {
+    "source_sha256": "7bff009691f6834110de8013972794ac5240ce1967740167557746b36bf72c3e",
+    "reviewed_at_utc": "2026-10-09T01:26:04.965501+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, calculations, solutions, printed outputs and python_control_flow_review.png; see CONTENT_REVIEW.md"
+  },
+  "01-05": {
+    "source_sha256": "cbf50d78d1896f774cd2891ac02c731c90c848e9cc99db2ae106f5e5658b6721",
+    "reviewed_at_utc": "2026-10-09T01:26:04.965501+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, calculations, solutions, printed outputs and python_control_flow_review.png; see CONTENT_REVIEW.md"
+  },
+  "01-06": {
+    "source_sha256": "4420a1a8b4531c036b30d223e1bc3e8e7fd652be837e96e04d00edbd0bc8f994",
+    "reviewed_at_utc": "2026-10-09T01:35:40.858785+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, mathematics, exercises, actual printed outputs and rendered plots; navigation-only changes reviewed; local dependency hash included where declared. See CONTENT_REVIEW.md."
+  },
+  "01-07": {
+    "source_sha256": "50f53fb11a932c458e9bbd544641f8f744ef623abb741f9cd2327c89df46718e",
+    "reviewed_at_utc": "2026-10-09T01:35:40.858785+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, mathematics, exercises, actual printed outputs and rendered plots; navigation-only changes reviewed; local dependency hash included where declared. See CONTENT_REVIEW.md."
+  },
+  "01-08": {
+    "source_sha256": "06704e92021ae9de61eb94050938bab8b8156d14a99ac2660cf94d5abe21f04c",
+    "reviewed_at_utc": "2026-10-09T01:35:40.890689+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Reviewed source, mathematics, exercises, actual printed outputs and rendered plots; navigation-only changes reviewed; local dependency hash included where declared. See CONTENT_REVIEW.md."
+  },
+  "01-09": {
+    "source_sha256": "820f422e23dc6917a9bd2e15349e749404c67ed9caf00fd441443819e6761bda",
+    "reviewed_at_utc": "2026-10-09T02:42:03.236091+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Source, mathematics, executed outputs, exercises and figures; see files/debugging/classes review in CONTENT_REVIEW.md. For 01-09, next-step link refreshed and execution repeated."
+  },
+  "01-10": {
+    "source_sha256": "29094b64edadda93a084391c2770b29c15f51eff2e592c4f9d4ab32c4d1d00fb",
+    "reviewed_at_utc": "2026-10-09T02:42:03.261024+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Source, mathematics, executed outputs, exercises and figures; see files/debugging/classes review in CONTENT_REVIEW.md. For 01-09, next-step link refreshed and execution repeated."
+  },
+  "01-11": {
+    "source_sha256": "eb6dda13791130781dbf576baa05bae72d448f469d82739c9a269f2e42ab50ad",
+    "reviewed_at_utc": "2026-10-09T02:42:03.261980+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Source, mathematics, executed outputs, exercises and figures; see files/debugging/classes review in CONTENT_REVIEW.md. For 01-09, next-step link refreshed and execution repeated."
+  },
+  "01-12": {
+    "source_sha256": "6388c42ceedc5a2012d64bbeb065ecd0fc50a39358b209abd2494f0ca670bdc7",
+    "reviewed_at_utc": "2026-10-09T02:42:03.268765+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Source, mathematics, executed outputs, exercises and figures; see files/debugging/classes review in CONTENT_REVIEW.md. For 01-09, next-step link refreshed and execution repeated."
+  }
+}

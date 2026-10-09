@@ -1,0 +1,286 @@
+# 1. Classes and object-oriented programming: keeping related state together
+
+You will create a class, construct independent objects, call methods, and distinguish configuration from values learned during fitting. Prerequisites: functions, scope, and [exceptions and debugging](11_exceptions_and_debugging.ipynb). We introduce a tiny preprocessing object before comparing it with scikit-learn. This is a teaching implementation, not a substitute for the library's validation, array support, or pipeline compatibility.
+
+The data are synthetic lengths in centimeters. You will calculate a training mean by hand, store it in an object, and reuse that same mean on new observations. This gives object state a concrete purpose: remembering information across related operations without a global variable.
+
+## 2. What problem does this solve?
+
+A function maps inputs to outputs. Sometimes several operations need to share a durable state: a bank account's balance, a file reader's current position, or a fitted transformation's training mean. Passing unrelated variables around makes it easy to combine the wrong mean with the wrong dataset. An object groups state with the operations that use it.
+
+Object-oriented programming is one way to organize programs. It does not automatically make a calculation correct or faster. A simple stateless calculation often needs only a function. Here a class is useful because fitting changes the object's state and transforming reads that state without recomputing it.
+
+## 3. Intuition and analogy
+
+Think of a class as instructions for building a measuring instrument. Each instrument made from those instructions is an instance. Two instruments share a design but can hold different calibration settings. Adjusting one should not change the other.
+
+Our centerer learns a reference length from training observations. It then reports each observation's distance above or below that reference. Fitting calibrates the instrument; transforming uses its existing calibration. Recalibrating on the test observations would change the reference using information reserved for evaluation, a form of data leakage.
+
+## 4. Terminology and Python syntax
+
+A **class** defines a kind of object. An **instance** is one particular object of that class. An **attribute** is a named value attached to an object, accessed with a dot. A **method** is a function defined on the class that operates on instances. Python passes the instance as the first argument of an ordinary instance method; convention names that argument `self`.
+
+`class MeanCenterer:` begins the definition; indentation groups its contents. `__init__` initializes a new instance. Calling `MeanCenterer()` constructs one. `self.mean_` belongs to that instance. The trailing underscore follows a common scikit-learn convention for a fitted attribute; it is not a Python access restriction. `None` represents the absence of a fitted mean. `return self` allows fitting to return the same instance, not a new fitted copy.
+
+## 5. Mathematical foundations
+
+Given $n$ training lengths $x_1,\ldots,x_n$, define
+
+$$\mu=\frac{1}{n}\sum_{i=1}^{n}x_i,\qquad z_j=u_j-\mu.$$
+
+$n$ is the positive training count. $x_i$ is training observation $i$, measured in centimeters. $\mu$ is their mean in centimeters. $u_j$ is a length to transform, which may come from training or held-out data. $z_j$ is its centered value, also in centimeters. The index $j$ identifies an input to transformation; its count need not equal $n$.
+
+The training sequence is one-dimensional with length $n$. The transformed sequence has the same length as its input. Centering shifts the origin; it does not divide by a standard deviation and does not change distances between observations. A negative centered length means below the reference, not a physically negative original length.
+
+## 6. Hand-calculated example
+
+For training lengths 1 and 3 centimeters, $\mu=(1+3)/2=2$ centimeters. Centering gives $[1-2,3-2]=[-1,1]$ centimeters. Their mean is zero. For a held-out length of 100 centimeters, the result is $100-2=98$ centimeters.
+
+If we instead fit on the held-out observation, its own mean is 100 and its centered value becomes zero. That answers a different question and uses held-out information. A second instrument fit on lengths 10 and 30 has its own mean 20, independent of the first object's mean 2.
+
+## 7. Implementation from scratch
+
+The validation helper makes a snapshot before computation, rejects empty input, booleans, non-numeric values, and nonfinite numbers. It accepts ordinary Python integers and floats only. This intentionally small interface excludes many array scalar types; the library implementation is more general. Local validation completes before we assign a new fitted mean, so a failed refit preserves the last valid state.
+
+```python
+import math
+
+def validated_numbers(values):
+    snapshot = list(values)
+    if not snapshot:
+        raise ValueError('At least one observation is required.')
+    for value in snapshot:
+        if isinstance(value, bool) or not isinstance(value, (int, float)):
+            raise TypeError('Use ordinary Python int or float values, excluding bool.')
+        if not math.isfinite(value):
+            raise ValueError('Observations must be finite.')
+    return snapshot
+
+class MeanCenterer:
+    def __init__(self):
+        self.mean_ = None
+
+    def fit(self, values):
+        snapshot = validated_numbers(values)
+        fitted_mean = math.fsum(snapshot) / len(snapshot)
+        self.mean_ = fitted_mean
+        return self
+
+    def transform(self, values):
+        if self.mean_ is None:
+            raise RuntimeError('Fit the centerer before transforming.')
+        snapshot = validated_numbers(values)
+        return [value - self.mean_ for value in snapshot]
+
+train = [1.0, 3.0]
+held_out = [100.0]
+centerer = MeanCenterer()
+assert centerer.mean_ is None
+assert centerer.fit(train) is centerer
+assert centerer.mean_ == 2.0
+assert centerer.transform(train) == [-1.0, 1.0]
+assert centerer.transform(held_out) == [98.0]
+assert train == [1.0, 3.0] and held_out == [100.0]
+print('Fitted mean:', centerer.mean_, 'cm')
+```
+
+## 8. Step-by-step state inspection
+
+Each call to the constructor runs `__init__` for a new instance. Fitting one instance changes only its own `mean_`. `transform` should leave the fitted mean unchanged. Inspecting those facts reveals state errors that a final output alone might miss. We also check that an unsuccessful fit does not partially replace a usable reference.
+
+```python
+second = MeanCenterer().fit([10.0, 30.0])
+assert second.mean_ == 20.0 and centerer.mean_ == 2.0
+saved_mean = centerer.mean_
+centerer.transform([7.0, 9.0])
+assert centerer.mean_ == saved_mean
+try:
+    centerer.fit([1.0, float('nan')])
+except ValueError:
+    pass
+else:
+    raise AssertionError('Nonfinite training data must fail.')
+assert centerer.mean_ == saved_mean
+try:
+    MeanCenterer().transform([1.0])
+except RuntimeError as error:
+    print('Unfitted state:', error)
+else:
+    raise AssertionError('An unfitted transform must fail.')
+print('Independent means:', centerer.mean_, second.mean_)
+```
+
+## 9. Library implementation
+
+Only now use `StandardScaler`. Its `with_std=False` configuration disables division by standard deviation; centering remains enabled by default. These are chosen configuration values, whereas `mean_` is learned from training data. The library expects a two-dimensional table: rows are observations and columns are features. `reshape(-1, 1)` makes our list into an array with one column and as many rows as needed. Here shapes are `(2, 1)` for training and `(1, 1)` for held-out data.
+
+```python
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+X_train = np.array(train).reshape(-1, 1)
+X_held_out = np.array(held_out).reshape(-1, 1)
+library_centerer = StandardScaler(with_std=False)
+library_centerer.fit(X_train)
+np.testing.assert_allclose(library_centerer.mean_, [2.0])
+np.testing.assert_allclose(library_centerer.transform(X_train).ravel(), centerer.transform(train))
+np.testing.assert_allclose(library_centerer.transform(X_held_out).ravel(), [98.0])
+print('Library training shape:', X_train.shape)
+print('Library held-out result:', library_centerer.transform(X_held_out))
+```
+
+The library supports multiple columns, inverse transformation, estimator conventions, and integration with pipelines. Our class teaches state and arithmetic; it does not implement that whole API. Notice that `fit` and `transform` are distinct operations even when a convenience method combines them for training data.
+
+## 10. Visualization
+
+Compare the original and centered training lengths. Both bars move down by exactly two centimeters; their separation remains two centimeters. The zero line becomes the training mean reference. Keep the much larger held-out value out of this plot so the training shift stays readable; its numerical result was checked separately.
+
+```python
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(7, 3))
+locations = np.arange(len(train))
+ax.bar(locations - 0.18, train, width=0.36, label='Original')
+ax.bar(locations + 0.18, centerer.transform(train), width=0.36, label='Centered')
+ax.axhline(0, color='black', linewidth=0.8)
+ax.set(xticks=locations, xticklabels=['Training observation 1', 'Training observation 2'],
+       ylabel='Length or centered length (cm)', title='Centering changes the reference, not distances')
+ax.legend()
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Realistic small experiment
+
+Consider synthetic calibration readings 98, 100, and 102 centimeters, followed by later readings 104 and 106. Learn the reference using the first three only. Later centered values are 4 and 6 centimeters. Their nonzero mean suggests a change relative to the reference; it is not an error that must be removed by refitting. Three observations cannot establish a real sensor's stability or a population shift.
+
+```python
+calibration = [98.0, 100.0, 102.0]
+later_readings = [104.0, 106.0]
+sensor = MeanCenterer().fit(calibration)
+later_centered = sensor.transform(later_readings)
+assert sensor.mean_ == 100.0
+assert later_centered == [4.0, 6.0]
+assert sensor.transform(calibration) == [-2.0, 0.0, 2.0]
+print('Later readings relative to the training reference:', later_centered, 'cm')
+```
+
+## 12. Configuration and learned state
+
+Our class has no constructor configuration and no predictive-model hyperparameters. It has one learned numerical parameter, the training mean. `StandardScaler` adds configuration choices such as whether to center and whether to scale. A class can also store fixed user-supplied settings that are never learned. Keep those roles distinct when designing a public interface or describing a model experiment.
+
+## 13. Evaluation
+
+We checked the hand result, independent instances, mutation-free inputs, unfitted failure, failed-refit preservation, library agreement, and reuse on held-out data. The training transformed mean should be approximately zero for general floats. Pairwise differences should remain unchanged. These are transformation invariants, not accuracy scores: there is no prediction target or fitted predictor in this lesson.
+
+```python
+centered = centerer.transform(train)
+assert math.isclose(sum(centered) / len(centered), 0.0, abs_tol=1e-12)
+assert math.isclose(centered[1] - centered[0], train[1] - train[0])
+for invalid in [[], [True], ['1'], [float('inf')]]:
+    try:
+        centerer.fit(invalid)
+    except (ValueError, TypeError):
+        pass
+    else:
+        raise AssertionError('Invalid training data were accepted.')
+assert centerer.mean_ == 2.0
+print('State and transformation invariants passed.')
+```
+
+## 14. Assumptions and limitations
+
+Values use the same units and meaning at fit and transform time. Centering cannot correct bad sensors, reconcile centimeters with meters, or eliminate outliers. Our floating-point arithmetic does not promise safe handling of extreme magnitudes. The implementation rejects empty transformation inputs for simplicity and handles only a single feature. It does not enforce private attributes: a user could overwrite `mean_`, so disciplined interfaces and tests remain necessary.
+
+## 15. Common mistakes and debugging
+
+Writing `mean_` without `self.` inside a method creates or refers to a local variable rather than persistent instance state. Forgetting `self` in the method signature causes argument errors. A class-level mutable list can accidentally be shared across instances; initialize per-instance mutable state inside `__init__` instead. Do not store a reference to a caller's list and then modify it unless that behavior is explicitly intended.
+
+Do not call `fit` again on held-out data merely to obtain zero-centered outputs. Print the object's fitted attributes before and after transformation when investigating leakage. When chaining calls, confirm what each method returns; our `fit` returns the object, while `transform` returns a new list.
+
+## 16. Alternatives and design choices
+
+A pair of functions returning and accepting the mean is perfectly adequate for a small program. A dataclass is useful for structured records with generated initialization and representation. Composition means an object contains or uses another component, such as a pipeline containing a scaler and predictor. Inheritance means defining a specialized kind of an existing class. Prefer the simplest design that makes ownership and valid operations clear; this lesson needs no inheritance hierarchy.
+
+## 17. Exercises
+
+- **Beginner:** Fit on 2 and 6 centimeters. Calculate the mean and transformed values without running Python.
+- **Beginner:** Explain the difference between `MeanCenterer` and `MeanCenterer()`.
+- **Beginner:** Identify which operation changes fitted state and which operation reads it.
+- **Intermediate:** Create two instances with different training means and refit one. Prove that the second is unaffected.
+- **Intermediate:** Compare the scratch class and `StandardScaler(with_std=False)` for training values 2 and 6 and a later value 10. Explain the array shapes.
+- **Challenge:** Implement a fitted range scaler using $(u-a)/(b-a)$, where $a$ and $b$ are training minimum and maximum. Reject constant training values without changing a previous valid fit. Explain why later values may exceed one.
+
+## 18. Detailed solutions
+
+The training mean of 2 and 6 is 4; their centered values are -2 and 2 centimeters. The name without parentheses refers to the class; calling it constructs an instance. `fit` updates state, while `transform` reads state and creates output. Refit only one instance and inspect both stored means to verify independence. The library needs shape `(2, 1)` for training and `(1, 1)` for the later value; centering 10 gives 6 centimeters.
+
+For the challenge, $a$ and $b$ have the input units. Their difference is a positive range in those units. The ratio has no units. With $a=2,b=6$, a new value 4 maps to 0.5, while 10 maps to 2. The fitted interval does not constrain future data. A constant training feature makes the denominator zero; rejecting it is our explicit teaching policy, not a claim about every library's policy.
+
+```python
+one = MeanCenterer().fit([2.0, 6.0])
+two = MeanCenterer().fit([10.0, 30.0])
+assert one.mean_ == 4.0 and one.transform([2.0, 6.0]) == [-2.0, 2.0]
+one.fit([0.0, 2.0])
+assert one.mean_ == 1.0 and two.mean_ == 20.0
+comparison = StandardScaler(with_std=False).fit(np.array([[2.0], [6.0]]))
+np.testing.assert_allclose(comparison.transform([[10.0]]), [[6.0]])
+
+class RangeScaler:
+    def __init__(self):
+        self.bounds_ = None
+
+    def fit(self, values):
+        snapshot = validated_numbers(values)
+        low, high = min(snapshot), max(snapshot)
+        if low == high:
+            raise ValueError('Constant training values have no positive range.')
+        self.bounds_ = (low, high)
+        return self
+
+    def transform(self, values):
+        if self.bounds_ is None:
+            raise RuntimeError('Fit before transforming.')
+        snapshot = validated_numbers(values)
+        low, high = self.bounds_
+        return [(value - low) / (high - low) for value in snapshot]
+
+range_scaler = RangeScaler().fit([2.0, 6.0])
+assert range_scaler.transform([2.0, 4.0, 6.0, 10.0]) == [0.0, 0.5, 1.0, 2.0]
+try:
+    range_scaler.fit([5.0, 5.0])
+except ValueError:
+    pass
+else:
+    raise AssertionError('Constant training values must fail.')
+assert range_scaler.bounds_ == (2.0, 6.0)
+print('Independent objects and challenge scaler verified.')
+```
+
+## 19. Knowledge check
+
+**What does self refer to?** The particular instance receiving a method call; it is the route to that object's state.
+
+**Is mean_ a configuration choice?** No. Its value is computed from training observations.
+
+**Does transform need the original training list?** No. The stored mean contains the reference this transformation needs.
+
+**Should test data be fit separately?** No. That changes the fitted reference using held-out information.
+
+**Does centering change distances?** No. Subtracting the same mean from two values preserves their difference.
+
+## 20. Interview preparation
+
+**When is a class preferable to a function?** When related operations need coherent persistent state and a clear interface; stateless calculations often need only functions.
+
+**How do you avoid shared mutable state?** Create mutable instance attributes inside initialization and avoid unintended aliases to caller-owned objects.
+
+**What makes a failed refit safer?** Validate and calculate candidate state before replacing the previous valid attributes.
+
+**Why separate fit and transform?** Fitting learns training-derived state; transformation applies it consistently to training and future observations.
+
+**Is this class a scikit-learn estimator?** It illustrates the fit/transform idea, but lacks the full estimator API and validation needed for production pipeline compatibility.
+
+## 21. Summary and next steps
+
+An object combines state and behavior. Independent instances hold independent fitted means; transformation reuses learned state without changing it. Validation and state ownership remain essential even with a class. Continue to [NumPy basics](13_numpy_basics.ipynb), then learn indexing, shapes, and broadcasting to extend these calculations to larger numerical arrays.

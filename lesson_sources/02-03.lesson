@@ -1,0 +1,202 @@
+# 1. Functions and derivatives: measuring change
+
+Learn what a function does, how a graph represents it, how a slope measures change, and how a derivative leads to a simple optimization step. Prerequisite: [Scalars, vectors and matrices](07_scalars_vectors_and_matrices.ipynb) and basic Python functions. We start with addition and multiplication, not assumed calculus. Allow three hours for drawing, calculations, and experiments.
+
+## 2. What problem does this solve?
+
+Training often means changing a model's parameters to reduce a measure of error. Trying every possible numerical setting is usually impossible. We need local information: if a parameter increases a little, does the error increase or decrease, and how quickly? A derivative supplies that sensitivity for a smooth function.
+
+Before learning a multivariable gradient, understand one input and one output. A function is a rule that assigns one output to each allowed input. For example, squaring maps three to nine. The allowed inputs form its domain. A computer function can implement this mathematical rule, though many programs do more than mathematical functions.
+
+## 3. Intuition and analogy
+
+Imagine walking along a hill in fog. The local slope tells you which nearby direction goes downward, not where the globally lowest valley lies. A derivative is that local slope. A **secant** measures an average slope between two separated points; a **tangent** gives the limiting slope at one point.
+
+The hill analogy has limits. A training objective can have many dimensions, flat regions, and multiple valleys. A downhill step can overshoot if it is too large. Local slope is useful information, not a universal guarantee of finding the best solution.
+
+## 4. Terminology
+
+The **independent variable** is the input we vary; the **dependent variable** is the resulting output. A **derivative** measures instantaneous change with respect to an input. A **limit** describes the value approached as another quantity gets arbitrarily close to a specified value. **Differentiation** means finding a derivative. An **objective** is a quantity we try to minimize or maximize.
+
+An **iteration** is one repeated update. A **learning rate** controls update size. A **gradient** collects partial derivatives when there are several inputs; this lesson uses one derivative only. A **stationary point** has zero derivative, but it need not be a minimum.
+
+## 5. Mathematical foundations
+
+For a one-input function $f$, its derivative at $x$ is
+
+$$f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}.$$
+
+$x$ is the input, $h$ is a nonzero change in that input, and the fraction is output change divided by input change. The prime in $f'$ denotes derivative. If input is seconds and output is meters, derivative units are meters per second. In our numerical examples both inputs and outputs are dimensionless so that units do not obscure the algebra.
+
+Let $f(x)=x^2$. Expanding $(x+h)^2=x^2+2xh+h^2$ gives
+
+$$\frac{(x+h)^2-x^2}{h}=2x+h\longrightarrow2x.$$
+
+We cancel $h$ only while it is nonzero. We do not divide by zero; we inspect what the quotient approaches. Thus $f'(x)=2x$. This derivation explains the rule rather than merely stating it.
+
+## 6. Hand-calculated example
+
+At $x=3$ with $h=0.1$, $f(3.1)=9.61$ and $f(3)=9$. The quotient is $(9.61-9)/0.1=6.1$. With $h=0.01$, it is $(9.0601-9)/0.01=6.01$. The values approach six, matching $f'(3)=2\times3=6$.
+
+A tangent prediction for a small change $d$ is $f(3+d)\approx f(3)+f'(3)d$. With $d=0.1$, this gives $9+6(0.1)=9.6$, while the actual value is 9.61. The approximation error is 0.01 because a straight line cannot exactly reproduce a curved function over a finite interval.
+
+## 7. Implementation from scratch
+
+```python
+def square(x):
+    return x * x
+
+def forward_difference(function, x, h):
+    if h == 0:
+        raise ValueError('h must be nonzero')
+    return (function(x + h) - function(x)) / h
+
+for h in [1.0, 0.1, 0.01]:
+    print('h =', h, 'estimated derivative =', forward_difference(square, 3.0, h))
+assert abs(forward_difference(square, 3.0, 0.01) - 6.01) < 1e-10
+```
+
+## 8. Step-by-step output inspection
+
+The estimates should be approximately 7, 6.1, and 6.01. Reducing $h$ reduces the algebraic approximation error for this function until floating-point cancellation becomes important. Subtracting nearly equal stored numbers can lose significant digits. “Make the step as tiny as possible” is therefore not a reliable numerical strategy.
+
+```python
+import numpy as np
+steps = np.array([1e-1, 1e-3, 1e-5, 1e-8, 1e-12, 1e-16])
+estimates = np.array([forward_difference(square, 3.0, h) for h in steps])
+print(np.column_stack([steps, estimates, np.abs(estimates - 6)]))
+assert np.isclose(2 * 3.0, 6.0)
+```
+
+## 9. Library comparison
+
+NumPy's `gradient` estimates derivatives from sampled values on a grid; it does not symbolically differentiate arbitrary functions. We compare its interior estimates with the exact rule $2x$. This is a library implementation of numerical differentiation, not automatic differentiation. PyTorch will later compute derivatives of supported computational graphs by the chain rule.
+
+```python
+grid = np.linspace(-3, 3, 61)
+values = square(grid)
+numerical = np.gradient(values, grid)
+exact = 2 * grid
+np.testing.assert_allclose(numerical[1:-1], exact[1:-1], atol=1e-12)
+print('Largest interior difference:', np.max(np.abs(numerical[1:-1] - exact[1:-1])))
+```
+
+Boundary estimates use different formulas because samples are missing on one side. We deliberately compare interior points; ignoring boundaries silently would make the claim misleading.
+
+## 10. Visualization
+
+```python
+import matplotlib.pyplot as plt
+from IPython.display import display
+plot_x = np.linspace(1, 5, 101)
+tangent = 9 + 6 * (plot_x - 3)
+fig, ax = plt.subplots(figsize=(6, 3))
+ax.plot(plot_x, square(plot_x), label='f(x) = x squared')
+ax.plot(plot_x, tangent, '--', label='Tangent at x = 3')
+ax.scatter([3], [9], color='black')
+ax.set(xlabel='x (dimensionless)', ylabel='Function value', title='A tangent is a local linear approximation')
+ax.legend()
+display(fig)
+plt.close(fig)
+```
+
+The tangent touches the curve at three and matches its local slope. Its discrepancy grows farther away. A derivative describes local behavior; it does not mean the entire function is a straight line.
+
+## 11. A tiny optimization experiment
+
+Suppose a parameter $w$ should approach three. Use the objective $L(w)=(w-3)^2$, a nonnegative measure of distance. Its derivative is $L'(w)=2(w-3)$ by the same square expansion. An update is
+
+$$w_{t+1}=w_t-\eta L'(w_t),$$
+
+where $t$ counts iterations and $\eta$ is the positive learning rate. All quantities here are dimensionless. With $w_0=0$ and $\eta=0.1$, the derivative is $-6$ and the next value is $0-0.1(-6)=0.6$. Loss falls from nine to $(0.6-3)^2=5.76$.
+
+```python
+def descend(rate, steps=20):
+    w = 0.0
+    history = [w]
+    for _ in range(steps):
+        derivative = 2 * (w - 3)
+        w = w - rate * derivative
+        history.append(w)
+    return np.array(history)
+
+path = descend(0.1)
+losses = (path - 3) ** 2
+assert np.isclose(path[1], 0.6)
+assert np.isclose(losses[1], 5.76)
+assert np.all(np.diff(losses) <= 0)
+print('First parameters:', path[:5], 'Final loss:', losses[-1])
+```
+
+This is a transparent one-parameter optimization problem, not yet a fitted ML model with features and held-out observations.
+
+## 12. Hyperparameters and experimentation
+
+The parameter is $w$; the learning rate and number of steps are chosen by us. For this exact quadratic, the error from the optimum obeys $w_{t+1}-3=(1-2\eta)(w_t-3)$. It shrinks when $|1-2\eta|<1$, or $0<\eta<1$. The range is specific to this objective's curvature and is not a universal safe rate.
+
+```python
+fig, ax = plt.subplots(figsize=(6, 3))
+for rate in [0.05, 0.5, 1.1]:
+    trajectory = descend(rate, steps=12)
+    ax.plot(trajectory, marker='.', label=f'rate = {rate}')
+ax.axhline(3, color='black', linestyle='--', label='Minimum at 3')
+ax.set(xlabel='Update number', ylabel='Parameter w', title='Update size can help or destabilize learning')
+ax.legend()
+display(fig)
+plt.close(fig)
+assert abs(descend(1.1)[-1] - 3) > 3
+```
+
+## 13. Evaluation
+
+Check the analytical derivative against finite differences at several points. Check that the objective decreases under the stated stable rate. These checks establish numerical behavior for the toy objective. A trained predictive model would additionally need validation and test data: low optimization loss does not by itself establish generalization.
+
+## 14. Assumptions and limitations
+
+Derivatives require appropriate local smoothness. The absolute-value function has no single derivative at zero, though later optimization methods use subgradients. A zero derivative can identify a maximum or flat inflection point as well as a minimum. Our quadratic has one global minimum; realistic objectives can be harder.
+
+## 15. Common mistakes and debugging
+
+Do not confuse function value with slope: at three, $x^2$ is nine but its derivative is six. Do not omit the minus sign when minimizing. Do not treat a numerical derivative as exact. If loss explodes, inspect the update sign, scale, learning rate, and derivative before adding more iterations.
+
+## 16. Comparison with alternatives
+
+Direct algebra solves this example immediately: $(w-3)^2$ is smallest at three. Gradient steps teach a mechanism that scales to problems without such a convenient solution. Finite differences approximate slopes through evaluations; symbolic differentiation manipulates formulas; automatic differentiation applies rules through executed operations. They solve related but distinct computational problems.
+
+## 17. Exercises
+
+1. **Beginner:** Evaluate $f(2)$ and $f'(2)$ for $f(x)=x^2$ and explain why the equal answers are coincidental.
+2. **Beginner:** Calculate the forward difference at two with $h=0.5$.
+3. **Beginner:** Give derivative units when input is hours and output is kilometers.
+4. **Intermediate:** Derive the derivative of $g(x)=(x-5)^2$ by expanding the difference quotient.
+5. **Intermediate:** Calculate one descent step on $g$ starting at one with rate 0.25.
+6. **Challenge:** Derive the stable learning-rate interval for $L(w)=a(w-b)^2$ with $a>0$, and explain how curvature changes it.
+
+## 18. Detailed solutions
+
+1. Both happen to equal four at two, but one is height and one is slope. At three they are nine and six.
+2. $(2.5^2-2^2)/0.5=(6.25-4)/0.5=4.5$; the exact derivative is four.
+3. Kilometers per hour, because derivative divides output change by input change.
+4. The quotient becomes $2(x-5)+h$ after expansion; its limit is $2(x-5)$.
+5. The derivative at one is $2(1-5)=-8$. The next value is $1-0.25(-8)=3$; loss drops from 16 to four.
+6. The derivative is $2a(w-b)$, so error multiplies by $1-2a\eta$. Requiring its magnitude below one gives $0<\eta<1/a$. Greater curvature, represented by larger $a$, needs a smaller stable step.
+
+```python
+assert np.isclose(forward_difference(square, 2, 0.5), 4.5)
+w0, eta = 1.0, 0.25
+w1 = w0 - eta * 2 * (w0 - 5)
+assert w1 == 3 and (w1 - 5) ** 2 == 4
+print('Exercise update:', w1)
+```
+
+## 19. Knowledge check
+
+**What is a function?** A rule assigning one output to each allowed input. **What is a derivative?** Local output change per input change. **Why not set $h=0$?** The quotient would divide by zero; a limit is different. **What does gradient descent change?** Parameters, using slope information. **Does decreasing training loss prove good predictions?** No; separate generalization evidence is required.
+
+## 20. Interview preparation
+
+**Derivative versus gradient?** A gradient collects derivatives with respect to multiple inputs. **Finite differences versus autodiff?** Approximation by nearby evaluations versus chain-rule propagation through operations. **Why can a learning rate diverge?** Updates can overshoot relative to curvature. **Why is zero gradient insufficient?** Stationary points need not be minima. **Why use a toy quadratic?** It exposes the update mechanics and permits exact checks, while its simplicity must not be confused with a general convergence guarantee.
+
+## 21. Summary and next steps
+
+You derived a slope and used it to reduce a simple objective. The introductory route is complete. Return to the [roadmap](../ROADMAP.md) and fill the full Python and mathematics foundations before the detailed regression sequence. Planned lessons are marked in the [syllabus](../SYLLABUS.md); they are not claimed as completed tutorials.

@@ -1,0 +1,263 @@
+# 1. Exceptions and debugging: finding the reason, not hiding the symptom
+
+You will distinguish syntax errors, runtime failures, and incorrect answers; read exception messages; validate measurements; and collect useful failure records. Prerequisites: functions, conditions, loops, and [file handling](10_file_handling.ipynb). You do not need a machine learning model. Reliable data handling comes before reliable predictions. Our examples use synthetic waiting times measured in minutes, not actual customer records.
+
+By the end you should be able to explain why a program stopped, design a small test that exposes an incorrect calculation, and reject invalid data without silently replacing it. Run the cells in order from a fresh kernel. Expected failures are caught deliberately so that this notebook completes successfully.
+
+## 2. What problem does this solve?
+
+A program can stop loudly or finish with the wrong answer. A misspelled name usually stops execution. Dividing a total by the wrong count may produce a plausible number. Both can corrupt a data project, but their evidence looks different. Debugging means narrowing down the cause using observations and small reproducible examples.
+
+Imagine a dashboard that reports average waiting time. Replacing every unreadable measurement with zero makes the dashboard run, but falsely suggests shorter waits. We will preserve the identity of rejected rows and report how many measurements survived. Keeping a program running is useful only when the meaning of its output remains correct.
+
+## 3. Intuition and analogy
+
+An exception resembles a smoke alarm: it reports a condition requiring attention, without necessarily telling you the original cause. Silencing every alarm does not repair the building. A traceback is a route back through the function calls to the location where the alarm started. Read its last line first for the exception type and message, then inspect the relevant call and its inputs.
+
+Use a repeatable cycle: reproduce the symptom, state the expected behavior, inspect the smallest relevant inputs, form one hypothesis, change one thing, and rerun the example. Save the example as an assertion when it expresses a stable requirement. Random edits make it difficult to know which change mattered.
+
+## 4. Terminology
+
+A **syntax error** means Python cannot parse the program. A **runtime exception** occurs while valid syntax executes. A **logical error** means the program executes but violates its intended meaning. An exception's **type** groups failures, while its **message** describes this occurrence. A **traceback** lists the calls involved.
+
+`try` runs a block whose known failures we can handle. `except` handles a specified exception type. `else` runs only when the try block succeeds. `finally` runs when leaving that construct, whether or not an exception occurred. `raise` signals a failure. An **assertion** checks a programmer's expectation; assertions can be disabled, so do not use them as the sole validation of external inputs.
+
+## 5. Mathematical foundations
+
+For valid waits, the arithmetic mean is
+
+$$\bar{x}=\frac{1}{n}\sum_{i=1}^{n}x_i.$$
+
+Here $x_i$ is the wait for observation $i$, in minutes; $n$ is the positive number of accepted observations; and $\bar{x}$ is the mean, also in minutes. The symbol $\sum$ means add the listed values. The subscript identifies an observation, not an exponent. Our one-dimensional sequence has length $n$.
+
+If there are $N$ original rows, $a$ accepted rows and $r$ rejected rows, the audit invariant is $N=a+r$. Counts have units of rows. This equality checks bookkeeping; it cannot prove that an accepted value is truthful. A missing mean for zero accepted rows is preferable to manufacturing a zero-minute estimate.
+
+## 6. Hand-calculated example
+
+For waits 2, 4, and 6 minutes, the total is 12 minutes and the count is 3, so the mean is $12/3=4$ minutes. A mistaken denominator of $n+1$ gives $12/4=3$ minutes. Both answers are ordinary numbers: Python cannot infer which formula you intended.
+
+For the six strings `2`, `bad`, `-1`, `4`, `NaN`, and an empty string, our contract accepts only 2 and 4. Their mean is $(2+4)/2=3$ minutes. Four rows are rejected; $6=2+4$. The valid-row mean describes the surviving rows, not the original population: invalidity may be associated with long waits.
+
+## 7. Implementation from scratch
+
+`float(text)` converts a numeric string to a floating-point number. It also accepts strings representing infinity and NaN, so conversion alone is insufficient. `math.isfinite` excludes both. `raise ... from error` preserves the original conversion exception as the cause while adding a domain-specific explanation. We reject non-string inputs to make this function's interface explicit.
+
+```python
+import math
+
+def parse_wait(raw):
+    """Parse one finite, nonnegative wait in minutes from a string."""
+    if not isinstance(raw, str):
+        raise TypeError('Wait input must be a string.')
+    try:
+        value = float(raw)
+    except ValueError as error:
+        raise ValueError('Wait must contain a numeric value.') from error
+    if not math.isfinite(value) or value < 0:
+        raise ValueError('Wait must be finite and nonnegative.')
+    return value
+
+assert parse_wait(' 2.5 ') == 2.5
+for invalid in ['bad', '-1', 'NaN', 'inf', '']:
+    try:
+        parse_wait(invalid)
+    except ValueError as error:
+        print(repr(invalid), '->', type(error).__name__, str(error))
+    else:
+        raise AssertionError('An invalid input was accepted.')
+```
+
+## 8. Step-by-step output inspection
+
+The following defect illustrates why successful execution is weaker evidence than correctness. We deliberately catch the expected assertion failure, then repair the formula. `assert` belongs in our verification here; the corrected function uses an explicit exception for the empty-input case. The function assumes its nonempty values have already passed numerical validation.
+
+```python
+values = [2.0, 4.0, 6.0]
+incorrect_mean = sum(values) / (len(values) + 1)
+try:
+    assert incorrect_mean == 4.0
+except AssertionError:
+    print('Logical defect reproduced:', incorrect_mean, 'expected 4.0')
+
+def mean_of_validated(values):
+    if not values:
+        raise ValueError('Cannot calculate a mean without observations.')
+    return math.fsum(values) / len(values)
+
+assert mean_of_validated(values) == 4.0
+try:
+    mean_of_validated([])
+except ValueError as error:
+    print('Boundary case:', error)
+else:
+    raise AssertionError('Empty input should fail.')
+```
+
+## 9. Standard-library implementation and comparison
+
+The standard library supplies `logging` for diagnostic records and `statistics.mean` for a tested mean calculation. Neither knows our measurement contract. We validate first, then compare the mean implementations. A named local logger with its own stream avoids changing the notebook's global logging configuration. Repeated cell execution should not attach duplicate handlers.
+
+```python
+import io
+import logging
+import statistics
+
+log_stream = io.StringIO()
+logger = logging.Logger('wait-lesson', level=logging.INFO)
+handler = logging.StreamHandler(log_stream)
+logger.addHandler(handler)
+try:
+    logger.info('Validated %d measurements; unit=minutes', len(values))
+finally:
+    logger.removeHandler(handler)
+    handler.close()
+assert statistics.mean(values) == mean_of_validated(values)
+assert 'Validated 3 measurements' in log_stream.getvalue()
+print(log_stream.getvalue().strip())
+```
+
+Do not log private source values simply because debugging is difficult. A row identifier, validation rule, and aggregate count often suffice. For a small notebook, a focused print statement is also reasonable; logging becomes more useful when you need levels, destinations, and persistent diagnostic records.
+
+## 10. Visualization
+
+We first construct the audit and then plot counts. This is a data-quality plot, not a model-performance plot. The accepted and rejected bars must add to six. A tall rejected bar demands investigation of collection or parsing rules; it does not by itself justify loosening validation.
+
+```python
+rows = list(zip(range(101, 107), ['2', 'bad', '-1', '4', 'NaN', '']))
+
+def audit_waits(rows):
+    accepted, rejected = [], []
+    for row_id, raw in rows:
+        try:
+            value = parse_wait(raw)
+        except (ValueError, TypeError) as error:
+            rejected.append({'id': row_id, 'reason': str(error)})
+        else:
+            accepted.append({'id': row_id, 'wait': value})
+    accepted_values = [row['wait'] for row in accepted]
+    mean = mean_of_validated(accepted_values) if accepted_values else None
+    return {'accepted': accepted, 'rejected': rejected, 'mean_minutes': mean}
+
+audit = audit_waits(rows)
+assert len(rows) == len(audit['accepted']) + len(audit['rejected'])
+assert [row['id'] for row in audit['accepted']] == [101, 104]
+assert audit['mean_minutes'] == 3.0
+
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(6, 3))
+counts = [len(audit['accepted']), len(audit['rejected'])]
+bars = ax.bar(['Accepted', 'Rejected'], counts, color=['steelblue', 'darkorange'])
+ax.bar_label(bars)
+ax.set(ylabel='Number of rows', title='Six synthetic inputs: validation audit', ylim=(0, 5))
+display(fig)
+plt.close(fig)
+```
+
+## 11. Realistic small experiment
+
+The audit function catches only anticipated data errors at the row boundary. An unrelated programming error should remain visible. This separation lets a batch retain valid rows while preserving failure evidence. No input row is modified, and every row appears in exactly one result list. In a real system, also define whether identifiers must be unique before using them as keys.
+
+```python
+before = rows.copy()
+print('Accepted:', audit['accepted'])
+print('Rejected:', audit['rejected'])
+assert rows == before
+assert len(audit['rejected']) == 4
+all_bad = audit_waits([(1, 'bad'), (2, '-8')])
+assert all_bad['mean_minutes'] is None
+assert len(all_bad['rejected']) == 2
+try:
+    parse_wait('unreadable')
+except ValueError as error:
+    assert isinstance(error.__cause__, ValueError)
+    print('Preserved cause:', type(error.__cause__).__name__)
+```
+
+## 12. Configuration choices
+
+There are no learned parameters or model hyperparameters here. The finite and nonnegative constraints are domain rules. Logging levels and whether invalid rows stop a job are operational choices. Choose fail-fast behavior for a malformed schema; consider quarantining individual malformed values only when the remaining calculation remains meaningful. Document the policy instead of letting a broad exception handler decide accidentally.
+
+## 13. Evaluation
+
+Our checks cover a valid decimal, whitespace, malformed text, negative numbers, nonfinite values, no observations, conservation of row counts, and preservation of inputs. The hand example checks the formula independently. The audit mean is exactly 3 for these integer-valued inputs; for general floating-point comparisons use an appropriate numerical tolerance such as `math.isclose`.
+
+These checks support specific claims about this function. They do not establish every possible input format, concurrent behavior, or population-level data quality. Evaluate rejection rates by source and time before relying on a surviving-row summary in an operational report.
+
+## 14. Assumptions and limitations
+
+The parser expects strings and minutes with no attached unit text. It cannot distinguish a valid but mistyped value of 400 from a true 400-minute wait. A maximum plausible wait would require domain evidence. The batch uses memory proportional to the number of rows; very large datasets need streamed summaries and an external rejection log. Catching a conversion error does not repair the measurement.
+
+## 15. Common mistakes and debugging
+
+Avoid `except: pass`: it hides interrupts and programming defects as well as invalid data. Avoid catching `Exception` around an entire notebook cell and printing only 'failed'; that erases the useful context. Reduce a failure to a small input and inspect types with `type(value)` and representations with `repr(value)`. Read the failing line before changing unrelated code.
+
+Do not return zero when parsing fails. Zero is a real possible measurement with a different meaning from missing. Do not put important input checks only inside `assert`. An interactive debugger's `breakpoint()` is useful when stepping manually, but would suspend unattended notebook execution; this lesson uses inspectable intermediate outputs instead.
+
+## 16. Alternatives
+
+Print-based inspection is simple for tiny examples. A debugger helps inspect nested call state. Logging supports long-running processes. Unit tests preserve regression examples; integration tests check component interactions. Schema validators help larger data interfaces. These tools complement each other: a schema cannot prove that your mean formula is correct, and a passing mean test cannot prove that incoming column units are minutes.
+
+## 17. Exercises
+
+- **Beginner:** Explain why changing an invalid wait to zero biases a valid-row mean in the six-row example.
+- **Beginner:** Predict the result of `parse_wait(' 0 ')` and explain each validation stage.
+- **Beginner:** Classify a missing closing parenthesis, an unknown variable name, and division by `n+1` as syntax, runtime, or logical errors.
+- **Intermediate:** Verify that a numeric input `2` raises `TypeError`, while the string `'2'` succeeds. Explain the interface decision.
+- **Intermediate:** Audit three valid waits 1, 3, and 8 and check both the count invariant and mean manually.
+- **Challenge:** Add checks proving the audit handles an empty batch, does not modify inputs, and accounts for every row identity in a mixed batch. Explain why count conservation alone is insufficient.
+
+## 18. Detailed solutions
+
+The original two valid waits average 3. Replacing four invalid rows with zeros gives $6/6=1$ minute, a different and unjustified claim. The whitespace is accepted by `float`, zero is finite, and zero is not negative, so `' 0 '` returns 0.0. The parenthesis error prevents parsing; an unknown variable raises `NameError` during execution; the wrong denominator can run without exceptions.
+
+A strict string interface catches accidental changes in upstream data types. A broader interface could be reasonable, but must explicitly address booleans and missing values. For 1, 3, and 8, the total is 12 and the mean is 4. The challenge needs identity checks because accidentally duplicating one row and dropping another can preserve the total count.
+
+```python
+assert parse_wait(' 0 ') == 0.0
+try:
+    parse_wait(2)
+except TypeError:
+    pass
+else:
+    raise AssertionError('The string-only contract was bypassed.')
+assert parse_wait('2') == 2.0
+three_valid = audit_waits([(1, '1'), (2, '3'), (3, '8')])
+assert three_valid['mean_minutes'] == 4.0
+assert len(three_valid['accepted']) == 3 and not three_valid['rejected']
+assert audit_waits([]) == {'accepted': [], 'rejected': [], 'mean_minutes': None}
+mixed = [(10, '1'), (20, 'bad'), (30, '8')]
+snapshot = mixed.copy()
+result = audit_waits(mixed)
+result_ids = [row['id'] for group in ['accepted', 'rejected'] for row in result[group]]
+assert sorted(result_ids) == [10, 20, 30]
+assert mixed == snapshot
+print('All boundary and identity checks passed.')
+```
+
+## 19. Knowledge check
+
+**Does a program that runs have to be correct?** No. The wrong denominator returns an ordinary but incorrect number.
+
+**Why check finiteness after conversion?** Floating-point conversion accepts NaN and infinity, which violate our measurement contract.
+
+**When does an else block run?** When the associated try block completes without an exception.
+
+**Why keep a rejected row identifier?** It connects the diagnostic record to a source observation for investigation.
+
+**Why return None for an all-invalid mean?** No accepted observations exist; zero would invent a numerical measurement.
+
+## 20. Interview preparation
+
+**How do you debug an unexpected metric?** Reproduce it on a tiny case, calculate the expected answer independently, and inspect intermediate counts and totals.
+
+**Where should exceptions be caught?** At a boundary that can respond meaningfully, such as quarantining a known invalid row, rather than throughout every helper.
+
+**Why use exception chaining?** It adds domain context while preserving the underlying failure needed for diagnosis.
+
+**Are assertions input validation?** They are development checks that can be disabled. Explicit conditions and exceptions enforce public input contracts.
+
+**Can rejecting invalid data introduce bias?** Yes. If rejection relates to the underlying outcome, the retained subset may systematically differ from the full population.
+
+## 21. Summary and next steps
+
+Treat exceptions as evidence, tests as explicit expectations, and rejected data as an auditable outcome. A calculation needs both valid inputs and the correct formula. Next, [classes and object-oriented programming](12_classes_and_object_oriented_programming.ipynb) explains how objects keep state across related operations, including the distinction between fitting and transforming data.

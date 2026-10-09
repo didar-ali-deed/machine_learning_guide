@@ -1,0 +1,179 @@
+# 1. NumPy basics: numbers with shapes
+
+Learn to create arrays, inspect shape and data type, select elements, perform vectorized arithmetic, and calculate summaries along an axis. Prerequisite: [Python and Jupyter](../00_Getting_Started/03_python_and_jupyter_introduction.ipynb). This introductory route needs lists, assignment, and function calls, all explained there. Allow two hours and draw array shapes on paper before running code.
+
+## 2. What problem does this solve?
+
+Machine learning often calculates the same operation for many examples. A list of Python numbers is convenient but does not automatically apply arithmetic element by element. NumPy supplies an **array**: a collection of values with a shape and a common numerical data type. It expresses operations over whole arrays using concise, optimized routines.
+
+Concise code is not automatically correct code. A mistaken shape can produce a valid calculation that answers the wrong question. Learning to predict shapes is therefore as important as learning function names.
+
+## 3. Intuition and analogy
+
+Imagine a rectangular tray with labeled positions. Its contents are the values, while its arrangement is the shape. Two trays can contain six values but arrange them as two rows of three or three rows of two. Those arrangements mean different things when a row represents a person and a column represents a measurement.
+
+NumPy does not know which axis means people. You provide that interpretation. Write it down beside every important array. In this lesson, rows are fictional days and columns are two products' unit counts.
+
+## 4. Terminology
+
+A **dimension**, also called an axis, is one direction of indexing. A one-dimensional array has shape `(n,)`; the comma marks a one-element Python tuple. A two-dimensional array has shape `(n,p)`, with $n$ rows and $p$ columns. `ndim` counts axes; `shape` lists their lengths; `size` counts all elements; `dtype` describes how values are represented.
+
+An **index** is a position starting at zero. A **slice** selects a range, including its start but excluding its stop. **Vectorization** expresses operations over arrays without a Python loop for each element. **Broadcasting** allows certain differently shaped arrays to participate in elementwise arithmetic.
+
+## 5. Mathematical foundations
+
+Let $X$ be a table with $n=3$ days and $p=2$ products. Entry $X_{ij}$ is the unit count for day $i$, product $j$. Mathematics often numbers from one; Python numbers from zero. The mean for product $j$ is
+
+$$\bar x_j=\frac{1}{n}\sum_{i=1}^{n}X_{ij}.$$
+
+The summation symbol means add over the day index. The result is one number per product, so its shape is $(2,)$. Its unit remains product units per observed day. Averaging over rows removes the row axis. NumPy calls that `axis=0`; the remaining columns identify products.
+
+## 6. Hand-calculated example
+
+Take rows `[1,2]`, `[3,4]`, `[5,6]`. Column sums are $1+3+5=9$ and $2+4+6=12$. Divide each by three to obtain `[3,4]`. Row means are $1.5$, $3.5$, and $5.5$, a different shape `(3,)` and a different question. The overall mean is $21/6=3.5$.
+
+Subtracting column means gives rows `[-2,-2]`, `[0,0]`, `[2,2]`. This **centering** expresses each observation as a deviation from its column average. Negative values now mean below average, not negative sales.
+
+## 7. Implementation from scratch
+
+We first calculate column averages with ordinary Python. `range(2)` supplies positions zero and one. The inner expression selects a column's value from each row. The result is a list of two averages.
+
+```python
+rows = [[1, 2], [3, 4], [5, 6]]
+manual_means = [sum(row[column] for row in rows) / len(rows) for column in range(2)]
+print('Column means:', manual_means)
+assert manual_means == [3, 4]
+```
+
+## 8. Step-by-step output inspection
+
+```python
+import numpy as np
+X = np.array(rows, dtype=float)
+print('Values:\n', X)
+print('shape:', X.shape, 'axes:', X.ndim, 'elements:', X.size, 'dtype:', X.dtype)
+print('First row:', X[0], 'Second column:', X[:, 1])
+assert X.shape == (3, 2) and X.size == 6
+assert X[1, 0] == 3
+```
+
+`X[:,1]` means all rows and column position one. `X[1,0]` selects the second row and first column, giving three. Explicit floating-point type allows fractional results and centered values. A homogeneous array does not retain a different numerical type for each element.
+
+## 9. NumPy implementation
+
+```python
+column_means = X.mean(axis=0)
+row_means = X.mean(axis=1)
+centered = X - column_means
+np.testing.assert_allclose(column_means, manual_means)
+np.testing.assert_allclose(row_means, [1.5, 3.5, 5.5])
+np.testing.assert_allclose(centered.mean(axis=0), [0, 0], atol=1e-12)
+print('Centered table:\n', centered)
+```
+
+Broadcasting compares dimensions from the right: `(3,2)` and `(2,)` have matching final dimensions, so the two means are subtracted from each row. This is a precise shape rule, not NumPy guessing your intention. Explicitly reshaping a row statistic to `(3,1)` is necessary when you intend to subtract one value per row.
+
+## 10. Visualization
+
+```python
+import matplotlib.pyplot as plt
+from IPython.display import display
+fig, axes = plt.subplots(1, 2, figsize=(8, 3))
+for ax, values, title in zip(axes, [X, centered], ['Original unit counts', 'Deviations from column means']):
+    plot = ax.imshow(values, cmap='coolwarm')
+    for i in range(3):
+        for j in range(2):
+            ax.text(j, i, str(values[i, j]), ha='center', va='center')
+    ax.set(xticks=[0, 1], yticks=[0, 1, 2], xlabel='Product index', ylabel='Day index', title=title)
+    fig.colorbar(plot, ax=ax, shrink=0.8)
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+Read the numbers and color bars, not color alone: each panel has its own range. Centering changes the reference point, so negative deviations are meaningful. It does not change the difference between any two days in the same column.
+
+## 11. Realistic experiment with synthetic measurements
+
+Suppose temperature and rainfall are different columns. Their units differ, so adding or averaging across columns is not a meaningful physical summary. Columnwise analysis keeps those meanings separate. The table below is invented and is not meteorological evidence.
+
+```python
+weather = np.array([[20., 0.], [22., 5.], [18., 10.]])
+temperature = weather[:, 0]
+rainfall = weather[:, 1]
+print('Mean temperature (C):', temperature.mean())
+print('Total rainfall (mm across days):', rainfall.sum())
+assert temperature.mean() == 20 and rainfall.sum() == 15
+# Boolean comparison creates a mask selecting rainy days.
+rainy_days = weather[rainfall > 0]
+assert rainy_days.shape == (2, 2)
+print('Rainy-day rows:\n', rainy_days)
+```
+
+## 12. Choices and experiments
+
+No statistical model is trained here. Choices include data type, shape, and reduction axis. Predict what changes when you replace `axis=0` with `axis=1`. Try `keepdims=True`: column means then have shape `(1,2)`, which can make the intended broadcast more visible. More numerical precision uses more memory; it does not fix incorrect units or data.
+
+## 13. Evaluation
+
+Verify array operations with expected shapes, tiny manually calculated values, and numerical tolerances. `assert_allclose` handles small floating-point differences; it should not excuse large conceptual mistakes. Centered columns should have means near zero. Also inspect whether a calculation is meaningful: an array can pass shape checks while combining incompatible measurements.
+
+## 14. Assumptions and limitations
+
+NumPy assumes numerical representation and shape rules, not the truth of observations. Missing values represented by `np.nan` usually propagate through ordinary means. `np.nanmean` ignores them, but ignoring missingness is a modeling choice whose bias must be considered. Large arrays can exhaust memory; vectorization may create temporary arrays as large as the input.
+
+## 15. Common mistakes and debugging
+
+`[1,2] * 2` repeats a Python list; `np.array([1,2]) * 2` doubles each value. `*` is elementwise multiplication, while `@` is matrix multiplication. Basic slicing can return a view sharing memory, so modifying it can change the original. Use `.copy()` when an independent result is intended. Do not center the full dataset before a train-test split in ML: evaluation information would influence preprocessing.
+
+```python
+independent = X[:2].copy()
+independent[0, 0] = 999
+assert X[0, 0] == 1
+print('Original remains unchanged after modifying a copy.')
+```
+
+## 16. Comparison with alternatives
+
+Python lists permit mixed objects and flexible growth. NumPy arrays support fast homogeneous numerical operations. pandas adds named columns and label alignment, which helps manage mixed tabular data. PyTorch later adds automatic differentiation and accelerator support. Start with the representation that matches the data and operation rather than converting everything without purpose.
+
+## 17. Exercises
+
+1. **Beginner:** Give the shape, size, and last element of `[[2,4,6],[8,10,12]]` as an array.
+2. **Beginner:** Calculate its column means by hand.
+3. **Beginner:** Select the first two columns and predict the resulting shape.
+4. **Intermediate:** Subtract each row's own mean using a shape that broadcasts correctly.
+5. **Intermediate:** Explain why a `(3,)` vector cannot be directly subtracted from a `(3,2)` table as row offsets.
+6. **Challenge:** Normalize each nonzero row to sum to one, while leaving an all-zero row unchanged. Explain how you avoid division by zero.
+
+## 18. Detailed solutions
+
+1. Shape `(2,3)`, size six, last element 12 at index `[1,2]`.
+2. Column means are `(2+8)/2=5`, `(4+10)/2=7`, and `(6+12)/2=9`.
+3. `A[:,:2]` has shape `(2,2)` because the stop index is excluded.
+4. `A-A.mean(axis=1,keepdims=True)` subtracts means with shape `(2,1)`, giving rows `[-2,0,2]`.
+5. Broadcasting matches the final dimensions first: three and two differ and neither is one. Use `(3,1)` for one offset per row.
+6. Use an explicit output array and a condition controlling division. All-zero rows have no meaningful probability distribution; leaving them zero is a stated convention, not making them valid distributions.
+
+```python
+A = np.array([[2., 4., 6.], [8., 10., 12.]])
+np.testing.assert_allclose(A.mean(axis=0), [5, 7, 9])
+np.testing.assert_allclose(A - A.mean(axis=1, keepdims=True), [[-2, 0, 2], [-2, 0, 2]])
+counts = np.array([[1., 3.], [0., 0.]])
+totals = counts.sum(axis=1, keepdims=True)
+normalized = np.divide(counts, totals, out=np.zeros_like(counts), where=totals != 0)
+np.testing.assert_allclose(normalized, [[0.25, 0.75], [0, 0]])
+print('Safe normalization:\n', normalized)
+```
+
+## 19. Knowledge check
+
+**What does shape describe?** The length of each axis. **Does axis zero mean columns?** It is the row axis here; reducing it leaves one result per column. **What does dtype describe?** The shared element representation. **Does slicing always copy?** No. **Why inspect units?** Shape compatibility alone cannot establish scientific meaning.
+
+## 20. Interview preparation
+
+**What is vectorization?** Expressing whole-array operations implemented by optimized routines. **What is broadcasting?** Compatibility based on equal or unit-length dimensions aligned from the right. **View versus copy?** A view shares underlying data; a copy does not. **Why can vectorization consume memory?** Intermediate arrays may be materialized. **Why fit scaling on training data only?** Using evaluation statistics leaks information into the representation used to fit the model.
+
+## 21. Summary and next steps
+
+Arrays pair values with explicit shapes. Predict both before running an operation. Continue to [Pandas basics](16_pandas_basics.ipynb), where columns acquire names and row alignment becomes important.

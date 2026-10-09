@@ -1,0 +1,11 @@
+# Direct dependencies for the CPU beginner/classical curriculum.
+# requirements.txt records the exact tested versions, including dependencies.
+notebook
+ipykernel
+nbclient
+nbformat
+numpy
+pandas
+matplotlib
+scikit-learn
+seaborn

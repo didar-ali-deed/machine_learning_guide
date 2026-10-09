@@ -1,0 +1,111 @@
+{
+  "status": "passed",
+  "planned": 427,
+  "created": 20,
+  "documents_checked": 47,
+  "executed_copies_link_checked": 20,
+  "notebooks": {
+    "00-01": {
+      "words": 1677,
+      "code_cells": 5,
+      "source_sha256": "f2a0d5863910925c62691c5a23058ffa99ae12c9adc974379b77c24dbe3f50ca"
+    },
+    "00-02": {
+      "words": 1627,
+      "code_cells": 5,
+      "source_sha256": "1f5b8354aa9c6a49415b0ed97ec63fb7a506b3deba95d027596c60faae4c8167"
+    },
+    "00-03": {
+      "words": 1616,
+      "code_cells": 7,
+      "source_sha256": "ec7779335557be1757dccef96b9e9de3c3ccd230d4f20c9d509953b715457d7f"
+    },
+    "01-01": {
+      "words": 1430,
+      "code_cells": 7,
+      "source_sha256": "254d9100aa2b55181e66a6d6e633a2f5205ff15e765c3495c4b0b23a21cd06b5"
+    },
+    "01-02": {
+      "words": 1431,
+      "code_cells": 7,
+      "source_sha256": "6b42a4211d6ee9eae6d3ab5b0bcf1fbfa684a1ac096d5f1800fcf11b9d7b7c92"
+    },
+    "01-03": {
+      "words": 1492,
+      "code_cells": 7,
+      "source_sha256": "8840b8aeb431566ab52a814b83c611596b4584d3dac1a536ca791bf2b2037dc2"
+    },
+    "01-04": {
+      "words": 1598,
+      "code_cells": 7,
+      "source_sha256": "7bff009691f6834110de8013972794ac5240ce1967740167557746b36bf72c3e"
+    },
+    "01-05": {
+      "words": 1646,
+      "code_cells": 7,
+      "source_sha256": "cbf50d78d1896f774cd2891ac02c731c90c848e9cc99db2ae106f5e5658b6721"
+    },
+    "01-06": {
+      "words": 1540,
+      "code_cells": 9,
+      "source_sha256": "4420a1a8b4531c036b30d223e1bc3e8e7fd652be837e96e04d00edbd0bc8f994"
+    },
+    "01-07": {
+      "words": 1561,
+      "code_cells": 8,
+      "source_sha256": "50f53fb11a932c458e9bbd544641f8f744ef623abb741f9cd2327c89df46718e"
+    },
+    "01-08": {
+      "words": 1433,
+      "code_cells": 8,
+      "source_sha256": "06704e92021ae9de61eb94050938bab8b8156d14a99ac2660cf94d5abe21f04c"
+    },
+    "01-09": {
+      "words": 1662,
+      "code_cells": 7,
+      "source_sha256": "820f422e23dc6917a9bd2e15349e749404c67ed9caf00fd441443819e6761bda"
+    },
+    "01-10": {
+      "words": 1606,
+      "code_cells": 7,
+      "source_sha256": "29094b64edadda93a084391c2770b29c15f51eff2e592c4f9d4ab32c4d1d00fb"
+    },
+    "01-11": {
+      "words": 1902,
+      "code_cells": 7,
+      "source_sha256": "eb6dda13791130781dbf576baa05bae72d448f469d82739c9a269f2e42ab50ad"
+    },
+    "01-12": {
+      "words": 1918,
+      "code_cells": 8,
+      "source_sha256": "6388c42ceedc5a2012d64bbeb065ecd0fc50a39358b209abd2494f0ca670bdc7"
+    },
+    "01-13": {
+      "words": 1414,
+      "code_cells": 8,
+      "source_sha256": "4fec38f0fa6a6c7bb13c93c46686f2bb56d4a6b3b75f3a6aeb3675ff8f8dca4b"
+    },
+    "01-16": {
+      "words": 1456,
+      "code_cells": 7,
+      "source_sha256": "92691215b0ae707e3754035a77b4d7ebb6e6390bc0721f59615ff7ca16498440"
+    },
+    "01-18": {
+      "words": 1584,
+      "code_cells": 7,
+      "source_sha256": "64ec1cce13154625afe2554358cc39271cbb80f64d78e73fc82a4a90528f74b1"
+    },
+    "02-03": {
+      "words": 1591,
+      "code_cells": 8,
+      "source_sha256": "7271e6e2d8a62e76c39766c839f9f2346b4dfc12224940a8be1b8e81e1a16edf"
+    },
+    "02-07": {
+      "words": 1490,
+      "code_cells": 7,
+      "source_sha256": "d5a092b4269774e71a013ec86c45dad109d62107cde512be407f57de03eaffe6"
+    }
+  },
+  "errors": [],
+  "limitation": "Structural checks do not prove pedagogical correctness; see content review."
+}

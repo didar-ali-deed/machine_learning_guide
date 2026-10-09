@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "complete-machine-learning-academy"
+version = "0.1.0"
+description = "An incremental, executable machine learning self-study academy"
+requires-python = ">=3.11"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.in"]}
+
+[tool.setuptools.packages.find]
+where = ["src"]

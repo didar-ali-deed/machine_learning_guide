@@ -1,0 +1,222 @@
+{
+  "notebooks": {
+    "00-01": {
+      "status": "passed",
+      "path": "00_Getting_Started/01_what_is_machine_learning.ipynb",
+      "checked_at_utc": "2026-10-08T21:56:56.414663+00:00",
+      "source_sha256": "f2a0d5863910925c62691c5a23058ffa99ae12c9adc974379b77c24dbe3f50ca",
+      "code_cells": 5,
+      "figures": 1,
+      "output": "reports/executed/00_Getting_Started/01_what_is_machine_learning.ipynb",
+      "seconds": 3.188
+    },
+    "00-02": {
+      "status": "passed",
+      "path": "00_Getting_Started/02_machine_learning_types_and_terminology.ipynb",
+      "checked_at_utc": "2026-10-08T21:56:59.611887+00:00",
+      "source_sha256": "1f5b8354aa9c6a49415b0ed97ec63fb7a506b3deba95d027596c60faae4c8167",
+      "code_cells": 5,
+      "figures": 1,
+      "output": "reports/executed/00_Getting_Started/02_machine_learning_types_and_terminology.ipynb",
+      "seconds": 2.844
+    },
+    "00-03": {
+      "status": "passed",
+      "path": "00_Getting_Started/03_python_and_jupyter_introduction.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:03.678321+00:00",
+      "source_sha256": "ec7779335557be1757dccef96b9e9de3c3ccd230d4f20c9d509953b715457d7f",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/00_Getting_Started/03_python_and_jupyter_introduction.ipynb",
+      "seconds": 1.579
+    },
+    "01-13": {
+      "status": "passed",
+      "path": "01_Python_Foundations/13_numpy_basics.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:05.252830+00:00",
+      "source_sha256": "4fec38f0fa6a6c7bb13c93c46686f2bb56d4a6b3b75f3a6aeb3675ff8f8dca4b",
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/13_numpy_basics.ipynb",
+      "seconds": 1.625
+    },
+    "01-16": {
+      "status": "passed",
+      "path": "01_Python_Foundations/16_pandas_basics.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:06.868595+00:00",
+      "source_sha256": "92691215b0ae707e3754035a77b4d7ebb6e6390bc0721f59615ff7ca16498440",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/16_pandas_basics.ipynb",
+      "seconds": 1.734
+    },
+    "01-18": {
+      "status": "passed",
+      "path": "01_Python_Foundations/18_visualizing_data.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:08.607387+00:00",
+      "source_sha256": "64ec1cce13154625afe2554358cc39271cbb80f64d78e73fc82a4a90528f74b1",
+      "code_cells": 7,
+      "figures": 3,
+      "output": "reports/executed/01_Python_Foundations/18_visualizing_data.ipynb",
+      "seconds": 2.781
+    },
+    "02-03": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/03_functions_and_derivatives.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:11.385335+00:00",
+      "source_sha256": "7271e6e2d8a62e76c39766c839f9f2346b4dfc12224940a8be1b8e81e1a16edf",
+      "code_cells": 8,
+      "figures": 2,
+      "output": "reports/executed/02_Mathematics_for_ML/03_functions_and_derivatives.ipynb",
+      "seconds": 1.641
+    },
+    "02-07": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb",
+      "checked_at_utc": "2026-10-08T21:42:13.029582+00:00",
+      "source_sha256": "d5a092b4269774e71a013ec86c45dad109d62107cde512be407f57de03eaffe6",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb",
+      "seconds": 1.562
+    },
+    "01-01": {
+      "status": "passed",
+      "path": "01_Python_Foundations/01_variables_and_data_types.ipynb",
+      "checked_at_utc": "2026-10-08T21:57:02.453477+00:00",
+      "source_sha256": "254d9100aa2b55181e66a6d6e633a2f5205ff15e765c3495c4b0b23a21cd06b5",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/01_variables_and_data_types.ipynb",
+      "seconds": 1.593
+    },
+    "01-02": {
+      "status": "passed",
+      "path": "01_Python_Foundations/02_operators.ipynb",
+      "checked_at_utc": "2026-10-08T21:57:04.048345+00:00",
+      "source_sha256": "6b42a4211d6ee9eae6d3ab5b0bcf1fbfa684a1ac096d5f1800fcf11b9d7b7c92",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/02_operators.ipynb",
+      "seconds": 4.016
+    },
+    "01-03": {
+      "status": "passed",
+      "path": "01_Python_Foundations/03_strings.ipynb",
+      "checked_at_utc": "2026-10-09T01:31:33.368088+00:00",
+      "source_sha256": "8840b8aeb431566ab52a814b83c611596b4584d3dac1a536ca791bf2b2037dc2",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/03_strings.ipynb",
+      "seconds": 1.61
+    },
+    "01-04": {
+      "status": "passed",
+      "path": "01_Python_Foundations/04_lists_tuples_sets_and_dictionaries.ipynb",
+      "checked_at_utc": "2026-10-09T01:25:04.769234+00:00",
+      "source_sha256": "7bff009691f6834110de8013972794ac5240ce1967740167557746b36bf72c3e",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/04_lists_tuples_sets_and_dictionaries.ipynb",
+      "seconds": 2.609
+    },
+    "01-05": {
+      "status": "passed",
+      "path": "01_Python_Foundations/05_conditions_and_loops.ipynb",
+      "checked_at_utc": "2026-10-09T01:25:07.368017+00:00",
+      "source_sha256": "cbf50d78d1896f774cd2891ac02c731c90c848e9cc99db2ae106f5e5658b6721",
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/05_conditions_and_loops.ipynb",
+      "seconds": 1.563
+    },
+    "01-06": {
+      "status": "passed",
+      "path": "01_Python_Foundations/06_functions_and_parameters.ipynb",
+      "checked_at_utc": "2026-10-09T01:31:34.973888+00:00",
+      "source_sha256": "4420a1a8b4531c036b30d223e1bc3e8e7fd652be837e96e04d00edbd0bc8f994",
+      "code_cells": 9,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/06_functions_and_parameters.ipynb",
+      "seconds": 2.625
+    },
+    "01-07": {
+      "status": "passed",
+      "path": "01_Python_Foundations/07_scope.ipynb",
+      "checked_at_utc": "2026-10-09T01:34:16.923425+00:00",
+      "source_sha256": "50f53fb11a932c458e9bbd544641f8f744ef623abb741f9cd2327c89df46718e",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/07_scope.ipynb",
+      "seconds": 1.625
+    },
+    "01-08": {
+      "status": "passed",
+      "path": "01_Python_Foundations/08_list_comprehensions.ipynb",
+      "checked_at_utc": "2026-10-09T01:31:39.158098+00:00",
+      "source_sha256": "06704e92021ae9de61eb94050938bab8b8156d14a99ac2660cf94d5abe21f04c",
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/08_list_comprehensions.ipynb",
+      "seconds": 1.579
+    },
+    "01-09": {
+      "status": "passed",
+      "path": "01_Python_Foundations/09_modules_and_packages.ipynb",
+      "checked_at_utc": "2026-10-09T02:40:10.640335+00:00",
+      "source_sha256": "820f422e23dc6917a9bd2e15349e749404c67ed9caf00fd441443819e6761bda",
+      "dependencies_sha256": {
+        "src/academy/measurements.py": "97c7734b81beedbf917ce620b2eea44e6bdd7c11a9ab07e44f527911b4276152"
+      },
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/09_modules_and_packages.ipynb",
+      "seconds": 2.984
+    },
+    "01-10": {
+      "status": "passed",
+      "path": "01_Python_Foundations/10_file_handling.ipynb",
+      "checked_at_utc": "2026-10-09T02:40:13.624532+00:00",
+      "source_sha256": "29094b64edadda93a084391c2770b29c15f51eff2e592c4f9d4ab32c4d1d00fb",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/10_file_handling.ipynb",
+      "seconds": 1.61
+    },
+    "01-11": {
+      "status": "passed",
+      "path": "01_Python_Foundations/11_exceptions_and_debugging.ipynb",
+      "checked_at_utc": "2026-10-09T02:40:45.038959+00:00",
+      "source_sha256": "eb6dda13791130781dbf576baa05bae72d448f469d82739c9a269f2e42ab50ad",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/11_exceptions_and_debugging.ipynb",
+      "seconds": 1.625
+    },
+    "01-12": {
+      "status": "passed",
+      "path": "01_Python_Foundations/12_classes_and_object_oriented_programming.ipynb",
+      "checked_at_utc": "2026-10-09T02:40:16.756853+00:00",
+      "source_sha256": "6388c42ceedc5a2012d64bbeb065ecd0fc50a39358b209abd2494f0ca670bdc7",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/01_Python_Foundations/12_classes_and_object_oriented_programming.ipynb",
+      "seconds": 2.953
+    }
+  },
+  "environment": {
+    "numpy": "2.4.6",
+    "pandas": "3.0.6",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "scikit-learn": "1.9.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "python": "3.11.9",
+  "checked_at_utc": "2026-10-09T02:40:45.038959+00:00"
+}

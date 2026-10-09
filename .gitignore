@@ -1,0 +1,10 @@
+.venv/
+.jupyter/
+.ipython/
+.matplotlib/
+.cache/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+artifacts/
+

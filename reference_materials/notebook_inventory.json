@@ -1,0 +1,5554 @@
+[
+  {
+    "id": "00-01",
+    "module": "00",
+    "title": "What is Machine Learning?",
+    "path": "00_Getting_Started/01_what_is_machine_learning.ipynb",
+    "prerequisites": [],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-02",
+    "module": "00",
+    "title": "Machine Learning types and terminology",
+    "path": "00_Getting_Started/02_machine_learning_types_and_terminology.ipynb",
+    "prerequisites": [
+      "00-01"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-03",
+    "module": "00",
+    "title": "Python and Jupyter introduction",
+    "path": "00_Getting_Started/03_python_and_jupyter_introduction.ipynb",
+    "prerequisites": [
+      "00-02"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-04",
+    "module": "00",
+    "title": "What is Artificial Intelligence?",
+    "path": "00_Getting_Started/04_what_is_artificial_intelligence.ipynb",
+    "prerequisites": [
+      "00-03"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-05",
+    "module": "00",
+    "title": "Machine Learning versus Deep Learning",
+    "path": "00_Getting_Started/05_machine_learning_versus_deep_learning.ipynb",
+    "prerequisites": [
+      "00-04"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-06",
+    "module": "00",
+    "title": "Supervised learning",
+    "path": "00_Getting_Started/06_supervised_learning.ipynb",
+    "prerequisites": [
+      "00-05"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-07",
+    "module": "00",
+    "title": "Unsupervised learning",
+    "path": "00_Getting_Started/07_unsupervised_learning.ipynb",
+    "prerequisites": [
+      "00-06"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-08",
+    "module": "00",
+    "title": "Semi-supervised and self-supervised learning",
+    "path": "00_Getting_Started/08_semi_supervised_and_self_supervised_learning.ipynb",
+    "prerequisites": [
+      "00-07"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-09",
+    "module": "00",
+    "title": "Reinforcement learning introduction",
+    "path": "00_Getting_Started/09_reinforcement_learning_introduction.ipynb",
+    "prerequisites": [
+      "00-08"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-10",
+    "module": "00",
+    "title": "Datasets features labels and predictions",
+    "path": "00_Getting_Started/10_datasets_features_labels_and_predictions.ipynb",
+    "prerequisites": [
+      "00-09"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-11",
+    "module": "00",
+    "title": "Installing Python and Jupyter",
+    "path": "00_Getting_Started/11_installing_python_and_jupyter.ipynb",
+    "prerequisites": [
+      "00-10"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-12",
+    "module": "00",
+    "title": "Virtual environments and package management",
+    "path": "00_Getting_Started/12_virtual_environments_and_package_management.ipynb",
+    "prerequisites": [
+      "00-11"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-13",
+    "module": "00",
+    "title": "How to use notebooks",
+    "path": "00_Getting_Started/13_how_to_use_notebooks.ipynb",
+    "prerequisites": [
+      "00-12"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-14",
+    "module": "00",
+    "title": "Introduction to Git and GitHub",
+    "path": "00_Getting_Started/14_introduction_to_git_and_github.ipynb",
+    "prerequisites": [
+      "00-13"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "00-15",
+    "module": "00",
+    "title": "A first complete Machine Learning example",
+    "path": "00_Getting_Started/15_a_first_complete_machine_learning_example.ipynb",
+    "prerequisites": [
+      "00-14"
+    ],
+    "hours": 2,
+    "outcome": "Describe a learning problem, identify its data, and run a notebook safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-01",
+    "module": "01",
+    "title": "Variables and data types",
+    "path": "01_Python_Foundations/01_variables_and_data_types.ipynb",
+    "prerequisites": [
+      "00-03"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-02",
+    "module": "01",
+    "title": "Operators",
+    "path": "01_Python_Foundations/02_operators.ipynb",
+    "prerequisites": [
+      "01-01"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-03",
+    "module": "01",
+    "title": "Strings",
+    "path": "01_Python_Foundations/03_strings.ipynb",
+    "prerequisites": [
+      "01-02"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-04",
+    "module": "01",
+    "title": "Lists tuples sets and dictionaries",
+    "path": "01_Python_Foundations/04_lists_tuples_sets_and_dictionaries.ipynb",
+    "prerequisites": [
+      "01-03"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-05",
+    "module": "01",
+    "title": "Conditions and loops",
+    "path": "01_Python_Foundations/05_conditions_and_loops.ipynb",
+    "prerequisites": [
+      "01-04"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-06",
+    "module": "01",
+    "title": "Functions and parameters",
+    "path": "01_Python_Foundations/06_functions_and_parameters.ipynb",
+    "prerequisites": [
+      "01-05"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-07",
+    "module": "01",
+    "title": "Scope",
+    "path": "01_Python_Foundations/07_scope.ipynb",
+    "prerequisites": [
+      "01-06"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-08",
+    "module": "01",
+    "title": "List comprehensions",
+    "path": "01_Python_Foundations/08_list_comprehensions.ipynb",
+    "prerequisites": [
+      "01-07"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-09",
+    "module": "01",
+    "title": "Modules and packages",
+    "path": "01_Python_Foundations/09_modules_and_packages.ipynb",
+    "prerequisites": [
+      "01-08"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson",
+    "dependencies": [
+      "src/academy/measurements.py"
+    ]
+  },
+  {
+    "id": "01-10",
+    "module": "01",
+    "title": "File handling",
+    "path": "01_Python_Foundations/10_file_handling.ipynb",
+    "prerequisites": [
+      "01-09"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-11",
+    "module": "01",
+    "title": "Exceptions and debugging",
+    "path": "01_Python_Foundations/11_exceptions_and_debugging.ipynb",
+    "prerequisites": [
+      "01-10"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-12",
+    "module": "01",
+    "title": "Classes and object-oriented programming",
+    "path": "01_Python_Foundations/12_classes_and_object_oriented_programming.ipynb",
+    "prerequisites": [
+      "01-11"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-13",
+    "module": "01",
+    "title": "NumPy basics",
+    "path": "01_Python_Foundations/13_numpy_basics.ipynb",
+    "prerequisites": [
+      "00-03"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-14",
+    "module": "01",
+    "title": "Indexing slicing and shapes",
+    "path": "01_Python_Foundations/14_indexing_slicing_and_shapes.ipynb",
+    "prerequisites": [
+      "01-13"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-15",
+    "module": "01",
+    "title": "Vectorization and broadcasting",
+    "path": "01_Python_Foundations/15_vectorization_and_broadcasting.ipynb",
+    "prerequisites": [
+      "01-14"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-16",
+    "module": "01",
+    "title": "Pandas basics",
+    "path": "01_Python_Foundations/16_pandas_basics.ipynb",
+    "prerequisites": [
+      "01-13"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-17",
+    "module": "01",
+    "title": "Filtering grouping and merging",
+    "path": "01_Python_Foundations/17_filtering_grouping_and_merging.ipynb",
+    "prerequisites": [
+      "01-16"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-18",
+    "module": "01",
+    "title": "Visualizing data",
+    "path": "01_Python_Foundations/18_visualizing_data.ipynb",
+    "prerequisites": [
+      "01-16"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-19",
+    "module": "01",
+    "title": "Matplotlib",
+    "path": "01_Python_Foundations/19_matplotlib.ipynb",
+    "prerequisites": [
+      "01-18"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-20",
+    "module": "01",
+    "title": "Seaborn",
+    "path": "01_Python_Foundations/20_seaborn.ipynb",
+    "prerequisites": [
+      "01-19"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "01-21",
+    "module": "01",
+    "title": "Exploratory analysis",
+    "path": "01_Python_Foundations/21_exploratory_analysis.ipynb",
+    "prerequisites": [
+      "01-20"
+    ],
+    "hours": 2,
+    "outcome": "Write small Python programs and inspect, transform, and visualize tabular arrays.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-01",
+    "module": "02",
+    "title": "Fractions percentages and exponents",
+    "path": "02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb",
+    "prerequisites": [
+      "01-18"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-02",
+    "module": "02",
+    "title": "Variables and equations",
+    "path": "02_Mathematics_for_ML/02_variables_and_equations.ipynb",
+    "prerequisites": [
+      "02-01"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-03",
+    "module": "02",
+    "title": "Functions and derivatives",
+    "path": "02_Mathematics_for_ML/03_functions_and_derivatives.ipynb",
+    "prerequisites": [
+      "02-07"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-04",
+    "module": "02",
+    "title": "Functions and graphs",
+    "path": "02_Mathematics_for_ML/04_functions_and_graphs.ipynb",
+    "prerequisites": [
+      "02-03"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-05",
+    "module": "02",
+    "title": "Linear and quadratic equations",
+    "path": "02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb",
+    "prerequisites": [
+      "02-04"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-06",
+    "module": "02",
+    "title": "Logarithms and exponentials",
+    "path": "02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb",
+    "prerequisites": [
+      "02-05"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-07",
+    "module": "02",
+    "title": "Scalars vectors and matrices",
+    "path": "02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb",
+    "prerequisites": [
+      "01-18"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-08",
+    "module": "02",
+    "title": "Vector addition and multiplication",
+    "path": "02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb",
+    "prerequisites": [
+      "02-07"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-09",
+    "module": "02",
+    "title": "Dot products",
+    "path": "02_Mathematics_for_ML/09_dot_products.ipynb",
+    "prerequisites": [
+      "02-08"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-10",
+    "module": "02",
+    "title": "Matrix multiplication",
+    "path": "02_Mathematics_for_ML/10_matrix_multiplication.ipynb",
+    "prerequisites": [
+      "02-09"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-11",
+    "module": "02",
+    "title": "Matrix transpose",
+    "path": "02_Mathematics_for_ML/11_matrix_transpose.ipynb",
+    "prerequisites": [
+      "02-10"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-12",
+    "module": "02",
+    "title": "Matrix inverse and pseudoinverse",
+    "path": "02_Mathematics_for_ML/12_matrix_inverse_and_pseudoinverse.ipynb",
+    "prerequisites": [
+      "02-11"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-13",
+    "module": "02",
+    "title": "Rank",
+    "path": "02_Mathematics_for_ML/13_rank.ipynb",
+    "prerequisites": [
+      "02-12"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-14",
+    "module": "02",
+    "title": "Norms and distances",
+    "path": "02_Mathematics_for_ML/14_norms_and_distances.ipynb",
+    "prerequisites": [
+      "02-13"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-15",
+    "module": "02",
+    "title": "Eigenvalues and eigenvectors",
+    "path": "02_Mathematics_for_ML/15_eigenvalues_and_eigenvectors.ipynb",
+    "prerequisites": [
+      "02-14"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-16",
+    "module": "02",
+    "title": "Singular Value Decomposition",
+    "path": "02_Mathematics_for_ML/16_singular_value_decomposition.ipynb",
+    "prerequisites": [
+      "02-15"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-17",
+    "module": "02",
+    "title": "Limits and continuity",
+    "path": "02_Mathematics_for_ML/17_limits_and_continuity.ipynb",
+    "prerequisites": [
+      "02-16"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-18",
+    "module": "02",
+    "title": "Derivatives",
+    "path": "02_Mathematics_for_ML/18_derivatives.ipynb",
+    "prerequisites": [
+      "02-17"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-19",
+    "module": "02",
+    "title": "Partial derivatives",
+    "path": "02_Mathematics_for_ML/19_partial_derivatives.ipynb",
+    "prerequisites": [
+      "02-18"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-20",
+    "module": "02",
+    "title": "Chain rule",
+    "path": "02_Mathematics_for_ML/20_chain_rule.ipynb",
+    "prerequisites": [
+      "02-19"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-21",
+    "module": "02",
+    "title": "Gradients",
+    "path": "02_Mathematics_for_ML/21_gradients.ipynb",
+    "prerequisites": [
+      "02-20"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-22",
+    "module": "02",
+    "title": "Gradient descent",
+    "path": "02_Mathematics_for_ML/22_gradient_descent.ipynb",
+    "prerequisites": [
+      "02-21"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-23",
+    "module": "02",
+    "title": "Multivariable differentiation",
+    "path": "02_Mathematics_for_ML/23_multivariable_differentiation.ipynb",
+    "prerequisites": [
+      "02-22"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-24",
+    "module": "02",
+    "title": "Backpropagation mathematics",
+    "path": "02_Mathematics_for_ML/24_backpropagation_mathematics.ipynb",
+    "prerequisites": [
+      "02-23"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-25",
+    "module": "02",
+    "title": "Probability rules",
+    "path": "02_Mathematics_for_ML/25_probability_rules.ipynb",
+    "prerequisites": [
+      "02-24"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-26",
+    "module": "02",
+    "title": "Conditional probability",
+    "path": "02_Mathematics_for_ML/26_conditional_probability.ipynb",
+    "prerequisites": [
+      "02-25"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-27",
+    "module": "02",
+    "title": "Bayes theorem",
+    "path": "02_Mathematics_for_ML/27_bayes_theorem.ipynb",
+    "prerequisites": [
+      "02-26"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-28",
+    "module": "02",
+    "title": "Random variables",
+    "path": "02_Mathematics_for_ML/28_random_variables.ipynb",
+    "prerequisites": [
+      "02-27"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-29",
+    "module": "02",
+    "title": "Bernoulli distribution",
+    "path": "02_Mathematics_for_ML/29_bernoulli_distribution.ipynb",
+    "prerequisites": [
+      "02-28"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-30",
+    "module": "02",
+    "title": "Binomial distribution",
+    "path": "02_Mathematics_for_ML/30_binomial_distribution.ipynb",
+    "prerequisites": [
+      "02-29"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-31",
+    "module": "02",
+    "title": "Normal distribution",
+    "path": "02_Mathematics_for_ML/31_normal_distribution.ipynb",
+    "prerequisites": [
+      "02-30"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-32",
+    "module": "02",
+    "title": "Poisson distribution",
+    "path": "02_Mathematics_for_ML/32_poisson_distribution.ipynb",
+    "prerequisites": [
+      "02-31"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-33",
+    "module": "02",
+    "title": "Mean median and mode",
+    "path": "02_Mathematics_for_ML/33_mean_median_and_mode.ipynb",
+    "prerequisites": [
+      "02-32"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-34",
+    "module": "02",
+    "title": "Variance and standard deviation",
+    "path": "02_Mathematics_for_ML/34_variance_and_standard_deviation.ipynb",
+    "prerequisites": [
+      "02-33"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-35",
+    "module": "02",
+    "title": "Covariance and correlation",
+    "path": "02_Mathematics_for_ML/35_covariance_and_correlation.ipynb",
+    "prerequisites": [
+      "02-34"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-36",
+    "module": "02",
+    "title": "Sampling",
+    "path": "02_Mathematics_for_ML/36_sampling.ipynb",
+    "prerequisites": [
+      "02-35"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-37",
+    "module": "02",
+    "title": "Central Limit Theorem",
+    "path": "02_Mathematics_for_ML/37_central_limit_theorem.ipynb",
+    "prerequisites": [
+      "02-36"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-38",
+    "module": "02",
+    "title": "Confidence intervals",
+    "path": "02_Mathematics_for_ML/38_confidence_intervals.ipynb",
+    "prerequisites": [
+      "02-37"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-39",
+    "module": "02",
+    "title": "Hypothesis testing",
+    "path": "02_Mathematics_for_ML/39_hypothesis_testing.ipynb",
+    "prerequisites": [
+      "02-38"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-40",
+    "module": "02",
+    "title": "Maximum likelihood estimation",
+    "path": "02_Mathematics_for_ML/40_maximum_likelihood_estimation.ipynb",
+    "prerequisites": [
+      "02-39"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-41",
+    "module": "02",
+    "title": "Loss functions",
+    "path": "02_Mathematics_for_ML/41_loss_functions.ipynb",
+    "prerequisites": [
+      "02-40"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-42",
+    "module": "02",
+    "title": "Convexity",
+    "path": "02_Mathematics_for_ML/42_convexity.ipynb",
+    "prerequisites": [
+      "02-41"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-43",
+    "module": "02",
+    "title": "Regularization",
+    "path": "02_Mathematics_for_ML/43_regularization.ipynb",
+    "prerequisites": [
+      "02-42"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-44",
+    "module": "02",
+    "title": "Gradient descent variants",
+    "path": "02_Mathematics_for_ML/44_gradient_descent_variants.ipynb",
+    "prerequisites": [
+      "02-43"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-45",
+    "module": "02",
+    "title": "Entropy",
+    "path": "02_Mathematics_for_ML/45_entropy.ipynb",
+    "prerequisites": [
+      "02-44"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-46",
+    "module": "02",
+    "title": "Cross-entropy",
+    "path": "02_Mathematics_for_ML/46_cross_entropy.ipynb",
+    "prerequisites": [
+      "02-45"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "02-47",
+    "module": "02",
+    "title": "KL divergence",
+    "path": "02_Mathematics_for_ML/47_kl_divergence.ipynb",
+    "prerequisites": [
+      "02-46"
+    ],
+    "hours": 2,
+    "outcome": "Calculate and interpret the algebra, derivatives, probabilities, and objectives used in learning.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-01",
+    "module": "03",
+    "title": "Loading CSV JSON and Excel",
+    "path": "03_Data_Analysis_and_Preprocessing/01_loading_csv_json_and_excel.ipynb",
+    "prerequisites": [
+      "02-01"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-02",
+    "module": "03",
+    "title": "Understanding dataset structure",
+    "path": "03_Data_Analysis_and_Preprocessing/02_understanding_dataset_structure.ipynb",
+    "prerequisites": [
+      "03-01"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-03",
+    "module": "03",
+    "title": "Exploratory Data Analysis",
+    "path": "03_Data_Analysis_and_Preprocessing/03_exploratory_data_analysis.ipynb",
+    "prerequisites": [
+      "03-02"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-04",
+    "module": "03",
+    "title": "Data quality assessment",
+    "path": "03_Data_Analysis_and_Preprocessing/04_data_quality_assessment.ipynb",
+    "prerequisites": [
+      "03-03"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-05",
+    "module": "03",
+    "title": "Missing values and imputation",
+    "path": "03_Data_Analysis_and_Preprocessing/05_missing_values_and_imputation.ipynb",
+    "prerequisites": [
+      "03-04"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-06",
+    "module": "03",
+    "title": "Outlier detection and handling",
+    "path": "03_Data_Analysis_and_Preprocessing/06_outlier_detection_and_handling.ipynb",
+    "prerequisites": [
+      "03-05"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-07",
+    "module": "03",
+    "title": "Duplicate records",
+    "path": "03_Data_Analysis_and_Preprocessing/07_duplicate_records.ipynb",
+    "prerequisites": [
+      "03-06"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-08",
+    "module": "03",
+    "title": "Categorical encoding",
+    "path": "03_Data_Analysis_and_Preprocessing/08_categorical_encoding.ipynb",
+    "prerequisites": [
+      "03-07"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-09",
+    "module": "03",
+    "title": "One-hot versus ordinal encoding",
+    "path": "03_Data_Analysis_and_Preprocessing/09_one_hot_versus_ordinal_encoding.ipynb",
+    "prerequisites": [
+      "03-08"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-10",
+    "module": "03",
+    "title": "Normalization and standardization",
+    "path": "03_Data_Analysis_and_Preprocessing/10_normalization_and_standardization.ipynb",
+    "prerequisites": [
+      "03-09"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-11",
+    "module": "03",
+    "title": "Feature transformations",
+    "path": "03_Data_Analysis_and_Preprocessing/11_feature_transformations.ipynb",
+    "prerequisites": [
+      "03-10"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-12",
+    "module": "03",
+    "title": "Feature construction",
+    "path": "03_Data_Analysis_and_Preprocessing/12_feature_construction.ipynb",
+    "prerequisites": [
+      "03-11"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-13",
+    "module": "03",
+    "title": "Feature selection introduction",
+    "path": "03_Data_Analysis_and_Preprocessing/13_feature_selection_introduction.ipynb",
+    "prerequisites": [
+      "03-12"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-14",
+    "module": "03",
+    "title": "Class imbalance",
+    "path": "03_Data_Analysis_and_Preprocessing/14_class_imbalance.ipynb",
+    "prerequisites": [
+      "03-13"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-15",
+    "module": "03",
+    "title": "Data leakage",
+    "path": "03_Data_Analysis_and_Preprocessing/15_data_leakage.ipynb",
+    "prerequisites": [
+      "03-14"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-16",
+    "module": "03",
+    "title": "Train validation and test splitting",
+    "path": "03_Data_Analysis_and_Preprocessing/16_train_validation_and_test_splitting.ipynb",
+    "prerequisites": [
+      "03-15"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-17",
+    "module": "03",
+    "title": "Data preprocessing pipelines",
+    "path": "03_Data_Analysis_and_Preprocessing/17_data_preprocessing_pipelines.ipynb",
+    "prerequisites": [
+      "03-16"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-18",
+    "module": "03",
+    "title": "ColumnTransformer",
+    "path": "03_Data_Analysis_and_Preprocessing/18_columntransformer.ipynb",
+    "prerequisites": [
+      "03-17"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "03-19",
+    "module": "03",
+    "title": "Data validation",
+    "path": "03_Data_Analysis_and_Preprocessing/19_data_validation.ipynb",
+    "prerequisites": [
+      "03-18"
+    ],
+    "hours": 2,
+    "outcome": "Build train-only transformations and detect data-quality failures before modeling.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-01",
+    "module": "04",
+    "title": "What learning means mathematically",
+    "path": "04_Machine_Learning_Foundations/01_what_learning_means_mathematically.ipynb",
+    "prerequisites": [
+      "03-01"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-02",
+    "module": "04",
+    "title": "Parameters versus hyperparameters",
+    "path": "04_Machine_Learning_Foundations/02_parameters_versus_hyperparameters.ipynb",
+    "prerequisites": [
+      "04-01"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-03",
+    "module": "04",
+    "title": "Training versus inference",
+    "path": "04_Machine_Learning_Foundations/03_training_versus_inference.ipynb",
+    "prerequisites": [
+      "04-02"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-04",
+    "module": "04",
+    "title": "Supervised prediction",
+    "path": "04_Machine_Learning_Foundations/04_supervised_prediction.ipynb",
+    "prerequisites": [
+      "04-03"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-05",
+    "module": "04",
+    "title": "Generalization",
+    "path": "04_Machine_Learning_Foundations/05_generalization.ipynb",
+    "prerequisites": [
+      "04-04"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-06",
+    "module": "04",
+    "title": "Empirical risk minimization",
+    "path": "04_Machine_Learning_Foundations/06_empirical_risk_minimization.ipynb",
+    "prerequisites": [
+      "04-05"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-07",
+    "module": "04",
+    "title": "Bias versus variance",
+    "path": "04_Machine_Learning_Foundations/07_bias_versus_variance.ipynb",
+    "prerequisites": [
+      "04-06"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-08",
+    "module": "04",
+    "title": "Overfitting and underfitting",
+    "path": "04_Machine_Learning_Foundations/08_overfitting_and_underfitting.ipynb",
+    "prerequisites": [
+      "04-07"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-09",
+    "module": "04",
+    "title": "Training and validation curves",
+    "path": "04_Machine_Learning_Foundations/09_training_and_validation_curves.ipynb",
+    "prerequisites": [
+      "04-08"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-10",
+    "module": "04",
+    "title": "Loss and objective functions",
+    "path": "04_Machine_Learning_Foundations/10_loss_and_objective_functions.ipynb",
+    "prerequisites": [
+      "04-09"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-11",
+    "module": "04",
+    "title": "Regularization intuition",
+    "path": "04_Machine_Learning_Foundations/11_regularization_intuition.ipynb",
+    "prerequisites": [
+      "04-10"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-12",
+    "module": "04",
+    "title": "Baseline models",
+    "path": "04_Machine_Learning_Foundations/12_baseline_models.ipynb",
+    "prerequisites": [
+      "04-11"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-13",
+    "module": "04",
+    "title": "Evaluation metrics",
+    "path": "04_Machine_Learning_Foundations/13_evaluation_metrics.ipynb",
+    "prerequisites": [
+      "04-12"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-14",
+    "module": "04",
+    "title": "Experimental design",
+    "path": "04_Machine_Learning_Foundations/14_experimental_design.ipynb",
+    "prerequisites": [
+      "04-13"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-15",
+    "module": "04",
+    "title": "Reproducibility",
+    "path": "04_Machine_Learning_Foundations/15_reproducibility.ipynb",
+    "prerequisites": [
+      "04-14"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "04-16",
+    "module": "04",
+    "title": "Common modeling mistakes",
+    "path": "04_Machine_Learning_Foundations/16_common_modeling_mistakes.ipynb",
+    "prerequisites": [
+      "04-15"
+    ],
+    "hours": 2,
+    "outcome": "Design reproducible experiments that distinguish fit from generalization.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "05-01",
+    "module": "05",
+    "title": "Simple Linear Regression from scratch",
+    "path": "05_Regression_Algorithms/01_simple_linear_regression_from_scratch.ipynb",
+    "prerequisites": [
+      "04-01"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-02",
+    "module": "05",
+    "title": "Multiple Linear Regression",
+    "path": "05_Regression_Algorithms/02_multiple_linear_regression.ipynb",
+    "prerequisites": [
+      "05-01"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-03",
+    "module": "05",
+    "title": "Ordinary Least Squares",
+    "path": "05_Regression_Algorithms/03_ordinary_least_squares.ipynb",
+    "prerequisites": [
+      "05-02"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-04",
+    "module": "05",
+    "title": "Normal Equation",
+    "path": "05_Regression_Algorithms/04_normal_equation.ipynb",
+    "prerequisites": [
+      "05-03"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-05",
+    "module": "05",
+    "title": "Batch Gradient Descent",
+    "path": "05_Regression_Algorithms/05_batch_gradient_descent.ipynb",
+    "prerequisites": [
+      "05-04"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-06",
+    "module": "05",
+    "title": "Stochastic Gradient Descent",
+    "path": "05_Regression_Algorithms/06_stochastic_gradient_descent.ipynb",
+    "prerequisites": [
+      "05-05"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-07",
+    "module": "05",
+    "title": "Mini-Batch Gradient Descent",
+    "path": "05_Regression_Algorithms/07_mini_batch_gradient_descent.ipynb",
+    "prerequisites": [
+      "05-06"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-08",
+    "module": "05",
+    "title": "Polynomial Regression",
+    "path": "05_Regression_Algorithms/08_polynomial_regression.ipynb",
+    "prerequisites": [
+      "05-07"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-09",
+    "module": "05",
+    "title": "Ridge Regression",
+    "path": "05_Regression_Algorithms/09_ridge_regression.ipynb",
+    "prerequisites": [
+      "05-08"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-10",
+    "module": "05",
+    "title": "Lasso Regression",
+    "path": "05_Regression_Algorithms/10_lasso_regression.ipynb",
+    "prerequisites": [
+      "05-09"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-11",
+    "module": "05",
+    "title": "Elastic Net Regression",
+    "path": "05_Regression_Algorithms/11_elastic_net_regression.ipynb",
+    "prerequisites": [
+      "05-10"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-12",
+    "module": "05",
+    "title": "Bayesian Ridge Regression",
+    "path": "05_Regression_Algorithms/12_bayesian_ridge_regression.ipynb",
+    "prerequisites": [
+      "05-11"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-13",
+    "module": "05",
+    "title": "Huber Regression",
+    "path": "05_Regression_Algorithms/13_huber_regression.ipynb",
+    "prerequisites": [
+      "05-12"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-14",
+    "module": "05",
+    "title": "RANSAC Regression",
+    "path": "05_Regression_Algorithms/14_ransac_regression.ipynb",
+    "prerequisites": [
+      "05-13"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-15",
+    "module": "05",
+    "title": "Quantile Regression",
+    "path": "05_Regression_Algorithms/15_quantile_regression.ipynb",
+    "prerequisites": [
+      "05-14"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-16",
+    "module": "05",
+    "title": "Poisson Regression",
+    "path": "05_Regression_Algorithms/16_poisson_regression.ipynb",
+    "prerequisites": [
+      "05-15"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-17",
+    "module": "05",
+    "title": "K-Nearest Neighbors Regression",
+    "path": "05_Regression_Algorithms/17_k_nearest_neighbors_regression.ipynb",
+    "prerequisites": [
+      "05-16"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-18",
+    "module": "05",
+    "title": "Support Vector Regression",
+    "path": "05_Regression_Algorithms/18_support_vector_regression.ipynb",
+    "prerequisites": [
+      "05-17"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-19",
+    "module": "05",
+    "title": "Decision Tree Regression",
+    "path": "05_Regression_Algorithms/19_decision_tree_regression.ipynb",
+    "prerequisites": [
+      "05-18"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-20",
+    "module": "05",
+    "title": "Random Forest Regression",
+    "path": "05_Regression_Algorithms/20_random_forest_regression.ipynb",
+    "prerequisites": [
+      "05-19"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-21",
+    "module": "05",
+    "title": "Gradient Boosting Regression",
+    "path": "05_Regression_Algorithms/21_gradient_boosting_regression.ipynb",
+    "prerequisites": [
+      "05-20"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-22",
+    "module": "05",
+    "title": "Regression metrics",
+    "path": "05_Regression_Algorithms/22_regression_metrics.ipynb",
+    "prerequisites": [
+      "05-21"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-23",
+    "module": "05",
+    "title": "Residual analysis",
+    "path": "05_Regression_Algorithms/23_residual_analysis.ipynb",
+    "prerequisites": [
+      "05-22"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-24",
+    "module": "05",
+    "title": "Multicollinearity",
+    "path": "05_Regression_Algorithms/24_multicollinearity.ipynb",
+    "prerequisites": [
+      "05-23"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "05-25",
+    "module": "05",
+    "title": "Statistical assumptions",
+    "path": "05_Regression_Algorithms/25_statistical_assumptions.ipynb",
+    "prerequisites": [
+      "05-24"
+    ],
+    "hours": 4,
+    "outcome": "Derive regression predictions and losses, compare estimators, and diagnose residuals.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-01",
+    "module": "06",
+    "title": "Binary Logistic Regression",
+    "path": "06_Classification_Algorithms/01_binary_logistic_regression.ipynb",
+    "prerequisites": [
+      "05-01"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-02",
+    "module": "06",
+    "title": "Multiclass Logistic Regression",
+    "path": "06_Classification_Algorithms/02_multiclass_logistic_regression.ipynb",
+    "prerequisites": [
+      "06-01"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-03",
+    "module": "06",
+    "title": "Softmax Regression",
+    "path": "06_Classification_Algorithms/03_softmax_regression.ipynb",
+    "prerequisites": [
+      "06-02"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-04",
+    "module": "06",
+    "title": "Perceptron",
+    "path": "06_Classification_Algorithms/04_perceptron.ipynb",
+    "prerequisites": [
+      "06-03"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-05",
+    "module": "06",
+    "title": "SGD Classifier",
+    "path": "06_Classification_Algorithms/05_sgd_classifier.ipynb",
+    "prerequisites": [
+      "06-04"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-06",
+    "module": "06",
+    "title": "K-Nearest Neighbors Classifier",
+    "path": "06_Classification_Algorithms/06_k_nearest_neighbors_classifier.ipynb",
+    "prerequisites": [
+      "06-05"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-07",
+    "module": "06",
+    "title": "Gaussian Naive Bayes",
+    "path": "06_Classification_Algorithms/07_gaussian_naive_bayes.ipynb",
+    "prerequisites": [
+      "06-06"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-08",
+    "module": "06",
+    "title": "Multinomial Naive Bayes",
+    "path": "06_Classification_Algorithms/08_multinomial_naive_bayes.ipynb",
+    "prerequisites": [
+      "06-07"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-09",
+    "module": "06",
+    "title": "Bernoulli Naive Bayes",
+    "path": "06_Classification_Algorithms/09_bernoulli_naive_bayes.ipynb",
+    "prerequisites": [
+      "06-08"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-10",
+    "module": "06",
+    "title": "Linear Discriminant Analysis",
+    "path": "06_Classification_Algorithms/10_linear_discriminant_analysis.ipynb",
+    "prerequisites": [
+      "06-09"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-11",
+    "module": "06",
+    "title": "Quadratic Discriminant Analysis",
+    "path": "06_Classification_Algorithms/11_quadratic_discriminant_analysis.ipynb",
+    "prerequisites": [
+      "06-10"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-12",
+    "module": "06",
+    "title": "Linear Support Vector Machine",
+    "path": "06_Classification_Algorithms/12_linear_support_vector_machine.ipynb",
+    "prerequisites": [
+      "06-11"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-13",
+    "module": "06",
+    "title": "Kernel Support Vector Machine",
+    "path": "06_Classification_Algorithms/13_kernel_support_vector_machine.ipynb",
+    "prerequisites": [
+      "06-12"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-14",
+    "module": "06",
+    "title": "Decision Tree Classification",
+    "path": "06_Classification_Algorithms/14_decision_tree_classification.ipynb",
+    "prerequisites": [
+      "06-13"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-15",
+    "module": "06",
+    "title": "Random Forest Classification",
+    "path": "06_Classification_Algorithms/15_random_forest_classification.ipynb",
+    "prerequisites": [
+      "06-14"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-16",
+    "module": "06",
+    "title": "Sigmoid function",
+    "path": "06_Classification_Algorithms/16_sigmoid_function.ipynb",
+    "prerequisites": [
+      "06-15"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-17",
+    "module": "06",
+    "title": "Decision boundaries",
+    "path": "06_Classification_Algorithms/17_decision_boundaries.ipynb",
+    "prerequisites": [
+      "06-16"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-18",
+    "module": "06",
+    "title": "Probabilities versus labels",
+    "path": "06_Classification_Algorithms/18_probabilities_versus_labels.ipynb",
+    "prerequisites": [
+      "06-17"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-19",
+    "module": "06",
+    "title": "Confusion matrix",
+    "path": "06_Classification_Algorithms/19_confusion_matrix.ipynb",
+    "prerequisites": [
+      "06-18"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-20",
+    "module": "06",
+    "title": "Accuracy precision recall and F1",
+    "path": "06_Classification_Algorithms/20_accuracy_precision_recall_and_f1.ipynb",
+    "prerequisites": [
+      "06-19"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-21",
+    "module": "06",
+    "title": "Sensitivity and specificity",
+    "path": "06_Classification_Algorithms/21_sensitivity_and_specificity.ipynb",
+    "prerequisites": [
+      "06-20"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-22",
+    "module": "06",
+    "title": "ROC and AUC",
+    "path": "06_Classification_Algorithms/22_roc_and_auc.ipynb",
+    "prerequisites": [
+      "06-21"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-23",
+    "module": "06",
+    "title": "Precision-recall curves",
+    "path": "06_Classification_Algorithms/23_precision_recall_curves.ipynb",
+    "prerequisites": [
+      "06-22"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-24",
+    "module": "06",
+    "title": "Classification thresholds",
+    "path": "06_Classification_Algorithms/24_classification_thresholds.ipynb",
+    "prerequisites": [
+      "06-23"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-25",
+    "module": "06",
+    "title": "Probability calibration",
+    "path": "06_Classification_Algorithms/25_probability_calibration.ipynb",
+    "prerequisites": [
+      "06-24"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "06-26",
+    "module": "06",
+    "title": "Multiclass and multilabel evaluation",
+    "path": "06_Classification_Algorithms/26_multiclass_and_multilabel_evaluation.ipynb",
+    "prerequisites": [
+      "06-25"
+    ],
+    "hours": 4,
+    "outcome": "Connect class probabilities to decisions and evaluate the costs of classification errors.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-01",
+    "module": "07",
+    "title": "Decision Tree Classifier",
+    "path": "07_Decision_Trees_and_Ensembles/01_decision_tree_classifier.ipynb",
+    "prerequisites": [
+      "06-01"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-02",
+    "module": "07",
+    "title": "Decision Tree Regressor",
+    "path": "07_Decision_Trees_and_Ensembles/02_decision_tree_regressor.ipynb",
+    "prerequisites": [
+      "07-01"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-03",
+    "module": "07",
+    "title": "Entropy and Gini impurity",
+    "path": "07_Decision_Trees_and_Ensembles/03_entropy_and_gini_impurity.ipynb",
+    "prerequisites": [
+      "07-02"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-04",
+    "module": "07",
+    "title": "Information gain",
+    "path": "07_Decision_Trees_and_Ensembles/04_information_gain.ipynb",
+    "prerequisites": [
+      "07-03"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-05",
+    "module": "07",
+    "title": "Tree pruning",
+    "path": "07_Decision_Trees_and_Ensembles/05_tree_pruning.ipynb",
+    "prerequisites": [
+      "07-04"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-06",
+    "module": "07",
+    "title": "Bagging",
+    "path": "07_Decision_Trees_and_Ensembles/06_bagging.ipynb",
+    "prerequisites": [
+      "07-05"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-07",
+    "module": "07",
+    "title": "Random Forests",
+    "path": "07_Decision_Trees_and_Ensembles/07_random_forests.ipynb",
+    "prerequisites": [
+      "07-06"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-08",
+    "module": "07",
+    "title": "Extra Trees",
+    "path": "07_Decision_Trees_and_Ensembles/08_extra_trees.ipynb",
+    "prerequisites": [
+      "07-07"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-09",
+    "module": "07",
+    "title": "AdaBoost",
+    "path": "07_Decision_Trees_and_Ensembles/09_adaboost.ipynb",
+    "prerequisites": [
+      "07-08"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-10",
+    "module": "07",
+    "title": "Gradient Boosting",
+    "path": "07_Decision_Trees_and_Ensembles/10_gradient_boosting.ipynb",
+    "prerequisites": [
+      "07-09"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-11",
+    "module": "07",
+    "title": "Histogram Gradient Boosting",
+    "path": "07_Decision_Trees_and_Ensembles/11_histogram_gradient_boosting.ipynb",
+    "prerequisites": [
+      "07-10"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-12",
+    "module": "07",
+    "title": "XGBoost",
+    "path": "07_Decision_Trees_and_Ensembles/12_xgboost.ipynb",
+    "prerequisites": [
+      "07-11"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": true,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-13",
+    "module": "07",
+    "title": "LightGBM",
+    "path": "07_Decision_Trees_and_Ensembles/13_lightgbm.ipynb",
+    "prerequisites": [
+      "07-12"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": true,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-14",
+    "module": "07",
+    "title": "CatBoost",
+    "path": "07_Decision_Trees_and_Ensembles/14_catboost.ipynb",
+    "prerequisites": [
+      "07-13"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": true,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-15",
+    "module": "07",
+    "title": "Voting ensembles",
+    "path": "07_Decision_Trees_and_Ensembles/15_voting_ensembles.ipynb",
+    "prerequisites": [
+      "07-14"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-16",
+    "module": "07",
+    "title": "Stacking",
+    "path": "07_Decision_Trees_and_Ensembles/16_stacking.ipynb",
+    "prerequisites": [
+      "07-15"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-17",
+    "module": "07",
+    "title": "Blending",
+    "path": "07_Decision_Trees_and_Ensembles/17_blending.ipynb",
+    "prerequisites": [
+      "07-16"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "07-18",
+    "module": "07",
+    "title": "Bagging versus boosting",
+    "path": "07_Decision_Trees_and_Ensembles/18_bagging_versus_boosting.ipynb",
+    "prerequisites": [
+      "07-17"
+    ],
+    "hours": 4,
+    "outcome": "Explain splitting, randomization, and sequential error correction with controlled experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "08-01",
+    "module": "08",
+    "title": "Holdout validation",
+    "path": "08_Model_Evaluation_and_Optimization/01_holdout_validation.ipynb",
+    "prerequisites": [
+      "07-01"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-02",
+    "module": "08",
+    "title": "K-Fold Cross-Validation",
+    "path": "08_Model_Evaluation_and_Optimization/02_k_fold_cross_validation.ipynb",
+    "prerequisites": [
+      "08-01"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-03",
+    "module": "08",
+    "title": "Stratified K-Fold",
+    "path": "08_Model_Evaluation_and_Optimization/03_stratified_k_fold.ipynb",
+    "prerequisites": [
+      "08-02"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-04",
+    "module": "08",
+    "title": "Grouped validation",
+    "path": "08_Model_Evaluation_and_Optimization/04_grouped_validation.ipynb",
+    "prerequisites": [
+      "08-03"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-05",
+    "module": "08",
+    "title": "Time-series validation",
+    "path": "08_Model_Evaluation_and_Optimization/05_time_series_validation.ipynb",
+    "prerequisites": [
+      "08-04"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-06",
+    "module": "08",
+    "title": "Cross-validation leakage",
+    "path": "08_Model_Evaluation_and_Optimization/06_cross_validation_leakage.ipynb",
+    "prerequisites": [
+      "08-05"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-07",
+    "module": "08",
+    "title": "GridSearchCV",
+    "path": "08_Model_Evaluation_and_Optimization/07_gridsearchcv.ipynb",
+    "prerequisites": [
+      "08-06"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-08",
+    "module": "08",
+    "title": "RandomizedSearchCV",
+    "path": "08_Model_Evaluation_and_Optimization/08_randomizedsearchcv.ipynb",
+    "prerequisites": [
+      "08-07"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-09",
+    "module": "08",
+    "title": "Bayesian hyperparameter optimization",
+    "path": "08_Model_Evaluation_and_Optimization/09_bayesian_hyperparameter_optimization.ipynb",
+    "prerequisites": [
+      "08-08"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-10",
+    "module": "08",
+    "title": "Nested cross-validation",
+    "path": "08_Model_Evaluation_and_Optimization/10_nested_cross_validation.ipynb",
+    "prerequisites": [
+      "08-09"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-11",
+    "module": "08",
+    "title": "Learning curves",
+    "path": "08_Model_Evaluation_and_Optimization/11_learning_curves.ipynb",
+    "prerequisites": [
+      "08-10"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-12",
+    "module": "08",
+    "title": "Validation curves",
+    "path": "08_Model_Evaluation_and_Optimization/12_validation_curves.ipynb",
+    "prerequisites": [
+      "08-11"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-13",
+    "module": "08",
+    "title": "Feature selection",
+    "path": "08_Model_Evaluation_and_Optimization/13_feature_selection.ipynb",
+    "prerequisites": [
+      "08-12"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-14",
+    "module": "08",
+    "title": "Recursive Feature Elimination",
+    "path": "08_Model_Evaluation_and_Optimization/14_recursive_feature_elimination.ipynb",
+    "prerequisites": [
+      "08-13"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-15",
+    "module": "08",
+    "title": "Threshold optimization",
+    "path": "08_Model_Evaluation_and_Optimization/15_threshold_optimization.ipynb",
+    "prerequisites": [
+      "08-14"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-16",
+    "module": "08",
+    "title": "Imbalanced-learning strategies",
+    "path": "08_Model_Evaluation_and_Optimization/16_imbalanced_learning_strategies.ipynb",
+    "prerequisites": [
+      "08-15"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-17",
+    "module": "08",
+    "title": "Error analysis",
+    "path": "08_Model_Evaluation_and_Optimization/17_error_analysis.ipynb",
+    "prerequisites": [
+      "08-16"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-18",
+    "module": "08",
+    "title": "Model comparison",
+    "path": "08_Model_Evaluation_and_Optimization/18_model_comparison.ipynb",
+    "prerequisites": [
+      "08-17"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "08-19",
+    "module": "08",
+    "title": "Statistical uncertainty of evaluation results",
+    "path": "08_Model_Evaluation_and_Optimization/19_statistical_uncertainty_of_evaluation_results.ipynb",
+    "prerequisites": [
+      "08-18"
+    ],
+    "hours": 4,
+    "outcome": "Choose defensible validation designs and tune models without leaking test information.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "09-01",
+    "module": "09",
+    "title": "K-Means",
+    "path": "09_Clustering/01_k_means.ipynb",
+    "prerequisites": [
+      "08-01"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-02",
+    "module": "09",
+    "title": "K-Means++ initialization",
+    "path": "09_Clustering/02_k_means_initialization.ipynb",
+    "prerequisites": [
+      "09-01"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-03",
+    "module": "09",
+    "title": "Mini-Batch K-Means",
+    "path": "09_Clustering/03_mini_batch_k_means.ipynb",
+    "prerequisites": [
+      "09-02"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-04",
+    "module": "09",
+    "title": "Hierarchical Clustering",
+    "path": "09_Clustering/04_hierarchical_clustering.ipynb",
+    "prerequisites": [
+      "09-03"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-05",
+    "module": "09",
+    "title": "Agglomerative Clustering",
+    "path": "09_Clustering/05_agglomerative_clustering.ipynb",
+    "prerequisites": [
+      "09-04"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-06",
+    "module": "09",
+    "title": "DBSCAN",
+    "path": "09_Clustering/06_dbscan.ipynb",
+    "prerequisites": [
+      "09-05"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-07",
+    "module": "09",
+    "title": "OPTICS",
+    "path": "09_Clustering/07_optics.ipynb",
+    "prerequisites": [
+      "09-06"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-08",
+    "module": "09",
+    "title": "HDBSCAN",
+    "path": "09_Clustering/08_hdbscan.ipynb",
+    "prerequisites": [
+      "09-07"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-09",
+    "module": "09",
+    "title": "Gaussian Mixture Models",
+    "path": "09_Clustering/09_gaussian_mixture_models.ipynb",
+    "prerequisites": [
+      "09-08"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-10",
+    "module": "09",
+    "title": "Expectation-Maximization",
+    "path": "09_Clustering/10_expectation_maximization.ipynb",
+    "prerequisites": [
+      "09-09"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-11",
+    "module": "09",
+    "title": "Spectral Clustering",
+    "path": "09_Clustering/11_spectral_clustering.ipynb",
+    "prerequisites": [
+      "09-10"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-12",
+    "module": "09",
+    "title": "Mean Shift",
+    "path": "09_Clustering/12_mean_shift.ipynb",
+    "prerequisites": [
+      "09-11"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-13",
+    "module": "09",
+    "title": "Affinity Propagation",
+    "path": "09_Clustering/13_affinity_propagation.ipynb",
+    "prerequisites": [
+      "09-12"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-14",
+    "module": "09",
+    "title": "Cluster evaluation and silhouette scores",
+    "path": "09_Clustering/14_cluster_evaluation_and_silhouette_scores.ipynb",
+    "prerequisites": [
+      "09-13"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "09-15",
+    "module": "09",
+    "title": "Cluster visualization and algorithm selection",
+    "path": "09_Clustering/15_cluster_visualization_and_algorithm_selection.ipynb",
+    "prerequisites": [
+      "09-14"
+    ],
+    "hours": 4,
+    "outcome": "Choose and evaluate cluster geometry while distinguishing structure from arbitrary labels.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-01",
+    "module": "10",
+    "title": "Principal Component Analysis",
+    "path": "10_Dimensionality_Reduction/01_principal_component_analysis.ipynb",
+    "prerequisites": [
+      "09-01"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-02",
+    "module": "10",
+    "title": "PCA from scratch",
+    "path": "10_Dimensionality_Reduction/02_pca_from_scratch.ipynb",
+    "prerequisites": [
+      "10-01"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-03",
+    "module": "10",
+    "title": "Singular Value Decomposition",
+    "path": "10_Dimensionality_Reduction/03_singular_value_decomposition.ipynb",
+    "prerequisites": [
+      "10-02"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-04",
+    "module": "10",
+    "title": "Kernel PCA",
+    "path": "10_Dimensionality_Reduction/04_kernel_pca.ipynb",
+    "prerequisites": [
+      "10-03"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-05",
+    "module": "10",
+    "title": "Independent Component Analysis",
+    "path": "10_Dimensionality_Reduction/05_independent_component_analysis.ipynb",
+    "prerequisites": [
+      "10-04"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-06",
+    "module": "10",
+    "title": "Factor Analysis",
+    "path": "10_Dimensionality_Reduction/06_factor_analysis.ipynb",
+    "prerequisites": [
+      "10-05"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-07",
+    "module": "10",
+    "title": "Non-negative Matrix Factorization",
+    "path": "10_Dimensionality_Reduction/07_non_negative_matrix_factorization.ipynb",
+    "prerequisites": [
+      "10-06"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-08",
+    "module": "10",
+    "title": "t-SNE",
+    "path": "10_Dimensionality_Reduction/08_t_sne.ipynb",
+    "prerequisites": [
+      "10-07"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-09",
+    "module": "10",
+    "title": "UMAP",
+    "path": "10_Dimensionality_Reduction/09_umap.ipynb",
+    "prerequisites": [
+      "10-08"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": true,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-10",
+    "module": "10",
+    "title": "Random Projection",
+    "path": "10_Dimensionality_Reduction/10_random_projection.ipynb",
+    "prerequisites": [
+      "10-09"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-11",
+    "module": "10",
+    "title": "Feature selection versus feature extraction",
+    "path": "10_Dimensionality_Reduction/11_feature_selection_versus_feature_extraction.ipynb",
+    "prerequisites": [
+      "10-10"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "10-12",
+    "module": "10",
+    "title": "Autoencoder-based representation learning",
+    "path": "10_Dimensionality_Reduction/12_autoencoder_based_representation_learning.ipynb",
+    "prerequisites": [
+      "10-11"
+    ],
+    "hours": 4,
+    "outcome": "Explain projection, reconstruction, and neighborhood preservation with explicit information tradeoffs.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-01",
+    "module": "11",
+    "title": "Statistical anomaly detection",
+    "path": "11_Anomaly_Detection/01_statistical_anomaly_detection.ipynb",
+    "prerequisites": [
+      "10-01"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-02",
+    "module": "11",
+    "title": "Z-score and robust statistics",
+    "path": "11_Anomaly_Detection/02_z_score_and_robust_statistics.ipynb",
+    "prerequisites": [
+      "11-01"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-03",
+    "module": "11",
+    "title": "Isolation Forest",
+    "path": "11_Anomaly_Detection/03_isolation_forest.ipynb",
+    "prerequisites": [
+      "11-02"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-04",
+    "module": "11",
+    "title": "Local Outlier Factor",
+    "path": "11_Anomaly_Detection/04_local_outlier_factor.ipynb",
+    "prerequisites": [
+      "11-03"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-05",
+    "module": "11",
+    "title": "One-Class SVM",
+    "path": "11_Anomaly_Detection/05_one_class_svm.ipynb",
+    "prerequisites": [
+      "11-04"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-06",
+    "module": "11",
+    "title": "Robust covariance approaches",
+    "path": "11_Anomaly_Detection/06_robust_covariance_approaches.ipynb",
+    "prerequisites": [
+      "11-05"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-07",
+    "module": "11",
+    "title": "Autoencoder anomaly detection",
+    "path": "11_Anomaly_Detection/07_autoencoder_anomaly_detection.ipynb",
+    "prerequisites": [
+      "11-06"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-08",
+    "module": "11",
+    "title": "Anomaly detection evaluation",
+    "path": "11_Anomaly_Detection/08_anomaly_detection_evaluation.ipynb",
+    "prerequisites": [
+      "11-07"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-09",
+    "module": "11",
+    "title": "Suspicious transactions",
+    "path": "11_Anomaly_Detection/09_suspicious_transactions.ipynb",
+    "prerequisites": [
+      "11-08"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "11-10",
+    "module": "11",
+    "title": "Sensor anomalies",
+    "path": "11_Anomaly_Detection/10_sensor_anomalies.ipynb",
+    "prerequisites": [
+      "11-09"
+    ],
+    "hours": 4,
+    "outcome": "Score unusual observations and evaluate rare-event alerts using labeled audit examples.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "12-01",
+    "module": "12",
+    "title": "Time-series basics",
+    "path": "12_Time_Series/01_time_series_basics.ipynb",
+    "prerequisites": [
+      "11-01"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-02",
+    "module": "12",
+    "title": "Trend seasonality and stationarity",
+    "path": "12_Time_Series/02_trend_seasonality_and_stationarity.ipynb",
+    "prerequisites": [
+      "12-01"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-03",
+    "module": "12",
+    "title": "Moving averages",
+    "path": "12_Time_Series/03_moving_averages.ipynb",
+    "prerequisites": [
+      "12-02"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-04",
+    "module": "12",
+    "title": "Exponential smoothing",
+    "path": "12_Time_Series/04_exponential_smoothing.ipynb",
+    "prerequisites": [
+      "12-03"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-05",
+    "module": "12",
+    "title": "Autoregression AR",
+    "path": "12_Time_Series/05_autoregression_ar.ipynb",
+    "prerequisites": [
+      "12-04"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-06",
+    "module": "12",
+    "title": "Moving Average MA",
+    "path": "12_Time_Series/06_moving_average_ma.ipynb",
+    "prerequisites": [
+      "12-05"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-07",
+    "module": "12",
+    "title": "ARMA",
+    "path": "12_Time_Series/07_arma.ipynb",
+    "prerequisites": [
+      "12-06"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-08",
+    "module": "12",
+    "title": "ARIMA",
+    "path": "12_Time_Series/08_arima.ipynb",
+    "prerequisites": [
+      "12-07"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-09",
+    "module": "12",
+    "title": "SARIMA",
+    "path": "12_Time_Series/09_sarima.ipynb",
+    "prerequisites": [
+      "12-08"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-10",
+    "module": "12",
+    "title": "Feature-based forecasting",
+    "path": "12_Time_Series/10_feature_based_forecasting.ipynb",
+    "prerequisites": [
+      "12-09"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-11",
+    "module": "12",
+    "title": "Lag features and rolling windows",
+    "path": "12_Time_Series/11_lag_features_and_rolling_windows.ipynb",
+    "prerequisites": [
+      "12-10"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-12",
+    "module": "12",
+    "title": "Time-series cross-validation",
+    "path": "12_Time_Series/12_time_series_cross_validation.ipynb",
+    "prerequisites": [
+      "12-11"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-13",
+    "module": "12",
+    "title": "Forecasting with Random Forests",
+    "path": "12_Time_Series/13_forecasting_with_random_forests.ipynb",
+    "prerequisites": [
+      "12-12"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-14",
+    "module": "12",
+    "title": "Forecasting with Gradient Boosting",
+    "path": "12_Time_Series/14_forecasting_with_gradient_boosting.ipynb",
+    "prerequisites": [
+      "12-13"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-15",
+    "module": "12",
+    "title": "LSTM forecasting",
+    "path": "12_Time_Series/15_lstm_forecasting.ipynb",
+    "prerequisites": [
+      "12-14"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-16",
+    "module": "12",
+    "title": "Forecasting metrics",
+    "path": "12_Time_Series/16_forecasting_metrics.ipynb",
+    "prerequisites": [
+      "12-15"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-17",
+    "module": "12",
+    "title": "Data leakage in time series",
+    "path": "12_Time_Series/17_data_leakage_in_time_series.ipynb",
+    "prerequisites": [
+      "12-16"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "12-18",
+    "module": "12",
+    "title": "Advanced forecasting libraries",
+    "path": "12_Time_Series/18_advanced_forecasting_libraries.ipynb",
+    "prerequisites": [
+      "12-17"
+    ],
+    "hours": 4,
+    "outcome": "Forecast future values using chronological validation and information available at forecast time.",
+    "optional": true,
+    "kind": "lesson"
+  },
+  {
+    "id": "13-01",
+    "module": "13",
+    "title": "Bayesian inference",
+    "path": "13_Probabilistic_Machine_Learning/01_bayesian_inference.ipynb",
+    "prerequisites": [
+      "12-01"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-02",
+    "module": "13",
+    "title": "Prior likelihood and posterior",
+    "path": "13_Probabilistic_Machine_Learning/02_prior_likelihood_and_posterior.ipynb",
+    "prerequisites": [
+      "13-01"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-03",
+    "module": "13",
+    "title": "Maximum Likelihood Estimation",
+    "path": "13_Probabilistic_Machine_Learning/03_maximum_likelihood_estimation.ipynb",
+    "prerequisites": [
+      "13-02"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-04",
+    "module": "13",
+    "title": "Maximum a Posteriori Estimation",
+    "path": "13_Probabilistic_Machine_Learning/04_maximum_a_posteriori_estimation.ipynb",
+    "prerequisites": [
+      "13-03"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-05",
+    "module": "13",
+    "title": "Bayesian Linear Regression",
+    "path": "13_Probabilistic_Machine_Learning/05_bayesian_linear_regression.ipynb",
+    "prerequisites": [
+      "13-04"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-06",
+    "module": "13",
+    "title": "Gaussian Mixture Models",
+    "path": "13_Probabilistic_Machine_Learning/06_gaussian_mixture_models.ipynb",
+    "prerequisites": [
+      "13-05"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-07",
+    "module": "13",
+    "title": "Hidden Markov Models",
+    "path": "13_Probabilistic_Machine_Learning/07_hidden_markov_models.ipynb",
+    "prerequisites": [
+      "13-06"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-08",
+    "module": "13",
+    "title": "Gaussian Processes",
+    "path": "13_Probabilistic_Machine_Learning/08_gaussian_processes.ipynb",
+    "prerequisites": [
+      "13-07"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-09",
+    "module": "13",
+    "title": "Variational inference intuition",
+    "path": "13_Probabilistic_Machine_Learning/09_variational_inference_intuition.ipynb",
+    "prerequisites": [
+      "13-08"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-10",
+    "module": "13",
+    "title": "Monte Carlo sampling",
+    "path": "13_Probabilistic_Machine_Learning/10_monte_carlo_sampling.ipynb",
+    "prerequisites": [
+      "13-09"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-11",
+    "module": "13",
+    "title": "Uncertainty estimation",
+    "path": "13_Probabilistic_Machine_Learning/11_uncertainty_estimation.ipynb",
+    "prerequisites": [
+      "13-10"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "13-12",
+    "module": "13",
+    "title": "Probabilistic predictions",
+    "path": "13_Probabilistic_Machine_Learning/12_probabilistic_predictions.ipynb",
+    "prerequisites": [
+      "13-11"
+    ],
+    "hours": 4,
+    "outcome": "Distinguish likelihood, prior, posterior, approximation, and predictive uncertainty.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-01",
+    "module": "14",
+    "title": "Biological versus artificial neurons",
+    "path": "14_Neural_Network_Foundations/01_biological_versus_artificial_neurons.ipynb",
+    "prerequisites": [
+      "13-01"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-02",
+    "module": "14",
+    "title": "Perceptron mathematics",
+    "path": "14_Neural_Network_Foundations/02_perceptron_mathematics.ipynb",
+    "prerequisites": [
+      "14-01"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-03",
+    "module": "14",
+    "title": "Activation functions",
+    "path": "14_Neural_Network_Foundations/03_activation_functions.ipynb",
+    "prerequisites": [
+      "14-02"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-04",
+    "module": "14",
+    "title": "Feedforward neural networks",
+    "path": "14_Neural_Network_Foundations/04_feedforward_neural_networks.ipynb",
+    "prerequisites": [
+      "14-03"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-05",
+    "module": "14",
+    "title": "Loss functions",
+    "path": "14_Neural_Network_Foundations/05_loss_functions.ipynb",
+    "prerequisites": [
+      "14-04"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-06",
+    "module": "14",
+    "title": "Computational graphs",
+    "path": "14_Neural_Network_Foundations/06_computational_graphs.ipynb",
+    "prerequisites": [
+      "14-05"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-07",
+    "module": "14",
+    "title": "Chain rule revision",
+    "path": "14_Neural_Network_Foundations/07_chain_rule_revision.ipynb",
+    "prerequisites": [
+      "14-06"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-08",
+    "module": "14",
+    "title": "Backpropagation by hand",
+    "path": "14_Neural_Network_Foundations/08_backpropagation_by_hand.ipynb",
+    "prerequisites": [
+      "14-07"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-09",
+    "module": "14",
+    "title": "Neural networks from scratch with NumPy",
+    "path": "14_Neural_Network_Foundations/09_neural_networks_from_scratch_with_numpy.ipynb",
+    "prerequisites": [
+      "14-08"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-10",
+    "module": "14",
+    "title": "Multilayer Perceptron",
+    "path": "14_Neural_Network_Foundations/10_multilayer_perceptron.ipynb",
+    "prerequisites": [
+      "14-09"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-11",
+    "module": "14",
+    "title": "Weight initialization",
+    "path": "14_Neural_Network_Foundations/11_weight_initialization.ipynb",
+    "prerequisites": [
+      "14-10"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-12",
+    "module": "14",
+    "title": "Vanishing and exploding gradients",
+    "path": "14_Neural_Network_Foundations/12_vanishing_and_exploding_gradients.ipynb",
+    "prerequisites": [
+      "14-11"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-13",
+    "module": "14",
+    "title": "Stochastic optimization",
+    "path": "14_Neural_Network_Foundations/13_stochastic_optimization.ipynb",
+    "prerequisites": [
+      "14-12"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-14",
+    "module": "14",
+    "title": "SGD optimizer",
+    "path": "14_Neural_Network_Foundations/14_sgd_optimizer.ipynb",
+    "prerequisites": [
+      "14-13"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-15",
+    "module": "14",
+    "title": "Momentum",
+    "path": "14_Neural_Network_Foundations/15_momentum.ipynb",
+    "prerequisites": [
+      "14-14"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-16",
+    "module": "14",
+    "title": "RMSprop",
+    "path": "14_Neural_Network_Foundations/16_rmsprop.ipynb",
+    "prerequisites": [
+      "14-15"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-17",
+    "module": "14",
+    "title": "Adam",
+    "path": "14_Neural_Network_Foundations/17_adam.ipynb",
+    "prerequisites": [
+      "14-16"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-18",
+    "module": "14",
+    "title": "Dropout and regularization",
+    "path": "14_Neural_Network_Foundations/18_dropout_and_regularization.ipynb",
+    "prerequisites": [
+      "14-17"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-19",
+    "module": "14",
+    "title": "Batch normalization",
+    "path": "14_Neural_Network_Foundations/19_batch_normalization.ipynb",
+    "prerequisites": [
+      "14-18"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-20",
+    "module": "14",
+    "title": "Training and validation loops",
+    "path": "14_Neural_Network_Foundations/20_training_and_validation_loops.ipynb",
+    "prerequisites": [
+      "14-19"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-21",
+    "module": "14",
+    "title": "PyTorch tensors and automatic differentiation",
+    "path": "14_Neural_Network_Foundations/21_pytorch_tensors_and_automatic_differentiation.ipynb",
+    "prerequisites": [
+      "14-20"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "14-22",
+    "module": "14",
+    "title": "Building a PyTorch training pipeline",
+    "path": "14_Neural_Network_Foundations/22_building_a_pytorch_training_pipeline.ipynb",
+    "prerequisites": [
+      "14-21"
+    ],
+    "hours": 4,
+    "outcome": "Derive backpropagation and train small networks with NumPy before PyTorch.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-01",
+    "module": "15",
+    "title": "Convolutional Neural Networks",
+    "path": "15_Deep_Learning/01_convolutional_neural_networks.ipynb",
+    "prerequisites": [
+      "14-01"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-02",
+    "module": "15",
+    "title": "Convolution and pooling operations",
+    "path": "15_Deep_Learning/02_convolution_and_pooling_operations.ipynb",
+    "prerequisites": [
+      "15-01"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-03",
+    "module": "15",
+    "title": "CNN image classification",
+    "path": "15_Deep_Learning/03_cnn_image_classification.ipynb",
+    "prerequisites": [
+      "15-02"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-04",
+    "module": "15",
+    "title": "Transfer learning",
+    "path": "15_Deep_Learning/04_transfer_learning.ipynb",
+    "prerequisites": [
+      "15-03"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-05",
+    "module": "15",
+    "title": "Fine-tuning pretrained models",
+    "path": "15_Deep_Learning/05_fine_tuning_pretrained_models.ipynb",
+    "prerequisites": [
+      "15-04"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": true,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-06",
+    "module": "15",
+    "title": "Recurrent Neural Networks",
+    "path": "15_Deep_Learning/06_recurrent_neural_networks.ipynb",
+    "prerequisites": [
+      "15-05"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-07",
+    "module": "15",
+    "title": "Long Short-Term Memory",
+    "path": "15_Deep_Learning/07_long_short_term_memory.ipynb",
+    "prerequisites": [
+      "15-06"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-08",
+    "module": "15",
+    "title": "Gated Recurrent Units",
+    "path": "15_Deep_Learning/08_gated_recurrent_units.ipynb",
+    "prerequisites": [
+      "15-07"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-09",
+    "module": "15",
+    "title": "Sequence modeling",
+    "path": "15_Deep_Learning/09_sequence_modeling.ipynb",
+    "prerequisites": [
+      "15-08"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-10",
+    "module": "15",
+    "title": "Attention mechanisms",
+    "path": "15_Deep_Learning/10_attention_mechanisms.ipynb",
+    "prerequisites": [
+      "15-09"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-11",
+    "module": "15",
+    "title": "Self-attention from scratch",
+    "path": "15_Deep_Learning/11_self_attention_from_scratch.ipynb",
+    "prerequisites": [
+      "15-10"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-12",
+    "module": "15",
+    "title": "Transformer architecture",
+    "path": "15_Deep_Learning/12_transformer_architecture.ipynb",
+    "prerequisites": [
+      "15-11"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-13",
+    "module": "15",
+    "title": "Positional encoding",
+    "path": "15_Deep_Learning/13_positional_encoding.ipynb",
+    "prerequisites": [
+      "15-12"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-14",
+    "module": "15",
+    "title": "Multi-head attention",
+    "path": "15_Deep_Learning/14_multi_head_attention.ipynb",
+    "prerequisites": [
+      "15-13"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-15",
+    "module": "15",
+    "title": "Encoder and decoder concepts",
+    "path": "15_Deep_Learning/15_encoder_and_decoder_concepts.ipynb",
+    "prerequisites": [
+      "15-14"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-16",
+    "module": "15",
+    "title": "Optimization and regularization",
+    "path": "15_Deep_Learning/16_optimization_and_regularization.ipynb",
+    "prerequisites": [
+      "15-15"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-17",
+    "module": "15",
+    "title": "Representation learning",
+    "path": "15_Deep_Learning/17_representation_learning.ipynb",
+    "prerequisites": [
+      "15-16"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "15-18",
+    "module": "15",
+    "title": "Self-supervised learning foundations",
+    "path": "15_Deep_Learning/18_self_supervised_learning_foundations.ipynb",
+    "prerequisites": [
+      "15-17"
+    ],
+    "hours": 4,
+    "outcome": "Trace tensor shapes through convolution, recurrence, and attention in CPU-sized experiments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "16-01",
+    "module": "16",
+    "title": "Text cleaning",
+    "path": "16_Natural_Language_Processing/01_text_cleaning.ipynb",
+    "prerequisites": [
+      "15-01"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-02",
+    "module": "16",
+    "title": "Tokenization",
+    "path": "16_Natural_Language_Processing/02_tokenization.ipynb",
+    "prerequisites": [
+      "16-01"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-03",
+    "module": "16",
+    "title": "Stopwords and stemming",
+    "path": "16_Natural_Language_Processing/03_stopwords_and_stemming.ipynb",
+    "prerequisites": [
+      "16-02"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-04",
+    "module": "16",
+    "title": "Lemmatization",
+    "path": "16_Natural_Language_Processing/04_lemmatization.ipynb",
+    "prerequisites": [
+      "16-03"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-05",
+    "module": "16",
+    "title": "Bag of Words",
+    "path": "16_Natural_Language_Processing/05_bag_of_words.ipynb",
+    "prerequisites": [
+      "16-04"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-06",
+    "module": "16",
+    "title": "TF-IDF",
+    "path": "16_Natural_Language_Processing/06_tf_idf.ipynb",
+    "prerequisites": [
+      "16-05"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-07",
+    "module": "16",
+    "title": "Text classification",
+    "path": "16_Natural_Language_Processing/07_text_classification.ipynb",
+    "prerequisites": [
+      "16-06"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-08",
+    "module": "16",
+    "title": "Sentiment analysis",
+    "path": "16_Natural_Language_Processing/08_sentiment_analysis.ipynb",
+    "prerequisites": [
+      "16-07"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-09",
+    "module": "16",
+    "title": "Topic modeling",
+    "path": "16_Natural_Language_Processing/09_topic_modeling.ipynb",
+    "prerequisites": [
+      "16-08"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-10",
+    "module": "16",
+    "title": "Latent Dirichlet Allocation",
+    "path": "16_Natural_Language_Processing/10_latent_dirichlet_allocation.ipynb",
+    "prerequisites": [
+      "16-09"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-11",
+    "module": "16",
+    "title": "Word embeddings",
+    "path": "16_Natural_Language_Processing/11_word_embeddings.ipynb",
+    "prerequisites": [
+      "16-10"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-12",
+    "module": "16",
+    "title": "Word2Vec",
+    "path": "16_Natural_Language_Processing/12_word2vec.ipynb",
+    "prerequisites": [
+      "16-11"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-13",
+    "module": "16",
+    "title": "Transformer-based NLP",
+    "path": "16_Natural_Language_Processing/13_transformer_based_nlp.ipynb",
+    "prerequisites": [
+      "16-12"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-14",
+    "module": "16",
+    "title": "BERT concepts and fine-tuning",
+    "path": "16_Natural_Language_Processing/14_bert_concepts_and_fine_tuning.ipynb",
+    "prerequisites": [
+      "16-13"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": true,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-15",
+    "module": "16",
+    "title": "Sentence embeddings",
+    "path": "16_Natural_Language_Processing/15_sentence_embeddings.ipynb",
+    "prerequisites": [
+      "16-14"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-16",
+    "module": "16",
+    "title": "Semantic similarity",
+    "path": "16_Natural_Language_Processing/16_semantic_similarity.ipynb",
+    "prerequisites": [
+      "16-15"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-17",
+    "module": "16",
+    "title": "Information retrieval",
+    "path": "16_Natural_Language_Processing/17_information_retrieval.ipynb",
+    "prerequisites": [
+      "16-16"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-18",
+    "module": "16",
+    "title": "Retrieval-Augmented Generation fundamentals",
+    "path": "16_Natural_Language_Processing/18_retrieval_augmented_generation_fundamentals.ipynb",
+    "prerequisites": [
+      "16-17"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "16-19",
+    "module": "16",
+    "title": "Evaluating NLP systems",
+    "path": "16_Natural_Language_Processing/19_evaluating_nlp_systems.ipynb",
+    "prerequisites": [
+      "16-18"
+    ],
+    "hours": 4,
+    "outcome": "Transform text into representations and evaluate classification, retrieval, and generation systems.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-01",
+    "module": "17",
+    "title": "Images as numerical arrays",
+    "path": "17_Computer_Vision/01_images_as_numerical_arrays.ipynb",
+    "prerequisites": [
+      "16-01"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-02",
+    "module": "17",
+    "title": "Image preprocessing",
+    "path": "17_Computer_Vision/02_image_preprocessing.ipynb",
+    "prerequisites": [
+      "17-01"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-03",
+    "module": "17",
+    "title": "Filters and convolution",
+    "path": "17_Computer_Vision/03_filters_and_convolution.ipynb",
+    "prerequisites": [
+      "17-02"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-04",
+    "module": "17",
+    "title": "Edge detection",
+    "path": "17_Computer_Vision/04_edge_detection.ipynb",
+    "prerequisites": [
+      "17-03"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-05",
+    "module": "17",
+    "title": "Feature extraction",
+    "path": "17_Computer_Vision/05_feature_extraction.ipynb",
+    "prerequisites": [
+      "17-04"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-06",
+    "module": "17",
+    "title": "Traditional image classifiers",
+    "path": "17_Computer_Vision/06_traditional_image_classifiers.ipynb",
+    "prerequisites": [
+      "17-05"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-07",
+    "module": "17",
+    "title": "CNN-based image classification",
+    "path": "17_Computer_Vision/07_cnn_based_image_classification.ipynb",
+    "prerequisites": [
+      "17-06"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-08",
+    "module": "17",
+    "title": "Transfer learning",
+    "path": "17_Computer_Vision/08_transfer_learning.ipynb",
+    "prerequisites": [
+      "17-07"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-09",
+    "module": "17",
+    "title": "Image augmentation",
+    "path": "17_Computer_Vision/09_image_augmentation.ipynb",
+    "prerequisites": [
+      "17-08"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-10",
+    "module": "17",
+    "title": "Object detection fundamentals",
+    "path": "17_Computer_Vision/10_object_detection_fundamentals.ipynb",
+    "prerequisites": [
+      "17-09"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-11",
+    "module": "17",
+    "title": "Image segmentation fundamentals",
+    "path": "17_Computer_Vision/11_image_segmentation_fundamentals.ipynb",
+    "prerequisites": [
+      "17-10"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-12",
+    "module": "17",
+    "title": "OCR fundamentals",
+    "path": "17_Computer_Vision/12_ocr_fundamentals.ipynb",
+    "prerequisites": [
+      "17-11"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "17-13",
+    "module": "17",
+    "title": "Computer vision metrics",
+    "path": "17_Computer_Vision/13_computer_vision_metrics.ipynb",
+    "prerequisites": [
+      "17-12"
+    ],
+    "hours": 4,
+    "outcome": "Interpret pixel tensors and evaluate recognition, localization, segmentation, and OCR.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "18-01",
+    "module": "18",
+    "title": "Popularity-based recommendations",
+    "path": "18_Recommendation_Systems/01_popularity_based_recommendations.ipynb",
+    "prerequisites": [
+      "17-01"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-02",
+    "module": "18",
+    "title": "Content-based filtering",
+    "path": "18_Recommendation_Systems/02_content_based_filtering.ipynb",
+    "prerequisites": [
+      "18-01"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-03",
+    "module": "18",
+    "title": "Collaborative filtering",
+    "path": "18_Recommendation_Systems/03_collaborative_filtering.ipynb",
+    "prerequisites": [
+      "18-02"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-04",
+    "module": "18",
+    "title": "User-based KNN recommendations",
+    "path": "18_Recommendation_Systems/04_user_based_knn_recommendations.ipynb",
+    "prerequisites": [
+      "18-03"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-05",
+    "module": "18",
+    "title": "Item-based KNN recommendations",
+    "path": "18_Recommendation_Systems/05_item_based_knn_recommendations.ipynb",
+    "prerequisites": [
+      "18-04"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-06",
+    "module": "18",
+    "title": "Matrix Factorization",
+    "path": "18_Recommendation_Systems/06_matrix_factorization.ipynb",
+    "prerequisites": [
+      "18-05"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-07",
+    "module": "18",
+    "title": "Alternating Least Squares",
+    "path": "18_Recommendation_Systems/07_alternating_least_squares.ipynb",
+    "prerequisites": [
+      "18-06"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-08",
+    "module": "18",
+    "title": "Implicit feedback",
+    "path": "18_Recommendation_Systems/08_implicit_feedback.ipynb",
+    "prerequisites": [
+      "18-07"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-09",
+    "module": "18",
+    "title": "Ranking metrics",
+    "path": "18_Recommendation_Systems/09_ranking_metrics.ipynb",
+    "prerequisites": [
+      "18-08"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-10",
+    "module": "18",
+    "title": "Cold-start problems",
+    "path": "18_Recommendation_Systems/10_cold_start_problems.ipynb",
+    "prerequisites": [
+      "18-09"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "18-11",
+    "module": "18",
+    "title": "Hybrid recommenders",
+    "path": "18_Recommendation_Systems/11_hybrid_recommenders.ipynb",
+    "prerequisites": [
+      "18-10"
+    ],
+    "hours": 4,
+    "outcome": "Build and evaluate recommenders with honest temporal splits and cold-start analysis.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-01",
+    "module": "19",
+    "title": "Agents and environments",
+    "path": "19_Reinforcement_Learning/01_agents_and_environments.ipynb",
+    "prerequisites": [
+      "18-01"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-02",
+    "module": "19",
+    "title": "States and actions",
+    "path": "19_Reinforcement_Learning/02_states_and_actions.ipynb",
+    "prerequisites": [
+      "19-01"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-03",
+    "module": "19",
+    "title": "Rewards",
+    "path": "19_Reinforcement_Learning/03_rewards.ipynb",
+    "prerequisites": [
+      "19-02"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-04",
+    "module": "19",
+    "title": "Markov Decision Processes",
+    "path": "19_Reinforcement_Learning/04_markov_decision_processes.ipynb",
+    "prerequisites": [
+      "19-03"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-05",
+    "module": "19",
+    "title": "Bellman equations",
+    "path": "19_Reinforcement_Learning/05_bellman_equations.ipynb",
+    "prerequisites": [
+      "19-04"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-06",
+    "module": "19",
+    "title": "Multi-armed bandits",
+    "path": "19_Reinforcement_Learning/06_multi_armed_bandits.ipynb",
+    "prerequisites": [
+      "19-05"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-07",
+    "module": "19",
+    "title": "Value iteration",
+    "path": "19_Reinforcement_Learning/07_value_iteration.ipynb",
+    "prerequisites": [
+      "19-06"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-08",
+    "module": "19",
+    "title": "Policy iteration",
+    "path": "19_Reinforcement_Learning/08_policy_iteration.ipynb",
+    "prerequisites": [
+      "19-07"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-09",
+    "module": "19",
+    "title": "Monte Carlo learning",
+    "path": "19_Reinforcement_Learning/09_monte_carlo_learning.ipynb",
+    "prerequisites": [
+      "19-08"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-10",
+    "module": "19",
+    "title": "Temporal Difference learning",
+    "path": "19_Reinforcement_Learning/10_temporal_difference_learning.ipynb",
+    "prerequisites": [
+      "19-09"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-11",
+    "module": "19",
+    "title": "Q-Learning",
+    "path": "19_Reinforcement_Learning/11_q_learning.ipynb",
+    "prerequisites": [
+      "19-10"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-12",
+    "module": "19",
+    "title": "SARSA",
+    "path": "19_Reinforcement_Learning/12_sarsa.ipynb",
+    "prerequisites": [
+      "19-11"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-13",
+    "module": "19",
+    "title": "Deep Q-Network fundamentals",
+    "path": "19_Reinforcement_Learning/13_deep_q_network_fundamentals.ipynb",
+    "prerequisites": [
+      "19-12"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-14",
+    "module": "19",
+    "title": "Exploration versus exploitation",
+    "path": "19_Reinforcement_Learning/14_exploration_versus_exploitation.ipynb",
+    "prerequisites": [
+      "19-13"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "19-15",
+    "module": "19",
+    "title": "Policy gradient fundamentals",
+    "path": "19_Reinforcement_Learning/15_policy_gradient_fundamentals.ipynb",
+    "prerequisites": [
+      "19-14"
+    ],
+    "hours": 4,
+    "outcome": "Compute returns and value updates in small reproducible environments.",
+    "optional": false,
+    "kind": "algorithm"
+  },
+  {
+    "id": "20-01",
+    "module": "20",
+    "title": "Semi-supervised learning",
+    "path": "20_Advanced_ML_Paradigms/01_semi_supervised_learning.ipynb",
+    "prerequisites": [
+      "19-01"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-02",
+    "module": "20",
+    "title": "Self-supervised learning",
+    "path": "20_Advanced_ML_Paradigms/02_self_supervised_learning.ipynb",
+    "prerequisites": [
+      "20-01"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-03",
+    "module": "20",
+    "title": "Active learning",
+    "path": "20_Advanced_ML_Paradigms/03_active_learning.ipynb",
+    "prerequisites": [
+      "20-02"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-04",
+    "module": "20",
+    "title": "Online learning",
+    "path": "20_Advanced_ML_Paradigms/04_online_learning.ipynb",
+    "prerequisites": [
+      "20-03"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-05",
+    "module": "20",
+    "title": "Incremental learning",
+    "path": "20_Advanced_ML_Paradigms/05_incremental_learning.ipynb",
+    "prerequisites": [
+      "20-04"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-06",
+    "module": "20",
+    "title": "Transfer learning",
+    "path": "20_Advanced_ML_Paradigms/06_transfer_learning.ipynb",
+    "prerequisites": [
+      "20-05"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-07",
+    "module": "20",
+    "title": "Multitask learning",
+    "path": "20_Advanced_ML_Paradigms/07_multitask_learning.ipynb",
+    "prerequisites": [
+      "20-06"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-08",
+    "module": "20",
+    "title": "Cost-sensitive learning",
+    "path": "20_Advanced_ML_Paradigms/08_cost_sensitive_learning.ipynb",
+    "prerequisites": [
+      "20-07"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-09",
+    "module": "20",
+    "title": "Metric learning",
+    "path": "20_Advanced_ML_Paradigms/09_metric_learning.ipynb",
+    "prerequisites": [
+      "20-08"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-10",
+    "module": "20",
+    "title": "Learning to rank",
+    "path": "20_Advanced_ML_Paradigms/10_learning_to_rank.ipynb",
+    "prerequisites": [
+      "20-09"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-11",
+    "module": "20",
+    "title": "Ensemble diversity",
+    "path": "20_Advanced_ML_Paradigms/11_ensemble_diversity.ipynb",
+    "prerequisites": [
+      "20-10"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-12",
+    "module": "20",
+    "title": "Domain adaptation",
+    "path": "20_Advanced_ML_Paradigms/12_domain_adaptation.ipynb",
+    "prerequisites": [
+      "20-11"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-13",
+    "module": "20",
+    "title": "Concept drift",
+    "path": "20_Advanced_ML_Paradigms/13_concept_drift.ipynb",
+    "prerequisites": [
+      "20-12"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "20-14",
+    "module": "20",
+    "title": "Uncertainty-aware learning",
+    "path": "20_Advanced_ML_Paradigms/14_uncertainty_aware_learning.ipynb",
+    "prerequisites": [
+      "20-13"
+    ],
+    "hours": 4,
+    "outcome": "Select learning protocols when labels, distributions, costs, or objectives change.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-01",
+    "module": "21",
+    "title": "Feature importance",
+    "path": "21_Interpretability_Ethics_and_Robustness/01_feature_importance.ipynb",
+    "prerequisites": [
+      "20-01"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-02",
+    "module": "21",
+    "title": "Permutation importance",
+    "path": "21_Interpretability_Ethics_and_Robustness/02_permutation_importance.ipynb",
+    "prerequisites": [
+      "21-01"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-03",
+    "module": "21",
+    "title": "Partial Dependence Plots",
+    "path": "21_Interpretability_Ethics_and_Robustness/03_partial_dependence_plots.ipynb",
+    "prerequisites": [
+      "21-02"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-04",
+    "module": "21",
+    "title": "Individual Conditional Expectation",
+    "path": "21_Interpretability_Ethics_and_Robustness/04_individual_conditional_expectation.ipynb",
+    "prerequisites": [
+      "21-03"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-05",
+    "module": "21",
+    "title": "SHAP",
+    "path": "21_Interpretability_Ethics_and_Robustness/05_shap.ipynb",
+    "prerequisites": [
+      "21-04"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": true,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-06",
+    "module": "21",
+    "title": "LIME",
+    "path": "21_Interpretability_Ethics_and_Robustness/06_lime.ipynb",
+    "prerequisites": [
+      "21-05"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": true,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-07",
+    "module": "21",
+    "title": "Global versus local explanations",
+    "path": "21_Interpretability_Ethics_and_Robustness/07_global_versus_local_explanations.ipynb",
+    "prerequisites": [
+      "21-06"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-08",
+    "module": "21",
+    "title": "Fairness metrics",
+    "path": "21_Interpretability_Ethics_and_Robustness/08_fairness_metrics.ipynb",
+    "prerequisites": [
+      "21-07"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-09",
+    "module": "21",
+    "title": "Dataset bias",
+    "path": "21_Interpretability_Ethics_and_Robustness/09_dataset_bias.ipynb",
+    "prerequisites": [
+      "21-08"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-10",
+    "module": "21",
+    "title": "Robustness testing",
+    "path": "21_Interpretability_Ethics_and_Robustness/10_robustness_testing.ipynb",
+    "prerequisites": [
+      "21-09"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-11",
+    "module": "21",
+    "title": "Model calibration",
+    "path": "21_Interpretability_Ethics_and_Robustness/11_model_calibration.ipynb",
+    "prerequisites": [
+      "21-10"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-12",
+    "module": "21",
+    "title": "Data and model privacy",
+    "path": "21_Interpretability_Ethics_and_Robustness/12_data_and_model_privacy.ipynb",
+    "prerequisites": [
+      "21-11"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-13",
+    "module": "21",
+    "title": "Responsible AI principles",
+    "path": "21_Interpretability_Ethics_and_Robustness/13_responsible_ai_principles.ipynb",
+    "prerequisites": [
+      "21-12"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "21-14",
+    "module": "21",
+    "title": "Limitations of interpretability",
+    "path": "21_Interpretability_Ethics_and_Robustness/14_limitations_of_interpretability.ipynb",
+    "prerequisites": [
+      "21-13"
+    ],
+    "hours": 4,
+    "outcome": "Audit explanations, subgroup performance, robustness, privacy, and uncertainty.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-01",
+    "module": "22",
+    "title": "End-to-end ML pipelines",
+    "path": "22_MLOps_and_Deployment/01_end_to_end_ml_pipelines.ipynb",
+    "prerequisites": [
+      "21-01"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-02",
+    "module": "22",
+    "title": "Saving and loading models",
+    "path": "22_MLOps_and_Deployment/02_saving_and_loading_models.ipynb",
+    "prerequisites": [
+      "22-01"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-03",
+    "module": "22",
+    "title": "Model artifact security",
+    "path": "22_MLOps_and_Deployment/03_model_artifact_security.ipynb",
+    "prerequisites": [
+      "22-02"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-04",
+    "module": "22",
+    "title": "FastAPI prediction endpoints",
+    "path": "22_MLOps_and_Deployment/04_fastapi_prediction_endpoints.ipynb",
+    "prerequisites": [
+      "22-03"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-05",
+    "module": "22",
+    "title": "Docker fundamentals",
+    "path": "22_MLOps_and_Deployment/05_docker_fundamentals.ipynb",
+    "prerequisites": [
+      "22-04"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-06",
+    "module": "22",
+    "title": "Experiment tracking",
+    "path": "22_MLOps_and_Deployment/06_experiment_tracking.ipynb",
+    "prerequisites": [
+      "22-05"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-07",
+    "module": "22",
+    "title": "MLflow fundamentals",
+    "path": "22_MLOps_and_Deployment/07_mlflow_fundamentals.ipynb",
+    "prerequisites": [
+      "22-06"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": true,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-08",
+    "module": "22",
+    "title": "Model versioning",
+    "path": "22_MLOps_and_Deployment/08_model_versioning.ipynb",
+    "prerequisites": [
+      "22-07"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-09",
+    "module": "22",
+    "title": "Data validation",
+    "path": "22_MLOps_and_Deployment/09_data_validation.ipynb",
+    "prerequisites": [
+      "22-08"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-10",
+    "module": "22",
+    "title": "Unit testing",
+    "path": "22_MLOps_and_Deployment/10_unit_testing.ipynb",
+    "prerequisites": [
+      "22-09"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-11",
+    "module": "22",
+    "title": "Integration testing",
+    "path": "22_MLOps_and_Deployment/11_integration_testing.ipynb",
+    "prerequisites": [
+      "22-10"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-12",
+    "module": "22",
+    "title": "CI fundamentals",
+    "path": "22_MLOps_and_Deployment/12_ci_fundamentals.ipynb",
+    "prerequisites": [
+      "22-11"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-13",
+    "module": "22",
+    "title": "Model monitoring",
+    "path": "22_MLOps_and_Deployment/13_model_monitoring.ipynb",
+    "prerequisites": [
+      "22-12"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-14",
+    "module": "22",
+    "title": "Data drift",
+    "path": "22_MLOps_and_Deployment/14_data_drift.ipynb",
+    "prerequisites": [
+      "22-13"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-15",
+    "module": "22",
+    "title": "Concept drift",
+    "path": "22_MLOps_and_Deployment/15_concept_drift.ipynb",
+    "prerequisites": [
+      "22-14"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-16",
+    "module": "22",
+    "title": "Retraining strategies",
+    "path": "22_MLOps_and_Deployment/16_retraining_strategies.ipynb",
+    "prerequisites": [
+      "22-15"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-17",
+    "module": "22",
+    "title": "Reproducibility",
+    "path": "22_MLOps_and_Deployment/17_reproducibility.ipynb",
+    "prerequisites": [
+      "22-16"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-18",
+    "module": "22",
+    "title": "Production readiness",
+    "path": "22_MLOps_and_Deployment/18_production_readiness.ipynb",
+    "prerequisites": [
+      "22-17"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "22-19",
+    "module": "22",
+    "title": "Model documentation",
+    "path": "22_MLOps_and_Deployment/19_model_documentation.ipynb",
+    "prerequisites": [
+      "22-18"
+    ],
+    "hours": 4,
+    "outcome": "Package, test, serve, monitor, and document a reproducible model safely.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-01",
+    "module": "23",
+    "title": "House Price Prediction",
+    "path": "23_Real_World_Capstones/01_house_price_prediction.ipynb",
+    "prerequisites": [
+      "22-01"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-02",
+    "module": "23",
+    "title": "Customer Churn Classification",
+    "path": "23_Real_World_Capstones/02_customer_churn_classification.ipynb",
+    "prerequisites": [
+      "23-01"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-03",
+    "module": "23",
+    "title": "Fraud or Anomaly Detection",
+    "path": "23_Real_World_Capstones/03_fraud_or_anomaly_detection.ipynb",
+    "prerequisites": [
+      "23-02"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-04",
+    "module": "23",
+    "title": "Customer Segmentation",
+    "path": "23_Real_World_Capstones/04_customer_segmentation.ipynb",
+    "prerequisites": [
+      "23-03"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-05",
+    "module": "23",
+    "title": "Time-Series Demand Forecasting",
+    "path": "23_Real_World_Capstones/05_time_series_demand_forecasting.ipynb",
+    "prerequisites": [
+      "23-04"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-06",
+    "module": "23",
+    "title": "Sentiment Analysis",
+    "path": "23_Real_World_Capstones/06_sentiment_analysis.ipynb",
+    "prerequisites": [
+      "23-05"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-07",
+    "module": "23",
+    "title": "Image Classification",
+    "path": "23_Real_World_Capstones/07_image_classification.ipynb",
+    "prerequisites": [
+      "23-06"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-08",
+    "module": "23",
+    "title": "Recommendation System",
+    "path": "23_Real_World_Capstones/08_recommendation_system.ipynb",
+    "prerequisites": [
+      "23-07"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  },
+  {
+    "id": "23-09",
+    "module": "23",
+    "title": "End-to-End FastAPI ML Deployment",
+    "path": "23_Real_World_Capstones/09_end_to_end_fastapi_ml_deployment.ipynb",
+    "prerequisites": [
+      "23-08"
+    ],
+    "hours": 6,
+    "outcome": "Deliver a reproducible business report with baseline, tuning, held-out results, interpretation, and limitations.",
+    "optional": false,
+    "kind": "lesson"
+  }
+]
