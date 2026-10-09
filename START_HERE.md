@@ -8,10 +8,10 @@ Read the first lesson without trying to understand every library call immediatel
 |---|---|---|
 | Python | 3.11.9, Windows x64; meets 3.11+ | Isolated `.venv`, same interpreter version |
 | pip | 26.2.1 available | 24.0 in `.venv`; dependencies installed successfully |
-| Git | 2.55.0.windows.5 available | No repository initialization or publishing required |
+| Git | 2.55.0.windows.5 available | Local repository initialized on `main`; GitHub publication pending |
 | Jupyter Notebook | 7.6.2 available globally | 7.6.3 installed locally |
 
-No required system tool is missing; no system-level installation is needed. The `py` launcher exists but `py --list-paths` reported no installed Pythons. Use the working `python` command or the explicit `.venv` interpreter below. The environment smoke notebook actually executed four code cells successfully; its report is [here](artifacts/environment-check.json).
+No required system tool is missing; no system-level installation is needed. The `py` launcher exists but `py --list-paths` reported no installed Pythons. Use the working `python` command or the explicit `.venv` interpreter below. The environment smoke notebook actually executed four code cells successfully; its local generated report is `artifacts/environment-check.json`. Run the environment verifier below to recreate that ignored artifact in a fresh checkout.
 
 ## Open the academy on this Windows machine
 

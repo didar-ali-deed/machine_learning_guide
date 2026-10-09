@@ -1,0 +1,49 @@
+name: Validate academy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-notebooks:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.9'
+          architecture: x64
+      - name: Create isolated environment
+        shell: pwsh
+        run: |
+          python -m venv .venv
+          .\.venv\Scripts\python.exe -m pip --isolated install --index-url https://pypi.org/simple --only-binary=:all: -r requirements.txt
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Check sources and infrastructure
+        shell: pwsh
+        run: |
+          .\.venv\Scripts\python.exe scripts/check_academy.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .\.venv\Scripts\python.exe -m unittest discover -s tests -v
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Execute authored CPU lessons
+        shell: pwsh
+        run: |
+          .\.venv\Scripts\python.exe scripts/execute_notebooks.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          .\.venv\Scripts\python.exe scripts/check_academy.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Preserve execution evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: notebook-validation-windows
+          path: |
+            reports/execution_results.json
+            reports/structural_checks.json
+            reports/executed/

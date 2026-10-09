@@ -4,6 +4,8 @@ A permanent, incremental self-study repository that begins with datasets and bas
 
 **Start with [START_HERE.md](START_HERE.md).** The [syllabus](SYLLABUS.md) preserves all 427 planned notebooks across 24 modules. The [progress ledger](PROGRESS.md) distinguishes actual lessons, passing executions, and unfinished work. Module specification pages are plans, not completed tutorials.
 
+Use the [student guide](STUDENT_GUIDE.md) to study actively, the [GitHub setup guide](GITHUB_SETUP.md) to publish your local repository, and [contribution instructions](CONTRIBUTING.md) to add tested lessons. GitHub CI is configured; its remote execution is pending publication.
+
 ## Study the first route
 
 1. [What is Machine Learning?](00_Getting_Started/01_what_is_machine_learning.ipynb)
