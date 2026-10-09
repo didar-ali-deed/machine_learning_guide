@@ -1,10 +1,12 @@
 # Complete Machine Learning Academy
 
+[![Validate academy](https://github.com/didar-ali-deed/machine_learning_guide/actions/workflows/validate.yml/badge.svg)](https://github.com/didar-ali-deed/machine_learning_guide/actions/workflows/validate.yml)
+
 A permanent, incremental self-study repository that begins with datasets and basic Python and progresses toward classical ML, neural networks, deployment, and nine capstones. This existing workspace is the project root; a second nested copy is unnecessary.
 
 **Start with [START_HERE.md](START_HERE.md).** The [syllabus](SYLLABUS.md) preserves all 427 planned notebooks across 24 modules. The [progress ledger](PROGRESS.md) distinguishes actual lessons, passing executions, and unfinished work. Module specification pages are plans, not completed tutorials.
 
-Use the [student guide](STUDENT_GUIDE.md) to study actively, the [GitHub setup guide](GITHUB_SETUP.md) to publish your local repository, and [contribution instructions](CONTRIBUTING.md) to add tested lessons. GitHub CI is configured; its remote execution is pending publication.
+Use the [student guide](STUDENT_GUIDE.md) to study actively, the [GitHub setup guide](GITHUB_SETUP.md) to clone or connect the repository, and [contribution instructions](CONTRIBUTING.md) to add tested lessons. The project is published at [machine_learning_guide](https://github.com/didar-ali-deed/machine_learning_guide). The badge links to actual GitHub validation results.
 
 ## Study the first route
 
@@ -21,7 +23,7 @@ Each lesson includes manual arithmetic, executable examples, plots, six exercise
 
 ## Continue Python foundations
 
-The full Python sequence is available through [Classes and object-oriented programming](01_Python_Foundations/12_classes_and_object_oriented_programming.ipynb): [variables](01_Python_Foundations/01_variables_and_data_types.ipynb), [operators](01_Python_Foundations/02_operators.ipynb), [strings](01_Python_Foundations/03_strings.ipynb), [containers](01_Python_Foundations/04_lists_tuples_sets_and_dictionaries.ipynb), [conditions and loops](01_Python_Foundations/05_conditions_and_loops.ipynb), [functions](01_Python_Foundations/06_functions_and_parameters.ipynb), [scope](01_Python_Foundations/07_scope.ipynb), [comprehensions](01_Python_Foundations/08_list_comprehensions.ipynb), [modules](01_Python_Foundations/09_modules_and_packages.ipynb), [file handling](01_Python_Foundations/10_file_handling.ipynb), and [debugging](01_Python_Foundations/11_exceptions_and_debugging.ipynb). The next planned batch covers indexing/slicing/shapes, vectorization/broadcasting, and filtering/grouping/merging. See the [latest batch report](reports/PYTHON_FILES_DEBUGGING_CLASSES_REPORT.md).
+All **21 Python foundation lessons** are authored and tested. Follow the [numbered module index](01_Python_Foundations/README.md) from variables through NumPy, pandas, Matplotlib, Seaborn, and exploratory analysis. The newest lessons cover [indexing and shapes](01_Python_Foundations/14_indexing_slicing_and_shapes.ipynb), [broadcasting](01_Python_Foundations/15_vectorization_and_broadcasting.ipynb), [validated table joins](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb), [Matplotlib](01_Python_Foundations/19_matplotlib.ipynb), [Seaborn](01_Python_Foundations/20_seaborn.ipynb), and [exploratory analysis](01_Python_Foundations/21_exploratory_analysis.ipynb). Mathematics and later modules remain in development; the [latest continuation report](reports/GITHUB_BUILD_REPORT.md) records what was actually delivered.
 
 ## Navigate
 

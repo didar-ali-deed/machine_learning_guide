@@ -1,0 +1,243 @@
+# 1. Seaborn: statistical charts with visible aggregation choices
+
+Learn to plot a labeled table, distinguish raw observations from group estimates, control aggregation and uncertainty displays, and combine Seaborn with Matplotlib axes. Prerequisites: [Matplotlib](19_matplotlib.ipynb) and [filtering, grouping, and merging](17_filtering_grouping_and_merging.ipynb). Our four synthetic service visits have unequal group sizes. You will calculate each summary before asking the plotting library to draw it.
+
+## 2. What problem does this solve?
+
+Matplotlib gives direct control of chart elements. Seaborn provides convenient statistical views over tables with named variables. That convenience includes defaults that may transform data: a bar plot can show an estimated mean rather than a count, and a line plot can aggregate repeated x positions.
+
+We want to compare waits at two sites without confusing number of visits, average wait, and uncertainty. A single tall bar might mean many visits or long waits depending on the plotting function. The chart must state which quantity it encodes. We will show the raw observations beside a mean chart so that one site represented by a single visit is not mistaken for strong evidence.
+
+## 3. Intuition and analogy
+
+Seaborn acts like a chart assistant that reads column labels and applies a chosen statistical recipe. You remain responsible for that recipe. Asking for a count is different from asking for an average, just as counting restaurant bills differs from averaging their prices.
+
+An automatically drawn interval can look authoritative. Its meaning depends on the requested interval type, sampling assumptions, and available data. With only one invented observation at one site, we should not imply a reliable estimate of a real service's variability. Instead, expose the sample sizes and explain the limits.
+
+## 4. Terminology
+
+A **long-form table** has one row per observation and separate columns for variables. A **semantic mapping** assigns a column to x position, y position, color, marker, or another visual property. `hue` maps a variable to color. `order` fixes categorical order. An **estimator** calculates a summary such as a mean; in a chart, this is not necessarily a machine learning estimator.
+
+An **error bar** is a visual interval whose definition must be stated. Standard deviation describes observed spread; a confidence interval concerns an estimation procedure under assumptions. They are not interchangeable. `errorbar=None` disables the interval in the examples below. A **countplot** counts category observations, while a **barplot** summarizes a numeric response by category.
+
+## 5. Mathematical foundations
+
+For site $g$, define its observed mean wait as
+
+$$\bar{x}_g=\frac{1}{n_g}\sum_{i\in I_g}x_i.$$
+
+$I_g$ identifies the rows at that site; $n_g$ is their count; $x_i$ is a wait in minutes; and $\bar{x}_g$ is a mean in minutes. The overall observation-weighted mean is
+
+$$\bar{x}=\frac{\sum_g n_g\bar{x}_g}{\sum_g n_g}.$$
+
+This formula treats each visit equally. Averaging site means equally instead treats each site equally. Neither weighting is universally correct: choose based on the question and disclose it. Our numerical table has shape $(4,3)$ with columns visit ID, site, and wait; only wait is the measured numerical response.
+
+## 6. Hand-calculated example
+
+Site A has waits 2, 4, and 6 minutes, so its count is 3 and mean is $(2+4+6)/3=4$. Site B has one wait of 12 minutes, so its count is 1 and mean is 12. The overall visit mean is $(2+4+6+12)/4=6$ minutes. The equally weighted site mean is $(4+12)/2=8$ minutes, a different estimand.
+
+The observed difference in site means is eight minutes. This describes four invented visits; it does not prove that site B is consistently slower or that site identity causes a delay. Sample composition and measurement timing could matter even with real data.
+
+## 7. Summary from scratch
+
+```python
+records = [
+    {'visit_id': 1, 'site': 'A', 'wait_minutes': 2.0},
+    {'visit_id': 2, 'site': 'A', 'wait_minutes': 4.0},
+    {'visit_id': 3, 'site': 'A', 'wait_minutes': 6.0},
+    {'visit_id': 4, 'site': 'B', 'wait_minutes': 12.0},
+]
+group_values = {}
+for record in records:
+    group_values.setdefault(record['site'], []).append(record['wait_minutes'])
+manual_means = {site: sum(values) / len(values) for site, values in group_values.items()}
+manual_counts = {site: len(values) for site, values in group_values.items()}
+assert manual_means == {'A': 4.0, 'B': 12.0}
+assert manual_counts == {'A': 3, 'B': 1}
+print('Site means:', manual_means, 'Counts:', manual_counts)
+```
+
+## 8. Inspecting the source table
+
+```python
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+visits = pd.DataFrame(records)
+snapshot = visits.copy(deep=True)
+assert visits.shape == (4, 3)
+assert visits['visit_id'].is_unique
+assert np.isfinite(visits['wait_minutes']).all()
+assert visits['wait_minutes'].ge(0).all()
+assert visits['wait_minutes'].mean() == 6.0
+assert np.mean(list(manual_means.values())) == 8.0
+print(visits.to_string(index=False))
+```
+
+Explicitly validate missing values before plotting. Otherwise a plotting function may omit incomplete observations and leave you interpreting a different sample than expected. Check group sizes after the same filtering rule that the chart uses. Preserve raw values so that a summary can always be traced back to observations.
+
+## 9. Seaborn implementation
+
+Pass an existing Matplotlib axes to `sns.barplot`. Choose `estimator=np.mean`, disable intervals, and fix site order explicitly. We inspect the heights returned as Matplotlib patches to ensure they match the manual means. An eight-minute difference between bars is a descriptive result only.
+
+```python
+site_order = ['A', 'B']
+fig, ax = plt.subplots(figsize=(5, 3))
+sns.barplot(data=visits, x='site', y='wait_minutes', order=site_order,
+            estimator=np.mean, errorbar=None, color='steelblue', ax=ax)
+heights = [patch.get_height() for patch in ax.patches]
+np.testing.assert_allclose(heights, [manual_means[site] for site in site_order])
+ax.set(xlabel='Site', ylabel='Observed mean wait (minutes)',
+       title='Synthetic means: A has 3 visits, B has 1', ylim=(0, 14))
+ax.bar_label(ax.containers[0], fmt='%.0f')
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 10. Raw-data visualization
+
+Display individual visits to show how the means are supported. `stripplot` places observations within categories. We disable jitter to keep positions deterministic; identical waits would overlap and would need an explicitly described alternative. A countplot alongside it answers the separate sample-size question.
+
+```python
+fig, axes = plt.subplots(1, 2, figsize=(8, 3))
+sns.stripplot(data=visits, x='site', y='wait_minutes', order=site_order,
+              jitter=False, size=8, color='darkorange', ax=axes[0])
+axes[0].set(xlabel='Site', ylabel='Individual wait (minutes)', title='Show every observation', ylim=(0, 14))
+sns.countplot(data=visits, x='site', order=site_order, color='steelblue', ax=axes[1])
+axes[1].set(xlabel='Site', ylabel='Number of visits', title='Unequal sample sizes', yticks=[0, 1, 2, 3])
+np.testing.assert_allclose([patch.get_height() for patch in axes[1].patches], [3, 1])
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Experiment: repeated x positions in a line plot
+
+Two instruments can report readings on the same day. Aggregating them into one daily mean is a choice, not an inevitable interpretation. Use an explicit unit identifier and `estimator=None` to show separate instrument trajectories. The example computes the daily summary separately so you can inspect what aggregation would hide.
+
+```python
+readings = pd.DataFrame({'day': [1, 2, 1, 2], 'instrument': ['P', 'P', 'Q', 'Q'],
+                         'temperature': [10.0, 14.0, 20.0, 22.0]})
+daily = readings.groupby('day')['temperature'].mean()
+assert daily.tolist() == [15.0, 18.0]
+fig, ax = plt.subplots(figsize=(6, 3))
+sns.lineplot(data=readings, x='day', y='temperature', hue='instrument', style='instrument',
+             units='instrument', estimator=None, errorbar=None, markers=True, ax=ax)
+ax.set(xlabel='Day index', ylabel='Temperature (degrees Celsius)',
+       title='Two instrument paths, not one aggregated path', xticks=[1, 2])
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+print('Daily means would be:', daily.tolist())
+```
+
+## 12. Statistical and presentation choices
+
+Choose the estimator, interval type, category order, visual mappings, and any smoothing or binning deliberately. They are chart configuration choices. Confidence intervals require a defensible sampling interpretation; a random seed only makes a computational procedure repeatable, not scientifically justified. This lesson disables inferential intervals rather than manufacturing uncertainty claims from invented examples.
+
+Use categorical `hue` for group identity and continuous color scales for numerical quantities when appropriate. Avoid changing category colors across related charts without explanation. Local axes styling is sufficient here; a global theme can unintentionally alter later notebook figures.
+
+## 13. Evaluation
+
+Compare chart summaries with hand calculations and table aggregations. Verify the sample used by each panel, numerical bar heights, labels, category order, and input preservation. Then visually inspect whether a reader can distinguish means, counts, and individual values. A chart object that renders without exceptions is only the first stage of verification.
+
+```python
+summary = visits.groupby('site')['wait_minutes'].agg(['size', 'mean'])
+assert summary['size'].to_dict() == manual_counts
+assert summary['mean'].to_dict() == manual_means
+assert (summary['size'] * summary['mean']).sum() / summary['size'].sum() == 6.0
+pd.testing.assert_frame_equal(visits, snapshot)
+print('Table summaries and plotted heights agree; source preserved.')
+```
+
+## 14. Assumptions and limitations
+
+Visits have equal weight, correct site labels, and comparable measurement units. One observation cannot reveal within-site variability. A box or violin plot for a singleton can imply more distribution information than exists. Repeated measurements from the same person or instrument are not automatically independent; the design matters when estimating uncertainty. None of our descriptive comparisons establishes causality.
+
+## 15. Common mistakes and debugging
+
+Do not confuse a barplot's numeric estimator with a countplot's category frequency. Check which rows were omitted due to missing values. Do not assume a lineplot preserves every raw row; inspect aggregation and unit settings. Avoid wide tables whose columns mix incompatible variables under one ambiguous axis label.
+
+If patches do not match expected values, compare the chart's group order and filtered table before blaming numerical precision. Color alone should not encode essential distinctions. In the instrument plot, both style and color identify the trajectories, and the legend explains them.
+
+## 16. Alternatives
+
+Matplotlib provides finer direct control and supports explicitly precomputed summaries. pandas plotting is convenient for quick checks. Raw-value tables remain useful with very small datasets. Seaborn is especially helpful for labeled statistical comparisons, but its defaults still need inspection. Use a simple plot whose assumptions you can explain before adding more layers.
+
+## 17. Exercises
+
+- **Beginner:** State the difference between the two site counts and the two mean waits, including units.
+- **Beginner:** Explain why the overall visit mean is 6 rather than 8.
+- **Beginner:** Choose a raw-data display for a site with one observation and explain why an elaborate density is inappropriate.
+- **Intermediate:** Add one 4-minute visit to site B and calculate its new count and mean before plotting.
+- **Intermediate:** Reconstruct the two instruments' daily means and explain what individual variation aggregation hides.
+- **Challenge:** Create a validated grouped-mean plotting helper returning a figure, axes, and summary table. Require complete finite nonnegative waits, show group sizes in labels, and verify the resulting mean bars numerically.
+
+## 18. Detailed solutions
+
+Site counts are three and one visits, while mean waits are four and twelve minutes. The overall visit mean weights each site by its count: $(3\times4+1\times12)/4=6$. A single point communicates the singleton directly; a density would suggest unsupported distribution shape. Adding a four-minute visit makes B's mean $(12+4)/2=8$ with count two. Daily instrument means are $(10+20)/2=15$ and $(14+22)/2=18$, hiding their ten- and eight-degree separations.
+
+The helper computes a summary explicitly and draws those summary values with Matplotlib, avoiding a second statistical aggregation. It still benefits from the labeled-table workflow learned here. Its contract uses sites as nonmissing group labels and returns objects for further inspection.
+
+```python
+def plot_site_means(table):
+    if table['site'].isna().any() or table['wait_minutes'].isna().any() or table.empty:
+        raise ValueError('Use nonempty complete site and wait data.')
+    if not np.isfinite(table['wait_minutes']).all() or table['wait_minutes'].lt(0).any():
+        raise ValueError('Waits must be finite and nonnegative.')
+    result = table.groupby('site')['wait_minutes'].agg(['size', 'mean'])
+    labels = [f'{site} (n={int(row["size"])})' for site, row in result.iterrows()]
+    figure, axis = plt.subplots(figsize=(5, 3))
+    axis.bar(labels, result['mean'])
+    axis.set(xlabel='Site and observed count', ylabel='Observed mean wait (minutes)',
+             title='Synthetic site summary')
+    figure.tight_layout()
+    return figure, axis, result
+
+extra = pd.DataFrame([{'visit_id': 5, 'site': 'B', 'wait_minutes': 4.0}])
+expanded = pd.concat([visits, extra], ignore_index=True)
+exercise_fig, exercise_ax, exercise_summary = plot_site_means(expanded)
+assert exercise_summary.loc['B', 'size'] == 2 and exercise_summary.loc['B', 'mean'] == 8
+np.testing.assert_allclose([patch.get_height() for patch in exercise_ax.patches], [4, 8])
+plt.close(exercise_fig)
+bad = visits.copy()
+bad.loc[0, 'wait_minutes'] = np.nan
+try:
+    plot_site_means(bad)
+except ValueError:
+    pass
+else:
+    raise AssertionError('Missing waits must fail.')
+pd.testing.assert_frame_equal(visits, snapshot)
+print('Explicit summary plotting and missing-input checks passed.')
+```
+
+## 19. Knowledge check
+
+**What does countplot measure?** The number of observations in each category.
+
+**What does our barplot measure?** Observed mean wait in each site, because we selected the mean estimator.
+
+**Why show raw observations?** They reveal sample size, spread, and singleton groups that a mean bar hides.
+
+**What does estimator=None do in our line plot?** It prevents averaging the separate instrument trajectories.
+
+**Why disable error bars here?** We are teaching descriptive behavior on invented tiny data, without a population sampling claim.
+
+## 20. Interview preparation
+
+**How can plotting defaults mislead?** Automatic aggregation or omitted missing rows can change the displayed sample or quantity without an obvious warning.
+
+**Are standard deviation and confidence intervals equivalent?** No. One describes spread; the other concerns uncertainty in an estimation procedure under assumptions.
+
+**Why inspect group sizes?** Similar-looking estimates can have very different amounts of supporting data.
+
+**How do you preserve repeated-measurement trajectories?** Identify the units and disable unintended aggregation, then label the paths clearly.
+
+**Does a seeded bootstrap justify inference?** No. A seed establishes computational repeatability, while sampling and independence assumptions justify interpretation.
+
+## 21. Summary and next steps
+
+Statistical plots apply recipes to labeled data. State the recipe, verify the resulting quantity, show the supporting observations, and disclose limitations. Continue to [exploratory analysis](21_exploratory_analysis.ipynb), where data checks, summaries, and visualizations become a coherent investigation.

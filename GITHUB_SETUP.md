@@ -1,19 +1,26 @@
 # Put the academy on GitHub
 
-The workspace is a local Git repository on branch `main`. It contains real lessons and a complete planned inventory; it is an academy under construction. [PROGRESS.md](PROGRESS.md) is the current completion record. The workflow in `.github/workflows/validate.yml` will check and execute authored notebooks when pushed. It has not yet run on GitHub.
+The workspace is a Git repository on branch `main`, connected to [didar-ali-deed/machine_learning_guide](https://github.com/didar-ali-deed/machine_learning_guide). It contains real lessons and a complete planned inventory; it is an academy under construction. [PROGRESS.md](PROGRESS.md) is the current completion record. The workflow in `.github/workflows/validate.yml` checks and executes authored notebooks when pushed. [Inspect the actual workflow results](https://github.com/didar-ali-deed/machine_learning_guide/actions/workflows/validate.yml).
 
-Create an empty repository named `complete-machine-learning-academy` in your GitHub account. Leave the remote README, gitignore, and license options unchecked so that its initial history does not conflict with this project. Choose public or private deliberately. No public-use license has been selected for this project.
+To study on another Windows machine, clone the repository and follow [START_HERE.md](START_HERE.md) to create its isolated Python environment:
 
-From PowerShell inside your local project, replace the example URL with your actual repository URL:
+```powershell
+git clone https://github.com/didar-ali-deed/machine_learning_guide.git
+Set-Location machine_learning_guide
+```
+
+The project name remains `complete-machine-learning-academy`, even though the GitHub repository is named `machine_learning_guide`. No public-use license has been selected for this project.
+
+The existing workspace already has `origin`; inspect it rather than adding it again. These are the normal publication commands for later committed work:
 
 ```powershell
 git status
 git log --oneline -5
-git remote add origin https://github.com/YOUR_USERNAME/complete-machine-learning-academy.git
+git remote -v
 git push -u origin main
 ```
 
-If `origin` already exists, inspect `git remote -v` and use `git remote set-url origin YOUR_ACTUAL_URL` only if you intend to replace it. Authenticate using GitHub's normal credential flow; do not place tokens in notebooks, committed files, or remote URLs. These commands are instructions, not a claim that this repository has been published.
+Use `git remote set-url origin YOUR_ACTUAL_URL` only if you intend to replace the remote. Authenticate using GitHub's normal credential flow; do not place tokens in notebooks, committed files, or remote URLs. The initial local commits have actually been pushed to the specified repository.
 
 For later local work:
 

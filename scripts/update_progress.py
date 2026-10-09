@@ -27,6 +27,8 @@ def main():
         groups[status].append(record)
     created = sum((ROOT/r['path']).exists() for r in records)
     next_batch = [r for r in records if r['module'] == '01' and not (ROOT/r['path']).exists()][:3]
+    if not next_batch:
+        next_batch = [r for r in records if r['module'] == '02' and not (ROOT/r['path']).exists()][:3]
     next_description = ', '.join(f'{r["id"]} {r["title"]}' for r in next_batch) or 'the next unfinished foundation lessons in prerequisite order'
     rows = ['# Academy progress — authoritative status', '',
         f'Inventory: **{len(records)}** notebooks. Created: **{created}**. Executed and reviewed at the current source hash: **{len(groups["Executed and verified"])}**. Unwritten: **{len(records)-created}**.', '',

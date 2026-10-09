@@ -50,9 +50,9 @@ Write small Python programs and inspect, transform, and visualize tabular arrays
 | <a id="01-16"></a>01-16 | [Pandas basics](01_Python_Foundations/16_pandas_basics.ipynb) | 2 | [01-13](#01-13) | Pandas basics |
 | <a id="01-17"></a>01-17 | [Filtering grouping and merging](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb) | 2 | [01-16](#01-16) | Filtering grouping and merging |
 | <a id="01-18"></a>01-18 | [Visualizing data](01_Python_Foundations/18_visualizing_data.ipynb) | 2 | [01-16](#01-16) | Visualizing data |
-| <a id="01-19"></a>01-19 | [Matplotlib — planned](01_Python_Foundations/README.md#01-19) | 2 | [01-18](#01-18) | Matplotlib |
-| <a id="01-20"></a>01-20 | [Seaborn — planned](01_Python_Foundations/README.md#01-20) | 2 | [01-19](#01-19) | Seaborn |
-| <a id="01-21"></a>01-21 | [Exploratory analysis — planned](01_Python_Foundations/README.md#01-21) | 2 | [01-20](#01-20) | Exploratory analysis |
+| <a id="01-19"></a>01-19 | [Matplotlib](01_Python_Foundations/19_matplotlib.ipynb) | 2 | [01-18](#01-18) | Matplotlib |
+| <a id="01-20"></a>01-20 | [Seaborn](01_Python_Foundations/20_seaborn.ipynb) | 2 | [01-19](#01-19) | Seaborn |
+| <a id="01-21"></a>01-21 | [Exploratory analysis](01_Python_Foundations/21_exploratory_analysis.ipynb) | 2 | [01-20](#01-20) | Exploratory analysis |
 
 ## 02 Mathematics for ML
 

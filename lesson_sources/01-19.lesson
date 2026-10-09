@@ -1,0 +1,235 @@
+# 1. Matplotlib: build a figure whose meaning survives inspection
+
+Learn the figure-and-axes interface, select suitable plot types, label units, control histogram bins, and save a reproducible image. Prerequisite: [visualizing data](18_visualizing_data.ipynb), arrays, and simple summaries. This lesson extends the earlier visualization overview with explicit control of chart objects. Its observations are five synthetic service waits in minutes. They do not describe a real service or support a population conclusion.
+
+## 2. What problem does this solve?
+
+A useful chart communicates a specific comparison. A scatter plot asks how two quantities vary together; a histogram asks how many observations fall within intervals; a line plot emphasizes ordered change; a bar chart compares named groups. A plotting library cannot choose the scientific question for you.
+
+We want to show both the distribution and observation order of five waits. Using an unlabeled line alone might suggest continuous time even when the observations are unrelated visits. Using a histogram alone would hide which visit had the longest wait. We will state each chart's purpose and use separate panels when they answer different questions.
+
+## 3. Intuition and analogy
+
+A figure is the entire page. An axes object is one plotting area on that page. Axis objects manage scales and ticks within the plotting area. Artists are the visible elements: points, lines, bars, text, and legends. You arrange these objects to make the data story readable.
+
+Imagine writing a laboratory report. A page without units or captions leaves readers guessing; a chart does too. Titles identify the comparison, axis labels define quantities and units, and legends identify multiple series. None of those replace an explanation of how the observations were collected.
+
+## 4. Terminology and syntax
+
+`fig, ax = plt.subplots()` creates a figure and one axes object and assigns them to two names. `ax.plot` creates a line; `ax.scatter` creates points; `ax.bar` creates bars; `ax.hist` bins numerical observations. Methods such as `set_xlabel` or `ax.set(...)` configure the axes. A **tick** is a marked scale position. A **legend** explains labels assigned to plotted elements.
+
+A histogram **bin** is an interval of values. **DPI** means dots per inch and controls raster-image sampling when saving. **Layout** determines spacing. `display(fig)` embeds the figure in this notebook; `plt.close(fig)` releases its pyplot registration after display, avoiding accumulated open figures when cells are rerun.
+
+## 5. Mathematical foundations
+
+For observations $x_1,\ldots,x_n$, a count histogram assigns each observation to one interval. For an interior bin $[a_k,b_k)$,
+
+$$c_k=\sum_{i=1}^{n}\mathbf{1}(a_k\leq x_i<b_k).$$
+
+$a_k$ and $b_k$ are bin boundaries in minutes; $c_k$ is a count in observations. The symbol $\mathbf{1}$ equals one when its condition is true and zero otherwise. The final NumPy/Matplotlib bin includes its right endpoint. Nonoverlapping bins covering every value should satisfy $\sum_k c_k=n$.
+
+The mean is $\bar{x}=\sum_i x_i/n$, in minutes. The median is the middle sorted value when $n$ is odd. A histogram count is not a probability density: with unequal-width bins, density requires division by both total count and bin width, giving units of inverse minutes.
+
+## 6. Hand-calculated example
+
+The sorted waits are `[1,2,2,3,8]`. Their total is 16 minutes, mean $16/5=3.2$ minutes, and median 2 minutes. With edges `[0,2,4,10]`, the intervals contain `[1]`, `[2,2,3]`, and `[8]`, so counts are `[1,3,1]`. The value 2 belongs to the second bin, not the first.
+
+The last interval is wider than the others. Comparing its bar area with a narrow bin's area would be misleading for a count histogram. We will label counts and discuss this choice rather than presenting unequal-width count bars as densities.
+
+## 7. Bin counting from scratch
+
+```python
+waits = [1.0, 2.0, 2.0, 3.0, 8.0]
+edges = [0.0, 2.0, 4.0, 10.0]
+manual_counts = [0] * (len(edges) - 1)
+for value in waits:
+    for position in range(len(manual_counts)):
+        left, right = edges[position], edges[position + 1]
+        final_bin = position == len(manual_counts) - 1
+        if left <= value < right or (final_bin and value == right):
+            manual_counts[position] += 1
+            break
+assert manual_counts == [1, 3, 1]
+assert sum(manual_counts) == len(waits)
+assert sum(waits) / len(waits) == 3.2
+print('Hand-checked bin counts:', manual_counts)
+```
+
+This loop is a small mechanism demonstration. It does not validate edge order or reject out-of-range values. Conservation is therefore checked explicitly for our declared inputs. Use the tested library routine when building actual charts.
+
+## 8. Inspecting plotting inputs
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from IPython.display import display
+values = np.array(waits)
+positions = np.arange(1, len(values) + 1)
+assert values.shape == positions.shape == (5,)
+counts, used_edges = np.histogram(values, bins=edges)
+np.testing.assert_array_equal(counts, manual_counts)
+assert np.median(values) == 2.0
+print('Observation positions:', positions)
+print('Counts:', counts, 'Edges:', used_edges)
+```
+
+Position is an identifier for these invented visits, not elapsed time. This distinction matters before deciding to connect observations with lines. A different ordering would change a line's appearance without changing the histogram.
+
+## 9. Matplotlib implementation
+
+Create a two-panel figure using explicit axes references. `axes` is a one-dimensional array of two axes objects. Passing `bins=edges` makes the histogram rule reproducible. The numerical histogram outputs returned by `hist` can be compared with the independent calculation. Style choices are scoped with `rc_context` rather than changing global defaults for future lessons.
+
+```python
+with plt.rc_context({'font.size': 10}):
+    fig, axes = plt.subplots(1, 2, figsize=(9, 3.5))
+    axes[0].scatter(positions, values, marker='o', label='Synthetic visit')
+    axes[0].axhline(values.mean(), color='darkorange', linestyle='--', label='Mean: 3.2 minutes')
+    axes[0].set(xlabel='Visit position (not elapsed time)', ylabel='Wait (minutes)',
+                title='Which visit waited longest?', xticks=positions, ylim=(0, 9))
+    axes[0].legend()
+    plotted_counts, plotted_edges, patches = axes[1].hist(values, bins=edges, edgecolor='black')
+    axes[1].set(xlabel='Wait (minutes)', ylabel='Number of visits', title='How many waits per interval?',
+                xticks=edges, yticks=[0, 1, 2, 3])
+    np.testing.assert_array_equal(plotted_counts, counts)
+    fig.tight_layout()
+    display(fig)
+    plt.close(fig)
+```
+
+## 10. Visualization interpretation
+
+The scatter panel identifies the fifth visit as the eight-minute wait. The histogram shows three visits between two and four minutes. The mean line sits above the median because the long wait pulls the average upward. Neither panel proves why that wait occurred.
+
+Do not connect visits merely because a line looks attractive. If the observations had a real time order and timestamps, a line might be appropriate, with time explicitly labeled. For a count histogram with unequal bin widths, interpret heights as counts and avoid reading area as probability. Equal-width bins or a properly labeled density plot can answer other distribution questions.
+
+## 11. Experiment: bin choice changes appearance
+
+Change the histogram to equal-width two-minute intervals. The underlying observations, mean, and maximum remain identical. This experiment shows why a distribution chart should disclose its binning choice and should not be treated as an objective picture independent of settings.
+
+```python
+equal_edges = np.arange(0, 11, 2)
+equal_counts, _ = np.histogram(values, bins=equal_edges)
+assert equal_counts.tolist() == [1, 3, 0, 0, 1]
+fig, ax = plt.subplots(figsize=(6, 3))
+ax.hist(values, bins=equal_edges, edgecolor='black', color='steelblue')
+ax.set(xlabel='Wait (minutes)', ylabel='Number of visits', title='Same five values, equal-width bins',
+       xticks=equal_edges, yticks=[0, 1, 2, 3])
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 12. Plot configuration
+
+Bins, axis limits, figure size, marker shape, color, and DPI are presentation choices, not learned parameters. Each affects readability or the apparent structure. Too few bins hide detail; too many make a tiny sample appear fragmented. State the sample size. Use markers, labels, or line styles as well as color so interpretation does not depend only on color perception.
+
+## 13. Evaluation and export
+
+Evaluate chart correctness before aesthetics: correct source values, units, aggregation, bin counts, scale, and labels. Then check whether annotations fit and whether a reader can identify the intended comparison. A saved image should be nonempty and decodable. The following in-memory export avoids writing over a project image.
+
+```python
+from io import BytesIO
+fig, ax = plt.subplots(figsize=(5, 3))
+bars = ax.bar(['Mean', 'Median'], [values.mean(), np.median(values)])
+ax.set(ylabel='Wait (minutes)', title='Two summaries of five synthetic visits', ylim=(0, 4))
+ax.bar_label(bars, fmt='%.1f')
+fig.tight_layout()
+buffer = BytesIO()
+fig.savefig(buffer, format='png', dpi=120)
+assert buffer.getvalue().startswith(b'\x89PNG\r\n\x1a\n')
+buffer.seek(0)
+pixels = plt.imread(buffer, format='png')
+assert pixels.ndim == 3 and pixels.size > 0
+assert ax.get_ylabel() == 'Wait (minutes)'
+plt.close(fig)
+print('PNG round trip:', pixels.shape)
+```
+
+This checks the export mechanism, not whether an arbitrary reader understands the chart. Visual review remains necessary. Raster images suit screen sharing; vector formats can suit publication when their content is appropriate.
+
+## 14. Assumptions and limitations
+
+The sample is tiny, invented, and complete. It cannot estimate a stable service-time distribution or uncertainty about a real population. We show no confidence intervals because there is no sampling design to justify them. A plot does not establish causation. Charts can conceal measurement problems that must be checked in tables first.
+
+## 15. Common mistakes and debugging
+
+Avoid missing units, unreadable labels, unexplained truncated scales, and legends covering observations. Bar charts ordinarily need a zero baseline because length encodes magnitude. Scatter and line plots may use a restricted range when clearly disclosed. Do not use a logarithmic axis with zero or negative values without a suitable explicit treatment.
+
+When a notebook accumulates figures, close each one after display. When plotting code affects the wrong panel, use the axes object explicitly instead of relying on pyplot's current axes. Headless execution uses an inline or noninteractive backend; adding GUI software is not required to generate lesson plots.
+
+## 16. Alternatives
+
+Seaborn provides statistical plotting defaults over labeled tables; Matplotlib supplies direct control of figure elements. A table is often clearer for a handful of exact values. Interactive charts help exploration, while static figures suit saved notebooks and reports. Choose a representation that helps answer the stated question rather than maximizing decoration.
+
+## 17. Exercises
+
+- **Beginner:** Calculate counts for edges `[0,4,10]` and explain where the value 3 goes.
+- **Beginner:** Explain why the mean is above the median in this example.
+- **Beginner:** Choose between a scatter plot and a line for unrelated visits and justify the choice.
+- **Intermediate:** Build a bar chart of mean and median with a zero baseline, units, and numerical labels.
+- **Intermediate:** Predict whether reordering values changes a histogram or a plot against observation position.
+- **Challenge:** Construct a reusable function returning a figure and axes for a finite nonempty wait vector, with a median reference, explicit units, and no input mutation. Verify its validation and close its figure.
+
+## 18. Detailed solutions
+
+The counts are `[4,1]`; 1,2,2,3 lie in the first interval. The eight-minute wait pulls the mean to 3.2 while the median remains 2. Scatter avoids implying continuity between unrelated visits. The export example implements the requested summary bar chart. Reordering leaves the histogram unchanged but changes which position receives each plotted value.
+
+The challenge should separate construction from display. Returning objects allows callers to add annotations or save the figure. Validation prevents a missing median from being silently drawn. We require nonnegative waits because that is this example's domain.
+
+```python
+def make_wait_plot(wait_values):
+    data = np.asarray(wait_values, dtype=float)
+    if data.ndim != 1 or data.size == 0 or not np.isfinite(data).all() or (data < 0).any():
+        raise ValueError('Use a nonempty one-dimensional finite nonnegative vector.')
+    figure, axis = plt.subplots(figsize=(5, 3))
+    axis.scatter(np.arange(1, len(data) + 1), data)
+    axis.axhline(np.median(data), color='black', linestyle='--', label='Median')
+    axis.set(xlabel='Visit position', ylabel='Wait (minutes)', title='Synthetic wait inspection')
+    axis.legend()
+    figure.tight_layout()
+    return figure, axis
+
+np.testing.assert_array_equal(np.histogram(values, bins=[0, 4, 10])[0], [4, 1])
+snapshot = values.copy()
+exercise_fig, exercise_ax = make_wait_plot(values)
+assert exercise_ax.get_ylabel() == 'Wait (minutes)'
+assert exercise_ax.lines[0].get_ydata()[0] == 2.0
+np.testing.assert_array_equal(values, snapshot)
+plt.close(exercise_fig)
+for invalid in [[], [np.nan], [-1], [[1, 2]]]:
+    try:
+        make_wait_plot(invalid)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid plotting input was accepted.')
+print('Plot construction and validation exercises passed.')
+```
+
+## 19. Knowledge check
+
+**What is a figure?** The whole chart page, potentially containing multiple plotting areas.
+
+**What does an axes object control?** One plotting area and its visible elements, labels, scales, and limits.
+
+**Why disclose bins?** Different interval choices change a histogram's appearance without changing the data.
+
+**Are histogram counts densities?** No. Density also accounts for sample size and bin width.
+
+**Why close figures?** To release registered plotting objects and avoid accumulation during repeated execution.
+
+## 20. Interview preparation
+
+**How do you choose a plot type?** Start with the question: distribution, relationship, category comparison, or ordered change.
+
+**Why prefer explicit axes references?** They make multi-panel behavior clear and reduce reliance on global current-plot state.
+
+**When is a line misleading?** When connecting unrelated observations implies continuity or time that the data do not contain.
+
+**How do you verify a histogram?** Check boundary conventions, independent counts, coverage, labels, and whether heights represent counts or densities.
+
+**Can a polished chart establish causation?** No. Causal claims need an appropriate design and assumptions beyond visualization.
+
+## 21. Summary and next steps
+
+Construct plots around a question, keep axes and units explicit, and verify transformations before interpreting appearance. Continue to [Seaborn](20_seaborn.ipynb) to learn how labeled tables and automatic statistical aggregation affect a chart's meaning.

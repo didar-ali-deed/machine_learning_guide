@@ -238,4 +238,4 @@ The helper assumes the documented columns and unique order IDs have already been
 
 ## 21. Summary and next steps
 
-Filtering changes which observations remain; grouping changes the observational unit; merging attaches information under a cardinality contract. Track identities and totals throughout. Continue to [visualizing data](18_visualizing_data.ipynb). Dedicated plotting and exploratory-analysis lessons are specified in the [module plan](README.md#01-19) until authored.
+Filtering changes which observations remain; grouping changes the observational unit; merging attaches information under a cardinality contract. Track identities and totals throughout. Continue to [visualizing data](18_visualizing_data.ipynb), followed by [Matplotlib](19_matplotlib.ipynb), [Seaborn](20_seaborn.ipynb), and [exploratory analysis](21_exploratory_analysis.ipynb).

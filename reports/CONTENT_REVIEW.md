@@ -80,3 +80,15 @@ Fresh-kernel execution passed for 01-14, 01-15, and 01-17. Manual calculations, 
 | 01-17 | Paid IDs 101/102/104 total 80 dollars; group counts 2/1 and means 20/40; weighted mean 80/3; duplicate reference keys rejected; unmatched order 104 retained; source table preserved |
 
 These lessons teach transformations and table integrity, not predictive performance. The functions have deliberately restricted contracts, and neither shape agreement nor count conservation alone proves semantic correctness.
+
+## Matplotlib, Seaborn, and exploratory analysis
+
+Fresh-kernel execution passed for 01-19, 01-20, and 01-21. The source, manual arithmetic, printed outputs, exercise solutions, and [six rendered figures](python_plotting_eda_review.png) were inspected. The table-joins lesson was re-executed after updating its next-step links to these actual notebooks.
+
+| ID | Reviewed evidence and boundary |
+|---|---|
+| 01-19 | Manual histogram counts `[1,3,1]`, mean 3.2 and median 2; alternate equal-width bins preserve observations; PNG decodes to `(360,600,4)`; labeled plotting helper rejects missing/negative/wrong-shape inputs |
+| 01-20 | Site means 4/12 and counts 3/1; visit mean 6 differs from equally weighted site mean 8; plotted bar heights checked; individual instrument paths remain separate; added B visit changes mean to 8; no unsupported interval claims |
+| 01-21 | Missing fraction 25% and observed mean 20 versus zero-filled 15; 21 raw rows become 20 unique records; split retains 15 training/5 test rows; 14 complete training pairs support the inspected association; conflicting repeated ID rejected |
+
+The training Pearson correlation of approximately 0.990 follows the synthetic data generator and is not an empirical or causal claim. EDA leaves the test outcomes out of exploratory relationship analysis. All plots identify their quantities and units, and all new source notebooks remain free of execution outputs.

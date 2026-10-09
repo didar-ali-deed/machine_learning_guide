@@ -1,13 +1,13 @@
 # Academy progress — authoritative status
 
-Inventory: **427** notebooks. Created: **23**. Executed and reviewed at the current source hash: **23**. Unwritten: **404**.
+Inventory: **427** notebooks. Created: **26**. Executed and reviewed at the current source hash: **26**. Unwritten: **401**.
 
 A lesson is verified only when its current source matches a passing fresh-kernel execution and a recorded content review. Changed sources invalidate earlier evidence. Optional means planned with extra dependencies; it does not mean completed.
 
 ## Immediate next actions
 
 1. Read the latest reports and resolve any failed or stale notebooks below.
-2. Implement the next foundation batch: 01-19 Matplotlib, 01-20 Seaborn, 01-21 Exploratory analysis. Then fill mathematics and preprocessing prerequisites.
+2. Implement the next foundation batch: 02-01 Fractions percentages and exponents, 02-02 Variables and equations, 02-04 Functions and graphs. Then fill mathematics and preprocessing prerequisites.
 3. Prioritize the classical algorithm sequence after those prerequisites: regression/gradient descent, logistic regression, KNN, Naive Bayes, trees/forests, SVM, boosting, evaluation/CV/tuning, K-Means, PCA, DBSCAN.
 4. Expand the reference guides alongside their lessons; the current comparison and interview guides are foundation/core editions, not complete advanced textbooks.
 
@@ -28,7 +28,7 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 | Module | Created | Total planned | Verified |
 |---|---:|---:|---:|
 | 00 | 3 | 15 | 3 |
-| 01 | 18 | 21 | 18 |
+| 01 | 21 | 21 | 21 |
 | 02 | 2 | 47 | 2 |
 | 03 | 0 | 19 | 0 |
 | 04 | 0 | 16 | 0 |
@@ -52,7 +52,7 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 | 22 | 0 | 19 | 0 |
 | 23 | 0 | 9 | 0 |
 
-## Executed and verified (23)
+## Executed and verified (26)
 
 - 00-01 [What is Machine Learning?](00_Getting_Started/01_what_is_machine_learning.ipynb)
 - 00-02 [Machine Learning types and terminology](00_Getting_Started/02_machine_learning_types_and_terminology.ipynb)
@@ -75,6 +75,9 @@ A lesson is verified only when its current source matches a passing fresh-kernel
 - 01-16 [Pandas basics](01_Python_Foundations/16_pandas_basics.ipynb)
 - 01-17 [Filtering grouping and merging](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb)
 - 01-18 [Visualizing data](01_Python_Foundations/18_visualizing_data.ipynb)
+- 01-19 [Matplotlib](01_Python_Foundations/19_matplotlib.ipynb)
+- 01-20 [Seaborn](01_Python_Foundations/20_seaborn.ipynb)
+- 01-21 [Exploratory analysis](01_Python_Foundations/21_exploratory_analysis.ipynb)
 - 02-03 [Functions and derivatives](02_Mathematics_for_ML/03_functions_and_derivatives.ipynb)
 - 02-07 [Scalars vectors and matrices](02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb)
 
@@ -103,7 +106,7 @@ None.
 - 21-06 [LIME](21_Interpretability_Ethics_and_Robustness/README.md#21-06)
 - 22-07 [MLflow fundamentals](22_MLOps_and_Deployment/README.md#22-07)
 
-## Planned (394)
+## Planned (391)
 
 - 00-04 [What is Artificial Intelligence?](00_Getting_Started/README.md#00-04)
 - 00-05 [Machine Learning versus Deep Learning](00_Getting_Started/README.md#00-05)
@@ -117,9 +120,6 @@ None.
 - 00-13 [How to use notebooks](00_Getting_Started/README.md#00-13)
 - 00-14 [Introduction to Git and GitHub](00_Getting_Started/README.md#00-14)
 - 00-15 [A first complete Machine Learning example](00_Getting_Started/README.md#00-15)
-- 01-19 [Matplotlib](01_Python_Foundations/README.md#01-19)
-- 01-20 [Seaborn](01_Python_Foundations/README.md#01-20)
-- 01-21 [Exploratory analysis](01_Python_Foundations/README.md#01-21)
 - 02-01 [Fractions percentages and exponents](02_Mathematics_for_ML/README.md#02-01)
 - 02-02 [Variables and equations](02_Mathematics_for_ML/README.md#02-02)
 - 02-04 [Functions and graphs](02_Mathematics_for_ML/README.md#02-04)
@@ -502,4 +502,4 @@ None.
 
 ## Exact continuation prompt
 
-> Continue building complete-machine-learning-academy in this workspace. Read AGENTS.md, PROGRESS.md, and reports first. Preserve the 427-notebook inventory. Implement 01-19 Matplotlib, 01-20 Seaborn, 01-21 Exploratory analysis with lesson-specific explanations, manual examples, runnable code, six exercises and worked solutions, and answered knowledge/interview questions. Use the existing .venv, execute each new notebook in a fresh kernel, inspect its outputs, run structural/link checks and infrastructure tests, record content reviews tied to source and declared dependency hashes, and regenerate PROGRESS.md. Do not install optional packages unless the selected lessons require them. Report exact created and verified counts and the next batch.
+> Continue building complete-machine-learning-academy in this workspace. Read AGENTS.md, PROGRESS.md, and reports first. Preserve the 427-notebook inventory. Implement 02-01 Fractions percentages and exponents, 02-02 Variables and equations, 02-04 Functions and graphs with lesson-specific explanations, manual examples, runnable code, six exercises and worked solutions, and answered knowledge/interview questions. Use the existing .venv, execute each new notebook in a fresh kernel, inspect its outputs, run structural/link checks and infrastructure tests, record content reviews tied to source and declared dependency hashes, and regenerate PROGRESS.md. Do not install optional packages unless the selected lessons require them. Report exact created and verified counts and the next batch.

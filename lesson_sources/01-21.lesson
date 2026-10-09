@@ -1,0 +1,257 @@
+# 1. Exploratory analysis: turn a table into questions and evidence
+
+Learn to define the observational unit, audit identifiers and missing values, summarize training data, investigate relationships, and write a restrained analysis report. Prerequisites: [Seaborn](20_seaborn.ipynb), pandas grouping, and NumPy shapes. All data in this lesson are generated synthetic building-day records. No real building or population is being studied.
+
+Exploratory data analysis, abbreviated EDA, is structured investigation before and during modeling. It is not a competition to produce the most plots. You should finish with concrete quality findings, a few testable hypotheses, and a record of what the available data cannot establish.
+
+## 2. What problem does this solve?
+
+A model can accept a numerical table without understanding its provenance. Duplicate observations, mixed units, missing fields, implausible readings, and misleading relationships can invalidate its results. EDA connects numerical operations to observation meaning and collection conditions.
+
+Our question is whether temperature is associated with synthetic daily energy use and whether data quality permits a later prediction experiment. Before exploring that relationship, we will identify exact duplicate records and missing temperatures. Before selecting model ideas, we will reserve held-out observations and investigate only training data. Final test outcomes must not become an informal source of model-selection advice.
+
+## 3. Intuition and analogy
+
+Think of EDA as inspecting ingredients before cooking. Counting bags is not enough: you need to know contents, units, freshness, and whether two labels refer to the same item. A recipe cannot repair ingredients whose meaning is unknown.
+
+Use a question-driven loop: state a question, identify the required columns and observational unit, inspect a table or chart, record a finding, and state an alternative explanation. Unexpected patterns are reasons to investigate provenance, not permission to invent a causal story. Keep a log of decisions because repeated exploration can influence later choices even when no formal hypothesis test is run.
+
+## 4. Terminology
+
+An **observational unit** is what one row represents. **Provenance** describes where records came from and how they were collected. A **schema** describes expected columns, types, and constraints. **Missingness** means a measurement is unavailable, not that its true value is zero. A **duplicate** repeats an observation or key under a declared rule.
+
+A **distribution** describes how values vary. An **association** describes variables changing together. A **confounder** can influence both variables and complicate interpretation. A **held-out set** is reserved for later evaluation. **Data leakage** occurs when information unavailable at real prediction time influences training or model selection. Synthetic data have an intentionally constructed mechanism, not the credibility of an independently collected sample.
+
+## 5. Mathematical foundations
+
+If $n$ rows contain $m$ missing measurements for a feature, its missing fraction is
+
+$$q=m/n.$$
+
+$m$ and $n$ are row counts; $q$ has no units. Multiplying by 100 gives a percentage. Among $a=n-m$ available values, the observed mean is
+
+$$\bar{x}_{\mathrm{observed}}=\frac{1}{a}\sum_{i\in A}x_i,$$
+
+where $A$ is the set of indices with available measurements and $x_i$ has the feature's units. This is an available-case mean, not necessarily the full-sample mean. If missingness depends on the measurement, the available subset may be biased. A table's row and column counts describe its shape, not its measurement quality.
+
+## 6. Hand-calculated example
+
+For temperatures `[10,20,missing,30]` degrees Celsius, $n=4$, $m=1$, and $q=1/4=25\%$. Three measurements are available, totaling 60, so their observed mean is $60/3=20$ degrees Celsius. Filling missing with zero instead gives $60/4=15$, which invents a freezing-temperature measurement and changes the denominator.
+
+If a record is copied exactly, counting it again changes its influence. For values `[10,20,30]`, the mean is 20; duplicating the 30 gives $90/4=22.5$. Whether two identical-looking rows are genuine repeat observations or accidental copies requires an observation identifier and provenance, not just a numerical rule.
+
+## 7. Audit from scratch
+
+```python
+tiny_temperatures = [10.0, 20.0, None, 30.0]
+available = [value for value in tiny_temperatures if value is not None]
+missing_count = len(tiny_temperatures) - len(available)
+missing_fraction = missing_count / len(tiny_temperatures)
+observed_mean = sum(available) / len(available)
+assert missing_fraction == 0.25 and observed_mean == 20.0
+assert sum([10, 20, 30, 30]) / 4 == 22.5
+print('Missing fraction:', missing_fraction, 'Observed mean:', observed_mean, 'degrees Celsius')
+```
+
+The tiny calculation treats only `None` as missing. pandas uses additional missing-value representations. We will let pandas identify missingness in the table, while checking numerical finiteness separately when evaluating available measurements.
+
+## 8. Build and inspect the synthetic table
+
+The random generator seed makes the same example repeatable. Energy is deliberately generated to rise with temperature plus small random noise; discovering that association will demonstrate the chosen generator, not an empirical law of energy use. We insert two missing temperatures and one exact copied record to practice an audit.
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.model_selection import train_test_split
+rng = np.random.default_rng(42)
+temperature = np.arange(10.0, 30.0)
+base = pd.DataFrame({'record_id': np.arange(1, 21),
+                     'temperature_c': temperature,
+                     'energy_kwh': 50 + 2 * (temperature - 10) + rng.normal(0, 2, 20)})
+base.loc[[3, 17], 'temperature_c'] = np.nan
+raw = pd.concat([base, base.iloc[[0]]], ignore_index=True)
+raw_snapshot = raw.copy(deep=True)
+assert raw.shape == (21, 3)
+assert raw.duplicated().sum() == 1
+clean = raw.drop_duplicates().copy()
+assert clean.shape == (20, 3) and clean['record_id'].is_unique
+assert clean['temperature_c'].isna().sum() == 2
+assert np.isfinite(clean['energy_kwh']).all() and clean['energy_kwh'].ge(0).all()
+print('Schema:', clean.dtypes.astype(str).to_dict())
+print('Audit: one exact copy removed; two temperatures remain missing.')
+```
+
+The raw audit checks a predeclared schema and exact-record duplication rule. It does not choose features from held-out outcome patterns. A repeated key with conflicting fields would require investigation instead of arbitrary deduplication. Row IDs here denote unique building-day records, not measurements of time or predictors.
+
+## 9. pandas training-only analysis
+
+Reserve five test rows using a fixed random split. This is a synthetic independent-row teaching protocol; real temporal or repeated-building data require time- or group-aware splitting. We do not summarize test energy values or compare candidate models using them. Validation/model selection will be introduced in later modules.
+
+```python
+train, test = train_test_split(clean, test_size=0.25, random_state=42)
+train = train.copy()
+test = test.copy()
+train_ids, test_ids = set(train['record_id']), set(test['record_id'])
+assert train_ids.isdisjoint(test_ids)
+assert train_ids | test_ids == set(clean['record_id'])
+assert len(train) == 15 and len(test) == 5
+feature_columns = ['temperature_c', 'energy_kwh']
+missing_report = train[feature_columns].isna().agg(['sum', 'mean']).T
+summary = train[feature_columns].describe()
+print('Training missing counts and fractions:\n', missing_report)
+print('Training numerical summary:\n', summary)
+```
+
+`describe` reports available-value counts and descriptive statistics. A count below the row count indicates missingness. These quantities describe the training subset under this fixed split. They should not be described as known population parameters.
+
+## 10. Visualization
+
+Use a histogram for training energy and a scatter plot for available temperature-energy pairs. The scatter excludes rows with missing temperatures explicitly and reports its sample size in the title. That subset may differ from the full training set. No regression line or inferential interval is needed to inspect the basic pattern.
+
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+pairs = train.dropna(subset=['temperature_c', 'energy_kwh'])
+fig, axes = plt.subplots(1, 2, figsize=(9, 3.5))
+sns.histplot(data=train, x='energy_kwh', bins=5, ax=axes[0])
+axes[0].set(xlabel='Daily energy (kWh)', ylabel='Number of training records', title=f'Training energy: n={len(train)}')
+sns.scatterplot(data=pairs, x='temperature_c', y='energy_kwh', ax=axes[1])
+axes[1].set(xlabel='Temperature (degrees Celsius)', ylabel='Daily energy (kWh)',
+            title=f'Available training pairs: n={len(pairs)}')
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Experiment: a summary can hide missingness
+
+Compare the available-temperature mean with an unjustified zero-filled mean on the tiny example. Then inspect how many training pairs support the correlation. pandas correlation uses available pairs here. Pearson correlation lies between minus one and one and summarizes linear association; it has no units. We do not need its full derivation yet, but we do need to report its supporting sample.
+
+```python
+tiny_series = pd.Series(tiny_temperatures, dtype=float)
+assert tiny_series.mean() == 20.0
+assert tiny_series.fillna(0).mean() == 15.0
+association = pairs['temperature_c'].corr(pairs['energy_kwh'])
+assert len(pairs) > 2 and np.isfinite(association) and -1 <= association <= 1
+assert len(pairs) == train['temperature_c'].notna().sum()
+print('Tiny available mean:', tiny_series.mean(), 'Zero-filled mean:', tiny_series.fillna(0).mean())
+print('Training Pearson correlation:', round(association, 3), 'Available pairs:', len(pairs))
+```
+
+A high correlation is expected from our generator. It is neither a validated prediction result nor evidence that increasing outdoor temperature would cause the same change in a real building. Real energy use can also depend on occupancy, equipment, season, and control settings.
+
+## 12. Analysis choices and later modeling
+
+Choose observational units, split strategy, quality rules, summaries, bins, and missing-data policies deliberately. None is an optimized predictor in this notebook. A later imputation median must be fit on training observations and applied consistently. A model-selection protocol also needs validation data or cross-validation inside training; this notebook does not select a model using the test set.
+
+Do not remove an observation just because it makes a relationship look less attractive. Investigate measurement errors separately from unusual but valid outcomes. Record how each filtering decision changes the number and type of observations available.
+
+## 13. Evaluation and a short report
+
+An EDA report should distinguish observed findings, decisions, and limitations. Our findings are one exact duplicate, two missing temperature measurements in the cleaned full table, and a positive association among available training pairs. Our decisions are to preserve raw data, remove only the declared exact copy, retain missingness for later modeling, and reserve five test rows.
+
+```python
+report = {
+    'provenance': 'synthetic generator, seed 42',
+    'observational_unit': 'one invented building-day record',
+    'raw_rows': len(raw), 'clean_rows': len(clean),
+    'exact_copies_removed': len(raw) - len(clean),
+    'training_rows': len(train), 'reserved_test_rows': len(test),
+    'available_training_pairs': len(pairs),
+    'training_correlation': float(association),
+    'limitations': ['synthetic mechanism', 'small sample', 'no causal inference', 'no evaluated predictor'],
+}
+assert report['raw_rows'] == report['clean_rows'] + report['exact_copies_removed']
+assert report['training_rows'] + report['reserved_test_rows'] == report['clean_rows']
+pd.testing.assert_frame_equal(raw, raw_snapshot)
+print(report)
+```
+
+The limitations are part of the result, not an afterthought. A clear report helps the next modeling step proceed with known questions rather than inherited assumptions.
+
+## 14. Assumptions and limitations
+
+The split assumes independent comparable rows, a property built into this toy exercise rather than established for real data. The generated relationship is much simpler than a real forecasting problem. We have no target timestamp policy, sampling frame, or independent deployment population. We did not estimate uncertainty, train a predictor, or evaluate future performance. Those remain separate tasks.
+
+## 15. Common mistakes and debugging
+
+Avoid exploring test labels repeatedly and calling the final score untouched. Avoid plotting identifiers as if their numerical values were meaningful features. Missing is not zero. Exact duplicate removal is appropriate only under a stated observation rule; two genuinely repeated readings can have identical values and still be valid separate observations.
+
+Do not mistake a correlation matrix for a causal diagram. Check units and missingness before interpreting summaries. Avoid reporting many selected patterns without disclosing the exploration process. If a statistic changes after cleaning, reconcile which rows changed and why before replacing the earlier report.
+
+## 16. Alternatives
+
+Automated profiling can summarize many columns but cannot define your observational unit or justify causal claims. Domain review can reveal impossible values that generic statistics miss. Data-validation tools can enforce declared schemas. Controlled experiments and causal analysis answer intervention questions that EDA cannot. Start with a small transparent investigation before adding more tooling.
+
+## 17. Exercises
+
+- **Beginner:** Calculate the missing fraction and observed mean for `[5,missing,15,missing]`.
+- **Beginner:** Explain why a copied high value can change a mean even though it introduces no new numerical value.
+- **Beginner:** State the observational unit and units of both measured columns in the generated table.
+- **Intermediate:** Report available training-pair count alongside correlation and explain why both are needed.
+- **Intermediate:** Propose a split for predicting tomorrow's energy in a real time-ordered building dataset and explain why random splitting may fail.
+- **Challenge:** Create an audit helper that removes exact copies but rejects conflicting repeated record IDs. Verify row accounting, source preservation, and rejection of a conflicting record.
+
+## 18. Detailed solutions
+
+Two of four values are missing, so the fraction is 50 percent. Available mean is $(5+15)/2=10$. A duplicate changes weight: a high value contributes twice. One row represents an invented building-day; temperature is degrees Celsius and energy is kilowatt-hours. Pair count reveals how many complete observations support a correlation and whether missingness reduced the sample.
+
+For real forecasting, train on earlier periods and evaluate on later periods; use validation windows that also respect time. Random splitting can let future conditions inform earlier predictions. Group policies may also matter when multiple buildings appear. The challenge must compare full repeated records before deciding they are exact copies.
+
+```python
+exercise_series = pd.Series([5, None, 15, None], dtype=float)
+assert exercise_series.isna().mean() == 0.5 and exercise_series.mean() == 10
+
+def remove_exact_copies(table):
+    if table['record_id'].isna().any():
+        raise ValueError('Record IDs must be present.')
+    deduplicated = table.drop_duplicates().copy()
+    if not deduplicated['record_id'].is_unique:
+        raise ValueError('Repeated ID has conflicting fields; investigate its source.')
+    return deduplicated
+
+audited = remove_exact_copies(raw)
+pd.testing.assert_frame_equal(audited, clean)
+conflicting = raw.iloc[[0]].copy()
+conflicting.loc[:, 'energy_kwh'] += 10
+bad_table = pd.concat([raw, conflicting], ignore_index=True)
+try:
+    remove_exact_copies(bad_table)
+except ValueError as error:
+    print('Conflicting ID rejected:', error)
+else:
+    raise AssertionError('Conflicting records must be investigated.')
+pd.testing.assert_frame_equal(raw, raw_snapshot)
+assert len(raw) - len(audited) == 1
+print('Audit accounting and input preservation passed.')
+```
+
+The helper assumes a declared record ID column and tabular values that support duplicate comparison. It does not infer whether real-world repeated observations are duplicates; provenance must establish that rule.
+
+## 19. Knowledge check
+
+**What should precede plotting?** A question, observational-unit definition, schema, and basic quality audit.
+
+**Does an observed mean include missing values?** It uses available values; that subset may not represent all observations.
+
+**Why reserve test observations?** To keep final evaluation independent of model-selection exploration.
+
+**Does association establish causation?** No. Confounding, selection, and measurement mechanisms can explain it.
+
+**What belongs in an EDA report?** Findings, decisions, supporting sample counts, provenance, unanswered questions, and limitations.
+
+## 20. Interview preparation
+
+**How do you approach an unfamiliar dataset?** Define row meaning and objective, audit schema and quality, choose a valid split, then investigate training data with focused summaries.
+
+**Why is automatic deduplication dangerous?** Identical values can be valid repeats, while conflicting repeated keys need source investigation rather than arbitrary retention.
+
+**How can EDA leak information?** Held-out outcome patterns can influence feature choices, cleaning rules, or model selection before final evaluation.
+
+**What would make random splitting inappropriate?** Time dependence, repeated groups, or deployment conditions that require prediction across a structured boundary.
+
+**What is a useful next step after a strong correlation?** Check provenance and alternative explanations, then design a baseline and valid evaluation protocol rather than assuming predictive or causal success.
+
+## 21. Summary and next steps
+
+EDA links data meaning, quality checks, descriptive statistics, and visualization. Preserve raw observations, document decisions, and keep final evaluation separate. This completes the authored Python foundation sequence. Continue with [fractions, percentages, and exponents](../02_Mathematics_for_ML/README.md#02-01), currently planned, and use [PROGRESS.md](../PROGRESS.md) to follow upcoming mathematics and preprocessing lessons.

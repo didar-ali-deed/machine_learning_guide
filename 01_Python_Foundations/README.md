@@ -189,7 +189,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `19_matplotlib.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](19_matplotlib.ipynb)
 
 Prerequisites: 01-18.
 Target: small CPU example with local or generated data.
@@ -199,7 +199,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `20_seaborn.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](20_seaborn.ipynb)
 
 Prerequisites: 01-19.
 Target: small CPU example with local or generated data.
@@ -209,7 +209,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `21_exploratory_analysis.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](21_exploratory_analysis.ipynb)
 
 Prerequisites: 01-20.
 Target: small CPU example with local or generated data.
