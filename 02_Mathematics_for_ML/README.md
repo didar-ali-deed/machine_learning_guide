@@ -89,7 +89,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `09_dot_products.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](09_dot_products.ipynb)
 
 Prerequisites: 02-08.
 Target: small CPU example with local or generated data.
@@ -99,7 +99,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `10_matrix_multiplication.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](10_matrix_multiplication.ipynb)
 
 Prerequisites: 02-09.
 Target: small CPU example with local or generated data.
@@ -109,7 +109,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `11_matrix_transpose.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](11_matrix_transpose.ipynb)
 
 Prerequisites: 02-10.
 Target: small CPU example with local or generated data.

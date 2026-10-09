@@ -23,11 +23,9 @@ Each lesson includes manual arithmetic, executable examples, plots, six exercise
 
 ## Continue Python foundations
 
-All **21 Python foundation lessons** are authored and tested. Follow the [numbered module index](01_Python_Foundations/README.md) from variables through NumPy, pandas, Matplotlib, Seaborn, and exploratory analysis. The newest lessons cover [indexing and shapes](01_Python_Foundations/14_indexing_slicing_and_shapes.ipynb), [broadcasting](01_Python_Foundations/15_vectorization_and_broadcasting.ipynb), [validated table joins](01_Python_Foundations/17_filtering_grouping_and_merging.ipynb), [Matplotlib](01_Python_Foundations/19_matplotlib.ipynb), [Seaborn](01_Python_Foundations/20_seaborn.ipynb), and [exploratory analysis](01_Python_Foundations/21_exploratory_analysis.ipynb). Mathematics and later modules remain in development; the [latest continuation report](reports/GITHUB_BUILD_REPORT.md) records what was actually delivered.
+All **21 Python foundation lessons** are authored and tested. Follow the [numbered Python index](01_Python_Foundations/README.md) from variables through NumPy, pandas, plotting, and exploratory analysis. Each lesson includes a small worked example and exercises with solutions.
 
-The mathematics sequence now begins with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb), [variables and equations](02_Mathematics_for_ML/02_variables_and_equations.ipynb), the existing derivative preview, and [functions and graphs](02_Mathematics_for_ML/04_functions_and_graphs.ipynb). See the [mathematics continuation report](reports/MATHEMATICS_ON_RAMP_REPORT.md) for the latest batch and next actions.
-
-Continue through [linear and quadratic equations](02_Mathematics_for_ML/05_linear_and_quadratic_equations.ipynb), [logarithms and exponentials](02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb), and [vector arithmetic](02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb). The [algebra/logarithm/vector report](reports/ALGEBRA_LOGS_VECTORS_REPORT.md) records that batch's evidence and limitations.
+The first **11 mathematics lessons** are also authored and tested. Start with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb) and follow the [mathematics index](02_Mathematics_for_ML/README.md) through equations, logarithms, vectors, dot products, matrix multiplication, and transpose. The [latest batch report](reports/DOT_MATRIX_TRANSPOSE_REPORT.md) records verification and precise next steps. Remaining mathematics and later modules are still planned; consult [PROGRESS.md](PROGRESS.md) for every exact status.
 
 ## Navigate
 

@@ -331,13 +331,46 @@
     "02-08": {
       "status": "passed",
       "path": "02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb",
-      "checked_at_utc": "2026-10-09T03:42:12.254625+00:00",
-      "source_sha256": "d39d0dfb7f019d26d18322c37715547519a82c3d3497bc69e0e1b140e56ed9f9",
+      "checked_at_utc": "2026-10-09T03:51:27.710071+00:00",
+      "source_sha256": "0c054cddcc0007bccd349b3baa3031084e54bcdc6dda268bca853d7dcb495c7b",
       "dependencies_sha256": {},
       "code_cells": 8,
       "figures": 1,
       "output": "reports/executed/02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb",
-      "seconds": 1.719
+      "seconds": 1.766
+    },
+    "02-09": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/09_dot_products.ipynb",
+      "checked_at_utc": "2026-10-09T03:50:27.977983+00:00",
+      "source_sha256": "77bf001958c5b1f00a70401d1d75833fee625bd480db94687e3b8cf4352e2ee8",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/09_dot_products.ipynb",
+      "seconds": 3.125
+    },
+    "02-10": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/10_matrix_multiplication.ipynb",
+      "checked_at_utc": "2026-10-09T03:50:31.102767+00:00",
+      "source_sha256": "d85c15fe8f38e07004abc884b437f5ee039fd851801a66ba445db13015e18bab",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/10_matrix_multiplication.ipynb",
+      "seconds": 1.593
+    },
+    "02-11": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/11_matrix_transpose.ipynb",
+      "checked_at_utc": "2026-10-09T03:51:29.501730+00:00",
+      "source_sha256": "463948ea3408231c29da763ca9117fed5992189d995b0fa54d967024a08a906c",
+      "dependencies_sha256": {},
+      "code_cells": 8,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/11_matrix_transpose.ipynb",
+      "seconds": 1.656
     }
   },
   "environment": {
@@ -350,5 +383,5 @@
     "ipykernel": "7.4.0"
   },
   "python": "3.11.9",
-  "checked_at_utc": "2026-10-09T03:42:06.629569+00:00"
+  "checked_at_utc": "2026-10-09T03:51:27.710071+00:00"
 }

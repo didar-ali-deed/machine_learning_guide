@@ -68,9 +68,9 @@ Calculate and interpret the algebra, derivatives, probabilities, and objectives 
 | <a id="02-06"></a>02-06 | [Logarithms and exponentials](02_Mathematics_for_ML/06_logarithms_and_exponentials.ipynb) | 2 | [02-05](#02-05) | Logarithms and exponentials |
 | <a id="02-07"></a>02-07 | [Scalars vectors and matrices](02_Mathematics_for_ML/07_scalars_vectors_and_matrices.ipynb) | 2 | [01-18](#01-18) | Scalars vectors and matrices |
 | <a id="02-08"></a>02-08 | [Vector addition and multiplication](02_Mathematics_for_ML/08_vector_addition_and_multiplication.ipynb) | 2 | [02-07](#02-07) | Vector addition and multiplication |
-| <a id="02-09"></a>02-09 | [Dot products — planned](02_Mathematics_for_ML/README.md#02-09) | 2 | [02-08](#02-08) | Dot products |
-| <a id="02-10"></a>02-10 | [Matrix multiplication — planned](02_Mathematics_for_ML/README.md#02-10) | 2 | [02-09](#02-09) | Matrix multiplication |
-| <a id="02-11"></a>02-11 | [Matrix transpose — planned](02_Mathematics_for_ML/README.md#02-11) | 2 | [02-10](#02-10) | Matrix transpose |
+| <a id="02-09"></a>02-09 | [Dot products](02_Mathematics_for_ML/09_dot_products.ipynb) | 2 | [02-08](#02-08) | Dot products |
+| <a id="02-10"></a>02-10 | [Matrix multiplication](02_Mathematics_for_ML/10_matrix_multiplication.ipynb) | 2 | [02-09](#02-09) | Matrix multiplication |
+| <a id="02-11"></a>02-11 | [Matrix transpose](02_Mathematics_for_ML/11_matrix_transpose.ipynb) | 2 | [02-10](#02-10) | Matrix transpose |
 | <a id="02-12"></a>02-12 | [Matrix inverse and pseudoinverse — planned](02_Mathematics_for_ML/README.md#02-12) | 2 | [02-11](#02-11) | Matrix inverse and pseudoinverse |
 | <a id="02-13"></a>02-13 | [Rank — planned](02_Mathematics_for_ML/README.md#02-13) | 2 | [02-12](#02-12) | Rank |
 | <a id="02-14"></a>02-14 | [Norms and distances — planned](02_Mathematics_for_ML/README.md#02-14) | 2 | [02-13](#02-13) | Norms and distances |

@@ -257,4 +257,4 @@ print('Vector and checked-weighted-average exercises passed.')
 
 ## 21. Summary and next steps
 
-State which multiplication you mean, combine matching coordinates, and keep units visible. Weighted averages normalize contributions rather than simply adding endpoints. Continue to [dot products](README.md#02-09), currently planned, for scalar weighted sums and geometric interpretation.
+State which multiplication you mean, combine matching coordinates, and keep units visible. Weighted averages normalize contributions rather than simply adding endpoints. Continue to [dot products](09_dot_products.ipynb) for scalar weighted sums and geometric interpretation.

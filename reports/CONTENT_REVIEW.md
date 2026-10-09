@@ -116,3 +116,15 @@ Fresh-kernel execution passed for 02-05, 02-06, and 02-08. Source derivations, d
 | 02-08 | Movement sum `[4,1]`, scalar scale `[2,4]`, calibration `[2,1]`; weighted point `[2.5,-0.25]`; cumulative final `[3,2]`; list concatenation, zip truncation, coordinate units, shape, and weighted-average failures explained and checked |
 
 The scratch quadratic solver is intentionally restricted to small well-behaved coefficients and does not promise cancellation-free general solving. The log-sum-exp helper accepts finite inputs only. Vector arithmetic requires matching coordinate systems, not just matching dimensions. The diagrams support these specific mechanisms rather than population or predictive claims.
+
+## Dot products, matrix multiplication, and transpose
+
+Fresh-kernel execution passed for 02-09, 02-10, and 02-11. Hand calculations, source explanations, coordinate units/shapes, printed outputs, six worked exercises per lesson, and [all three figures](dot_matrix_transpose_review.png) were inspected. Transpose panel titles were wrapped after visual inspection and the final source was re-executed. Lesson 02-08 was re-executed after linking to the actual dot-product notebook.
+
+| ID | Evidence and boundaries |
+|---|---|
+| 02-09 | Basket contributions 8/15 total 23 dollars; dot scores 6/0/-6; cosine about 0.7071 agrees with scikit-learn and remains unchanged under positive scale; zero-vector and unequal-length cosine inputs rejected |
+| 02-10 | `(3,2) @ (2,2)` yields prices `[[8,9],[18,19],[28,29]]`; one-cell contributions inspected; reversed square factors differ; chain regrouping and identity checks pass; matched feature permutation preserves totals and one-sided permutation changes them |
+| 02-11 | Transpose preserves every observation-feature pair; flat-vector T remains flat; view edits reach only the demonstration source; reshape differs; feature Gram `[[35,44],[44,56]]` and observation Gram shapes/values checked; product-transpose identity and manual Gram reconstruction pass |
+
+Supplied prices and dimensionless coordinates are not trained models. Cosine has a stated nonzero-vector contract. Gram matrices are explicitly distinguished from covariance/correlation, and transpose is distinguished from inverse. Small scratch implementations have limited validation and numerical range rather than claims of production equivalence.

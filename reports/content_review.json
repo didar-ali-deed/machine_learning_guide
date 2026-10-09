@@ -186,9 +186,27 @@
     "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
   },
   "02-08": {
-    "source_sha256": "d39d0dfb7f019d26d18322c37715547519a82c3d3497bc69e0e1b140e56ed9f9",
-    "reviewed_at_utc": "2026-10-09T03:43:39.532048+00:00",
+    "source_sha256": "0c054cddcc0007bccd349b3baa3031084e54bcdc6dda268bca853d7dcb495c7b",
+    "reviewed_at_utc": "2026-10-09T03:52:31.363775+00:00",
     "reviewer": "authoring assistant",
-    "scope": "Derivations, units, actual outputs, figures and worked solutions reviewed; see quadratics/logs/vector section in CONTENT_REVIEW.md. For 02-04, refreshed links and execution checked."
+    "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
+  },
+  "02-09": {
+    "source_sha256": "77bf001958c5b1f00a70401d1d75833fee625bd480db94687e3b8cf4352e2ee8",
+    "reviewed_at_utc": "2026-10-09T03:52:31.379559+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
+  },
+  "02-10": {
+    "source_sha256": "d85c15fe8f38e07004abc884b437f5ee039fd851801a66ba445db13015e18bab",
+    "reviewed_at_utc": "2026-10-09T03:52:31.395271+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
+  },
+  "02-11": {
+    "source_sha256": "463948ea3408231c29da763ca9117fed5992189d995b0fa54d967024a08a906c",
+    "reviewed_at_utc": "2026-10-09T03:52:31.395271+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
   }
 }

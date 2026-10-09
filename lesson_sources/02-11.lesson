@@ -1,0 +1,242 @@
+# 1. Matrix transpose: exchange axes without changing observation meaning
+
+Learn to transpose a table by hand, inspect row/column roles, distinguish flat vectors from row and column matrices, and use transpose identities safely. Prerequisite: [matrix multiplication](10_matrix_multiplication.ipynb). Our main matrix contains three invented observations and two dimensionless feature values per observation. The features have no claimed real-world measurement mechanism.
+
+## 2. What problem does this solve?
+
+Sometimes a calculation needs observations as rows; another calculation needs features as rows. Transpose exchanges the two axes deliberately. It appears in dot-product notation, feature cross-product tables, and later least-squares derivations. It does not learn a model, normalize data, or invert a transformation.
+
+We want to understand both what transpose changes and what it preserves. Each value remains associated with the same observation-feature pair, but that pair's positions exchange. A downstream function that expects one row per observation must still receive the correct orientation. Blindly transposing to silence a shape error can change the question being computed.
+
+## 3. Intuition and analogy
+
+Think of reading a classroom marks table by student and subject. The original has one row per student. After transposing, it has one row per subject. The marks remain the same, but 'average along rows' now asks a different question because rows have a different role.
+
+Transposing twice returns the original arrangement. It is an exchange of labels and positions, not a physical rotation of measurement vectors. NumPy often implements the exchange as a view of the same memory; changing the view can change the source values. Making the calculation look new does not automatically create an independent copy.
+
+## 4. Terminology
+
+The **transpose** $A^T$ exchanges row and column indices. A **row matrix** has shape `(1,d)`; a **column matrix** has shape `(d,1)`. A NumPy **flat vector** has shape `(d,)` and no second axis to exchange. A **view** can share storage with its source, while a copy has independent array storage.
+
+A **Gram matrix** contains pairwise dot products of vectors. An observation Gram table compares observation vectors; a feature Gram table combines feature columns. A **symmetric matrix** equals its transpose. A **reshape** changes how a sequence of entries is arranged and is not generally the same operation as a transpose.
+
+## 5. Mathematical foundations
+
+If $A$ has shape $(m,d)$, then $A^T$ has shape $(d,m)$ and
+
+$$[A^T]_{j,i}=A_{i,j}.$$
+
+$i$ identifies an original row and $j$ an original column. The superscript $T$ indicates transpose, not a numerical exponent. In our main matrix, $m=3$ observations and $d=2$ dimensionless features. The operation changes position but not units or values. The identities $(A^T)^T=A$ and $(AB)^T=B^TA^T$ follow from exchanging indices; the second reverses factor order.
+
+For an observation matrix $X$ with shape $(n,d)$, $X^TX$ has shape $(d,d)$ and $XX^T$ has shape $(n,n)$. Their cells are respectively feature-column and observation-row dot products. They are not automatically correlations or covariances. Centering, scaling, and dividing by a sample-count factor are separate operations requiring their own definitions.
+
+## 6. Hand-calculated example
+
+Take $A$ with rows `[1,2]`, `[3,4]`, `[5,6]`. Reading the first column gives `[1,3,5]`, and the second gives `[2,4,6]`; these become transpose rows. Thus $A^T$ has rows `[1,3,5]` and `[2,4,6]`, shape `(2,3)`.
+
+The first diagonal of $A^TA$ is $1^2+3^2+5^2=35$. The cross-feature cell is $1\times2+3\times4+5\times6=44$. The second diagonal is $2^2+4^2+6^2=56$, giving `[[35,44],[44,56]]`. By contrast, $AA^T$ compares observation rows; its first row is `[5,11,17]` because `(1,2)` dotted with each observation gives those values.
+
+## 7. Transpose from scratch
+
+Create an output row for every original column and fill it by reading original rows. This helper checks nonempty rectangular structure. Transposition itself needs no numerical arithmetic, so it can also rearrange text cells. Its returned list is structurally new, but references to mutable objects inside individual cells would still be shared; our numeric cells are immutable scalars.
+
+```python
+def transpose_table(values):
+    rows = [list(row) for row in values]
+    if not rows or not rows[0] or any(len(row) != len(rows[0]) for row in rows):
+        raise ValueError('Use a nonempty rectangular table.')
+    return [[rows[i][j] for i in range(len(rows))] for j in range(len(rows[0]))]
+
+original = [[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]]
+transposed = transpose_table(original)
+assert transposed == [[1.0, 3.0, 5.0], [2.0, 4.0, 6.0]]
+assert transpose_table(transposed) == original
+assert original == [[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]]
+print('Original rows:', original)
+print('Transposed rows:', transposed)
+```
+
+## 8. Inspect coordinate preservation
+
+```python
+for i in range(3):
+    for j in range(2):
+        assert original[i][j] == transposed[j][i]
+assert sum(value for row in original for value in row) == 21
+assert sum(value for row in transposed for value in row) == 21
+text_table = [['student', 'subject'], ['R', 'Math']]
+assert transpose_table(text_table) == [['student', 'R'], ['subject', 'Math']]
+print('Every original observation-feature value is preserved.')
+```
+
+The sum invariant cannot prove correct transposition: many incorrect rearrangements preserve the sum. The coordinate-by-coordinate checks establish the actual mapping. This is a useful pattern for testing transformations: use a specific semantic property rather than only an aggregate statistic.
+
+## 9. NumPy implementation and vector shapes
+
+```python
+import numpy as np
+A = np.array(original)
+AT = A.T
+assert A.shape == (3, 2) and AT.shape == (2, 3)
+np.testing.assert_array_equal(AT, transposed)
+np.testing.assert_array_equal(np.transpose(A), transposed)
+np.testing.assert_array_equal(AT.T, A)
+flat = np.array([1.0, 2.0, 3.0])
+row = flat[None, :]
+column = flat[:, None]
+assert flat.T.shape == (3,)
+assert row.shape == (1, 3) and column.shape == (3, 1)
+assert row.T.shape == (3, 1)
+np.testing.assert_array_equal(row.T, column)
+print('Flat:', flat.shape, 'Flat transpose:', flat.T.shape)
+print('Row:', row.shape, 'Column:', column.shape)
+```
+
+`None` inserts an axis in this indexing context. A flat vector is not secretly a one-row table: its one axis has no row/column distinction. Keeping that fact explicit avoids mistakes in later losses and batch matrix products.
+
+## 10. Visualization
+
+Display the original and transposed tables with labeled axes and the same color scale. Observation labels move from the vertical axis to the horizontal axis; feature labels move the other way. Numbers keep their observation-feature pairing. The image is a table visualization, not a geometric transformation of physical locations.
+
+```python
+import matplotlib.pyplot as plt
+fig, axes = plt.subplots(1, 2, figsize=(8, 3.5))
+for axis, values, title in zip(axes, [A, AT], ['Original:\nobservations × features', 'Transpose:\nfeatures × observations']):
+    axis.imshow(values, cmap='Blues', vmin=0, vmax=6, aspect='auto')
+    for i in range(values.shape[0]):
+        for j in range(values.shape[1]):
+            axis.text(j, i, f'{values[i,j]:.0f}', ha='center', va='center',
+                      color='white' if values[i,j] >= 4 else 'black')
+    axis.set_title(title, fontsize=10)
+axes[0].set(xticks=[0, 1], xticklabels=['F0', 'F1'], yticks=[0, 1, 2],
+            yticklabels=['O0', 'O1', 'O2'], xlabel='Feature', ylabel='Observation')
+axes[1].set(xticks=[0, 1, 2], xticklabels=['O0', 'O1', 'O2'], yticks=[0, 1],
+            yticklabels=['F0', 'F1'], xlabel='Observation', ylabel='Feature')
+fig.suptitle('Dimensionless values stay paired with the same labels')
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Experiment: view, copy, and reshape
+
+```python
+demo = A.copy()
+view = demo.T
+assert np.shares_memory(demo, view)
+view[1, 0] = 99
+assert demo[0, 1] == 99
+independent = demo.T.copy()
+independent[0, 0] = -10
+assert demo[0, 0] == 1
+np.testing.assert_array_equal(A, original)
+reshaped = A.reshape(2, 3)
+assert reshaped.shape == AT.shape and not np.array_equal(reshaped, AT)
+print('Transpose:\n', AT, '\nReshape to the same shape:\n', reshaped)
+```
+
+The reshape uses the existing element sequence in its default traversal order; transpose exchanges coordinate axes. Sharing an output shape does not make them equivalent. NumPy's transposed array is often noncontiguous in memory, which can affect how later routines copy or access it. Shape describes logical axes, not physical storage layout.
+
+## 12. Orientation and later model interfaces
+
+Array orientation is a representation choice, not a learned parameter. Most classical scikit-learn estimators expect observation rows and feature columns. A transposed array may satisfy a two-dimensional requirement while pretending the features are observations. Store row/column labels or document them. Our values and arithmetic are supplied, with no training or hyperparameter tuning.
+
+## 13. Evaluation and Gram tables
+
+```python
+feature_gram = A.T @ A
+observation_gram = A @ A.T
+assert feature_gram.shape == (2, 2) and observation_gram.shape == (3, 3)
+np.testing.assert_array_equal(feature_gram, [[35, 44], [44, 56]])
+np.testing.assert_array_equal(observation_gram, [[5, 11, 17], [11, 25, 39], [17, 39, 61]])
+np.testing.assert_allclose(feature_gram, feature_gram.T)
+B = np.array([[2.0, 1.0], [3.0, 4.0]])
+np.testing.assert_allclose((A @ B).T, B.T @ A.T)
+print('Feature Gram:\n', feature_gram, '\nObservation Gram shape:', observation_gram.shape)
+```
+
+Both Gram matrices are symmetric because real dot products are symmetric. Their diagonal entries are squared vector lengths, not automatically ones or variances. A covariance table would require centered variables and an explicit denominator. A correlation table would additionally normalize by appropriate variability. Those definitions are taught later rather than implied by the word Gram.
+
+## 14. Assumptions and limitations
+
+The main arrays are two-dimensional and real. For higher-dimensional arrays, `.T` reverses the full axis order, which may not match an intended batch-wise row/column exchange. An explicit axis permutation would then be needed. Complex inner-product work uses conjugate transpose, a separate operation. Transpose is not matrix inverse; exchanging axes alone does not undo an arbitrary linear transformation.
+
+## 15. Common mistakes and debugging
+
+Do not expect `flat.T` to make a column. Insert an axis explicitly. Do not use reshape as a substitute for transpose. Do not edit a transposed view if the original must remain untouched; make a deliberate copy. Do not reverse factor order incorrectly in a product identity: $(AB)^T$ equals $B^TA^T$, not generally $A^TB^T$.
+
+Before transposing an input to fix an error, write what each axis represents both before and after. An error message disappearing is weaker evidence than a hand-checked cell and correct observation semantics.
+
+## 16. Alternatives and connections
+
+Plain nested lists make axis exchange visible. NumPy supplies array views and explicit transpose operations. pandas transpose moves index and column labels along with values, helping readability for small tables. Matrix inverse, reshape, and axis permutation solve different tasks. Gram tables connect transpose to later least-squares and similarity calculations without implying that every such table is a statistical correlation.
+
+## 17. Exercises
+
+- **Beginner:** Transpose `[[1,2,3],[4,5,6]]` by hand and give both shapes.
+- **Beginner:** Explain what happens when a shape `(4,)` vector is transposed.
+- **Beginner:** State where entry `(2,1)` of the original matrix appears after transposition.
+- **Intermediate:** Verify the product-transpose identity for a `(2,3)` matrix and a `(3,1)` matrix, including all shapes.
+- **Intermediate:** Explain why `A.T @ A` and `A @ A.T` compare different vector sets.
+- **Challenge:** Compute a feature cross-product matrix by explicitly dotting each pair of original columns, compare with `A.T @ A`, and verify symmetry and source preservation. Explain why the result is not a correlation matrix.
+
+## 18. Detailed solutions
+
+The two-by-three input becomes `[[1,4],[2,5],[3,6]]`, shape `(3,2)`. A flat length-four vector remains shape `(4,)` because it has only one axis. Original entry `(2,1)` becomes transpose entry `(1,2)` and retains value six. For the compatible product, the output is `(2,1)`; its transpose is `(1,2)`, matching `(1,3) @ (3,2)` after reversing and transposing factors.
+
+The feature Gram table dots feature columns across observations; the observation Gram table dots observation rows across features. The challenge explicitly reproduces each column-pair sum. No centering or variance normalization occurs, so calling it correlation would be incorrect.
+
+```python
+assert transpose_table([[1, 2, 3], [4, 5, 6]]) == [[1, 4], [2, 5], [3, 6]]
+assert np.ones(4).T.shape == (4,)
+assert AT[1, 2] == A[2, 1] == 6
+left = np.array([[1, 2, 3], [4, 5, 6]])
+right = np.array([[1], [0], [-1]])
+np.testing.assert_array_equal((left @ right).T, right.T @ left.T)
+assert (left @ right).T.shape == (1, 2)
+manual_gram = []
+for feature_i in range(A.shape[1]):
+    output_row = []
+    for feature_j in range(A.shape[1]):
+        output_row.append(sum(original[row][feature_i] * original[row][feature_j] for row in range(len(original))))
+    manual_gram.append(output_row)
+np.testing.assert_array_equal(manual_gram, feature_gram)
+np.testing.assert_array_equal(np.array(manual_gram), np.array(manual_gram).T)
+np.testing.assert_array_equal(A, original)
+for invalid in [[], [[]], [[1], [2, 3]]]:
+    try:
+        transpose_table(invalid)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid rectangular structure was accepted.')
+print('Coordinate, product identity, and manual Gram exercises passed.')
+```
+
+## 19. Knowledge check
+
+**What does transpose exchange?** Row and column positions, with their semantic axis roles.
+
+**Does transposing twice restore the matrix?** Yes, under the same two-dimensional representation.
+
+**Is a transpose automatically independent storage?** No. NumPy commonly returns a shared-memory view.
+
+**Does transpose equal inverse?** No. Axis exchange and undoing a linear transformation are different tasks.
+
+**Is a Gram table automatically correlation?** No. It contains dot products without the required centering and normalization.
+
+## 20. Interview preparation
+
+**Why does a flat NumPy vector not become a column under transpose?** It has only one axis; row/column orientation requires an explicit second axis.
+
+**What is the product-transpose identity?** Transpose each factor and reverse their order, preserving compatible dimensions.
+
+**How can a transpose introduce a data bug?** A downstream estimator can treat feature rows as observation rows if axis meanings are lost.
+
+**How do view and copy behavior affect debugging?** Editing a view may change the source unexpectedly; use shares_memory and deliberate copies to inspect ownership.
+
+**Why inspect both Gram shapes?** One is feature-by-feature and the other observation-by-observation, answering different questions with potentially very different memory costs.
+
+## 21. Summary and next steps
+
+Transpose deliberately exchanges axes while preserving value-coordinate pairings. Track flat versus two-dimensional shapes and shared storage. Next study [matrix inverse and pseudoinverse](README.md#02-12), currently planned, to learn when a linear transformation can be reversed or solved approximately.

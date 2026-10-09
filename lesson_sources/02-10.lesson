@@ -1,0 +1,250 @@
+# 1. Matrix multiplication: many weighted sums with one shape contract
+
+Learn to multiply matrices by hand, implement the row-column mechanism, predict output shapes, and connect the operation to batches of linear predictions. Prerequisite: [dot products](09_dot_products.ipynb). The main data are three invented shopping baskets and two stores' supplied unit prices. This is a deterministic accounting example, not a trained model or a production billing system.
+
+## 2. What problem does this solve?
+
+A dot product computes one weighted sum. If we have several observations and several sets of weights, repeating that calculation one by one is cumbersome. Matrix multiplication organizes the results into a table: one output row per observation and one output column per weight set.
+
+Our goal is to price every basket at both stores. Keeping quantities in rows and store prices in columns makes the result meaning explicit. Later a feature matrix and learned weight matrix use the same numerical mechanism. Matrix multiplication defines how predictions are computed; it does not define how weights are learned.
+
+## 3. Intuition and analogy
+
+Imagine a spreadsheet with one row for each basket and another table with one column for each store. To fill an output cell, take that basket's quantities and that store's prices, multiply matching products, and add the contributions. Repeat for every basket-store pair.
+
+The shared product list connects the two tables. Its order matters. Swapping apple and orange price rows without swapping quantity columns pairs the wrong information, even though the dimensions still match. A shape contract is necessary; a feature-label contract is necessary too.
+
+## 4. Terminology
+
+A **matrix** is a two-dimensional arrangement. An **inner dimension** is the coordinate count summed over in multiplication. **Outer dimensions** determine the output row and column counts. A **matrix product** uses row-column dot products; an **elementwise product** multiplies corresponding cells and is a different operation.
+
+**Composition** applies one linear map after another. **Associativity** means regrouping compatible matrix products leaves the exact mathematical result unchanged. **Commutativity** would mean swapping factor order leaves the result unchanged; matrix multiplication generally does not have that property. An **identity matrix** has ones on its diagonal and zeros elsewhere and preserves compatible inputs under multiplication.
+
+## 5. Mathematical foundations
+
+Let $A$ have shape $(m,d)$ and $B$ shape $(d,k)$. Their product $C=AB$ has shape $(m,k)$, with
+
+$$C_{i,j}=\sum_{r=0}^{d-1} A_{i,r}B_{r,j}.$$
+
+$i$ is an observation-row index, $j$ an output-column index, and $r$ the shared coordinate index. All indices start at zero here. For baskets, $m=3$ is basket count, $d=2$ product count, and $k=2$ store count. $A_{i,r}$ is quantity of product $r$ in basket $i$; $B_{r,j}$ is dollars per unit of that product at store $j$. Each contribution has dollar units, so $C_{i,j}$ is a basket price in dollars.
+
+The shared lengths must agree because each dot product pairs the same number of coordinates. For a feature table $X$ with shape $(n,d)$ and a single weight vector $w$ with shape $(d,)$, NumPy returns $Xw$ with shape $(n,)$. With a weight table $W$ of shape $(d,k)$, it returns $(n,k)$. Those different output shapes need deliberate handling.
+
+## 6. Hand-calculated example
+
+Use quantity rows `[1,2]`, `[3,4]`, and `[5,6]`, in apple/orange order. Store North prices are `[2,3]`, and South prices are `[1,4]` dollars per respective product unit. Arrange the price matrix as `[[2,1],[3,4]]`, with products as rows and stores as columns.
+
+Basket one's North total is $1\times2+2\times3=8$ dollars; its South total is $1\times1+2\times4=9$. Basket two gives 18 and 19 dollars; basket three gives 28 and 29. Thus the output table is `[[8,9],[18,19],[28,29]]`, shape `(3,2)`. The first two in `(3,2) @ (2,2)` is a product count, while the last two is a store count: equal numbers do not imply equal meanings.
+
+## 7. Implementation from scratch
+
+The helper validates rectangular nonempty tables, finite ordinary numeric cells, and the shared dimension. Three nested loops then expose every row, output column, and contribution. A faster library uses optimized implementations, but it computes the same mathematical mechanism.
+
+```python
+import math
+
+def checked_matrix(values):
+    rows = [list(row) for row in values]
+    if not rows or not rows[0] or any(len(row) != len(rows[0]) for row in rows):
+        raise ValueError('Use a nonempty rectangular table.')
+    if any(isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value)
+           for row in rows for value in row):
+        raise ValueError('Use finite ordinary numeric cells.')
+    return rows
+
+def matrix_product(left, right):
+    a, b = checked_matrix(left), checked_matrix(right)
+    if len(a[0]) != len(b):
+        raise ValueError('Left column count must equal right row count.')
+    result = []
+    for row in a:
+        output_row = []
+        for column in range(len(b[0])):
+            contributions = [row[r] * b[r][column] for r in range(len(b))]
+            output_row.append(math.fsum(contributions))
+        result.append(output_row)
+    return result
+
+quantities = [[1.0, 2.0], [3.0, 4.0], [5.0, 6.0]]
+store_prices = [[2.0, 1.0], [3.0, 4.0]]
+manual = matrix_product(quantities, store_prices)
+assert manual == [[8.0, 9.0], [18.0, 19.0], [28.0, 29.0]]
+print('Basket-by-store prices:', manual)
+```
+
+## 8. Step-by-step cell inspection
+
+```python
+first_north = [quantities[0][r] * store_prices[r][0] for r in range(2)]
+first_south = [quantities[0][r] * store_prices[r][1] for r in range(2)]
+assert first_north == [2.0, 6.0] and sum(first_north) == 8.0
+assert first_south == [1.0, 8.0] and sum(first_south) == 9.0
+print('First basket North contributions:', first_north)
+print('First basket South contributions:', first_south)
+assert len(manual) == 3 and len(manual[0]) == 2
+```
+
+Inspecting one output cell independently is often enough to reveal a wrong axis or a mislabeled weight table. Printing only the final shape can miss those semantic mistakes. Preserve the original quantities and price tables so an output remains auditable.
+
+## 9. NumPy implementation
+
+NumPy's `@` operator or `np.matmul` performs matrix multiplication on these two-dimensional arrays. `*` remains elementwise multiplication. We use floating-point arrays so numerical operations are not unintentionally restricted to integer storage.
+
+```python
+import numpy as np
+A, B = np.array(quantities), np.array(store_prices)
+C = A @ B
+assert A.shape == (3, 2) and B.shape == (2, 2) and C.shape == (3, 2)
+np.testing.assert_allclose(C, manual)
+np.testing.assert_allclose(np.matmul(A, B), manual)
+single_store = A @ B[:, 0]
+single_store_column = A @ B[:, :1]
+assert single_store.shape == (3,) and single_store_column.shape == (3, 1)
+np.testing.assert_allclose(single_store, [8, 18, 28])
+store_fees = np.array([1.0, 2.0])
+with_fees = C + store_fees
+np.testing.assert_allclose(with_fees, [[9, 11], [19, 21], [29, 31]])
+print('Shapes:', A.shape, '@', B.shape, '->', C.shape)
+print('One-store vector shape:', single_store.shape)
+```
+
+The fee vector has shape `(2,)` and broadcasts across basket rows, adding each store's fee to its own column. A wrong-shaped offset could change the meaning or expand the output; check the output shape before interpreting it as prices or predictions.
+
+## 10. Visualization
+
+A labeled heatmap shows the basket-store result table. Each cell is one dot product, with units of dollars. It is not a similarity matrix, confusion matrix, or statistical estimate. Larger baskets cost more under these supplied prices because they contain more products.
+
+```python
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(figsize=(5, 3.5))
+image = ax.imshow(C, cmap='Blues', aspect='auto', vmin=0)
+for i in range(C.shape[0]):
+    for j in range(C.shape[1]):
+        ax.text(j, i, f'{C[i,j]:.0f}', ha='center', va='center',
+                color='white' if C[i,j] > 20 else 'black')
+ax.set(xticks=[0, 1], xticklabels=['North', 'South'], yticks=[0, 1, 2],
+       yticklabels=['Basket 1', 'Basket 2', 'Basket 3'], xlabel='Store', ylabel='Basket',
+       title='Each output cell is a row-column dot product')
+fig.colorbar(image, ax=ax, label='Basket price (dollars)')
+fig.tight_layout()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Experiment: order and grouping
+
+Two square matrices make both orders legal, but the results differ. That is different from our basket matrices, whose reverse order is not even shape-compatible. A compatible chain can be grouped either way, but the final interpretation still depends on each map's meaning.
+
+```python
+P = np.array([[1.0, 2.0], [0.0, 1.0]])
+Q = np.array([[2.0, 0.0], [1.0, 3.0]])
+np.testing.assert_allclose(P @ Q, [[4, 6], [1, 3]])
+np.testing.assert_allclose(Q @ P, [[2, 4], [1, 5]])
+assert not np.array_equal(P @ Q, Q @ P)
+assert not np.array_equal(P * Q, P @ Q)
+contrast = np.array([[1.0], [-1.0]])
+np.testing.assert_allclose((A @ B) @ contrast, A @ (B @ contrast))
+np.testing.assert_allclose(C @ contrast, [[-1], [-1], [-1]])
+print('P @ Q:\n', P @ Q, '\nQ @ P:\n', Q @ P)
+print('North minus South prices:', (C @ contrast).ravel())
+```
+
+Here the contrast subtracts South from North, yielding a one-column dollar difference. Associativity is exact mathematically, while floating-point regrouping can produce small rounding differences on other inputs. It also changes computational cost for larger shape chains.
+
+## 12. Supplied weights and later models
+
+Store prices are supplied coefficients. A linear model later learns analogous feature weights from training data and applies them to new observations. Choosing observation/feature orientation and batch size are representation or computation choices. They do not themselves improve a fitted model. If a learned pipeline changes feature order, its stored weights must remain aligned with that order.
+
+## 13. Evaluation
+
+Check shape compatibility before multiplication, one manual cell, full scratch/library agreement, nonmutation, and identity behavior. For identity $I_d$ of shape $(d,d)$, $AI_d=A$ and $I_dB=B$ when the dimensions match. These checks validate the numerical mechanism, not the truth of price data or predictive performance.
+
+```python
+np.testing.assert_allclose(A @ np.eye(2), A)
+np.testing.assert_allclose(np.eye(2) @ B, B)
+np.testing.assert_array_equal(A, quantities)
+np.testing.assert_array_equal(B, store_prices)
+for left, right in [([[1, 2]], [[1, 2]]), ([[1], [2, 3]], [[1]]), ([[math.nan]], [[1]])]:
+    try:
+        matrix_product(left, right)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid matrix multiplication was accepted.')
+print('Identity, shape, value, and nonmutation checks passed.')
+```
+
+## 14. Assumptions and limitations
+
+Tables are dense, finite, rectangular, and small. Feature order, quantity definitions, and currency are consistent. The scratch triple-loop approach is slow for large inputs and does not support batches of matrices, sparse storage, or arbitrary-precision arithmetic. Large finite products can overflow. Optimized libraries improve execution, but shape and semantic contracts remain the caller's responsibility.
+
+## 15. Common mistakes and debugging
+
+Read `(m,d) @ (d,k) -> (m,k)` before attempting arbitrary reshapes. Do not transpose data solely to silence an error without explaining the new axis meanings. Do not use elementwise `*` for a row-column product. Do not treat square matrices as interchangeable factors just because both multiplication orders are legal.
+
+When output looks plausible but wrong, inspect a single cell's contributions and feature labels. Distinguish a `(d,)` vector from `(d,1)` so later subtraction and loss calculations do not broadcast into an unintended all-pairs table.
+
+## 16. Alternatives and connections
+
+Separate dot-product calls expose each output but repeat bookkeeping. Matrix multiplication handles the batch compactly. Elementwise multiplication answers a different question and may be followed by a specified reduction. Sparse matrices help mostly-zero data. More general tensor contractions express higher-dimensional operations, but mastering two-dimensional shapes first prevents many later neural-network mistakes.
+
+## 17. Exercises
+
+- **Beginner:** Predict the output shape of `(4,3) @ (3,2)` and name the shared dimension.
+- **Beginner:** Calculate the second basket's North total from its two contributions.
+- **Beginner:** Explain why `(3,2) @ (3,2)` is invalid.
+- **Intermediate:** Compute `[[1,2],[3,4]] @ [[1],[2]]` by hand and preserve the column shape.
+- **Intermediate:** Explain the difference between regrouping a compatible chain and reversing its factor order.
+- **Challenge:** Reorder product columns in quantities and corresponding product rows in prices together. Prove totals remain unchanged, then demonstrate that reordering only one side changes totals despite compatible shapes.
+
+## 18. Detailed solutions
+
+The output shape is `(4,2)`, with shared feature length three. Basket two contributes six and twelve dollars, totaling eighteen. Two `(3,2)` factors fail because the left column count two differs from the right row count three. The small matrix-vector-column product is `[[5],[11]]`, shape `(2,1)`. Regrouping preserves the factor sequence; reversing changes the sequence and may be illegal or produce a different map.
+
+The challenge uses the same coordinate permutation on the inner dimensions. Each dot product then contains the same paired products in a different order. Reordering one side breaks those pairs. This is a semantic test that output dimensions cannot supply.
+
+```python
+assert (np.ones((4, 3)) @ np.ones((3, 2))).shape == (4, 2)
+assert 3 * 2 + 4 * 3 == 18
+small_result = matrix_product([[1, 2], [3, 4]], [[1], [2]])
+assert small_result == [[5.0], [11.0]]
+order = np.array([1, 0])
+reordered_A = A[:, order]
+reordered_B = B[order, :]
+preserved = reordered_A @ reordered_B
+wrong = reordered_A @ B
+np.testing.assert_allclose(preserved, C)
+assert wrong.shape == C.shape and not np.array_equal(wrong, C)
+np.testing.assert_array_equal(wrong[0], [7, 6])
+print('Matched reordering preserves prices; one-sided reordering changes them.')
+```
+
+The two-feature permutation is its own inverse. For any shared coordinate permutation, applying the same reordering to left columns and right rows preserves the paired summation. That does not mean arbitrary independent permutations cancel.
+
+## 19. Knowledge check
+
+**What computes one output cell?** The dot product of one left row and one right column.
+
+**Which dimensions must match?** Left columns and right rows.
+
+**Does multiplication generally commute?** No. Reverse order may be invalid or different.
+
+**What does an identity matrix do?** It preserves a compatible vector or matrix under multiplication.
+
+**Are the store prices trained here?** No. They are supplied coefficients used to teach the mechanism.
+
+## 20. Interview preparation
+
+**How does a batch linear predictor use matrix multiplication?** Each observation row is combined with matching feature weights, producing one output per row or a column per output task.
+
+**Why can correct shapes still yield wrong predictions?** Feature order or units may be mismatched while dimensions remain compatible.
+
+**How do matmul and elementwise multiplication differ?** Matmul sums over a shared coordinate dimension; elementwise multiplication preserves separate paired-cell products.
+
+**Why does chain grouping affect performance?** Intermediate shapes determine the number of operations and amount of storage even when the final mathematical map is unchanged.
+
+**What is a strong test beyond library agreement?** Independently calculate a cell and test identity, input preservation, and aligned-feature permutation behavior.
+
+## 21. Summary and next steps
+
+Matrix multiplication organizes row-column dot products into an output table. Shared dimensions, coordinate labels, and units must all agree. Continue to [matrix transpose](11_matrix_transpose.ipynb) to understand deliberate axis exchange and its role in prediction and similarity calculations.
