@@ -1,0 +1,224 @@
+# 1. Norms and distances: measuring size and separation
+
+This lesson turns vectors into interpretable measures of length. After [rank](13_rank.ipynb), you can distinguish independent directions; now you will compare the magnitude of movement along those directions. You will calculate three norms by hand, implement them, visualize their unit boundaries, and investigate feature scaling. Prerequisites include vector subtraction, absolute value, squares, and square roots. No classifier is trained in this lesson; it prepares the distance calculations later used in nearest neighbors and clustering.
+
+## 2. What problem does this solve?
+
+To recommend a similar product, group similar customers, or find a suspicious sensor reading, we need to say what similar means. A vector stores measurements, but it does not specify how to combine differences. Two products can differ in price, weight, and battery life. A distance rule combines those differences into one nonnegative number. The rule and units strongly influence which products appear close.
+
+## 3. Intuition and analogy
+
+Imagine moving three blocks east and four blocks north. A straight flight travels five blocks, but walking on a rectangular street grid travels seven. If two independent machines move the east and north coordinates simultaneously at one block per second, both finish after four seconds. These are three useful summaries of the same displacement. None is universally correct; the measurement must match the practical question.
+
+## 4. Terminology
+
+A norm measures a vector's size relative to the origin. A distance measures separation between two points. Absolute value removes a scalar's sign. Euclidean or L2 norm gives ordinary straight-line length. Manhattan or L1 norm adds absolute coordinate changes. Maximum or L-infinity norm keeps the largest absolute change. A metric is a distance rule satisfying nonnegativity, identity of indistinguishable points, symmetry, and the triangle inequality. Feature scaling converts coordinates to comparable numerical reference scales.
+
+## 5. Mathematical foundations
+
+For a vector \(v=(v_1,\ldots,v_p)\) of length \(p\), define
+\[
+\|v\|_1=\sum_{j=1}^p|v_j|,\qquad
+\|v\|_2=\sqrt{\sum_{j=1}^p v_j^2},\qquad
+\|v\|_\infty=\max_j|v_j|.
+\]
+The index \(j\) identifies a coordinate; \(p\) is their count. Double bars indicate a norm rather than absolute value of a single number. Infinity labels the maximum-norm limit; it does not mean the result is infinite. For points \(a\) and \(b\) of the same shape, distance is \(d(a,b)=\|a-b\|\), using the selected norm.
+
+For Euclidean distance, if every coordinate is measured in meters, squared terms have square-meter units and the final square root restores meters. Mixing kilograms and meters in one sum does not produce an ordinary physical length. Define reference scales \(s_j>0\) and dimensionless changes \((a_j-b_j)/s_j\) when a combined numerical score is wanted. Those scales express which differences matter.
+
+The triangle inequality is \(d(a,c)\le d(a,b)+d(b,c)\). Here \(a,b,c\) are points: a direct journey cannot exceed a journey forced through an intermediate point. This is a mathematical property of these norms, not an empirical observation about travel times.
+
+## 6. Hand-calculated example
+
+Let \(a=[1,2]\) meters and \(b=[4,6]\) meters. The displacement is [3,4] meters; signs reverse if we subtract in the other order, but the norms remain unchanged. L1 distance is |3|+|4|=7 meters. L2 distance is the square root of 9+16, namely 5 meters. Maximum distance is max(3,4)=4 meters. Squared Euclidean distance is 25 square meters, a different quantity from the distance itself.
+
+For a three-coordinate displacement [-2,0,1], L1 is 3, L2 is the square root of 5, and maximum norm is 2. A zero coordinate contributes no movement; a negative coordinate contributes positive magnitude. Norms summarize size while discarding direction, so different vectors can have equal norms.
+
+## 7. Scratch implementation
+
+We validate a nonempty, finite, flat vector before calculating. A list comprehension applies an operation to each coordinate, and `sum` adds the resulting numbers. `** .5` takes a square root. These direct formulas are suitable for small, moderate numbers; squaring enormous values can overflow. Production numerical routines may use safer scaling internally. We reject matrices rather than silently flattening them, since matrix norms have different definitions.
+
+```python
+import numpy as np
+
+def three_norms(values):
+    vector = np.asarray(values, dtype=float)
+    if vector.ndim != 1 or vector.size == 0 or not np.isfinite(vector).all():
+        raise ValueError('Use a finite nonempty flat vector.')
+    entries = vector.tolist()
+    return (sum(abs(v) for v in entries),
+            sum(v*v for v in entries)**.5,
+            max(abs(v) for v in entries))
+
+def distances(a, b):
+    left = np.asarray(a, dtype=float)
+    right = np.asarray(b, dtype=float)
+    if left.shape != right.shape:
+        raise ValueError('Points must have identical shapes.')
+    return three_norms(left - right)
+
+a = np.array([1., 2.])
+b = np.array([4., 6.])
+assert np.allclose(distances(a, b), [7, 5, 4])
+assert np.allclose(three_norms([-2, 0, 1]), [3, np.sqrt(5), 2])
+print('L1, L2, maximum distance:', distances(a, b))
+```
+
+## 8. Inspecting the calculation
+
+Inspect the displacement and its squared entries separately before combining them. This makes a common bug visible: a raw sum of signed changes allows cancellation, so [3,-3] would incorrectly look like zero movement. A genuine norm is zero only for a zero vector. Axis choices become important when computing many distances at once.
+
+```python
+difference = b - a
+print('Coordinate changes:', difference)
+print('Absolute changes:', np.abs(difference))
+print('Squared changes:', difference**2)
+print('Squared sum and its square root:', np.sum(difference**2),
+      np.sqrt(np.sum(difference**2)))
+assert three_norms([3, -3])[0] == 6
+assert three_norms([0, 0]) == (0, 0, 0)
+assert np.allclose(distances(a, b), distances(b, a))
+```
+
+## 9. Library implementation
+
+`np.linalg.norm` selects the norm with `ord`. For a flat vector, `ord=1`, `ord=2`, and `ord=np.inf` match our formulas. For an observation-by-feature table, `axis=1` computes one norm per observation, leaving the observation axis. Scikit-learn's `pairwise_distances` produces one row per point in its first input and one column per point in its second input. Its Euclidean metric computes ordinary, not squared, distance.
+
+```python
+from sklearn.metrics import pairwise_distances
+for order, expected in zip([1, 2, np.inf], [7, 5, 4]):
+    assert np.isclose(np.linalg.norm(b-a, ord=order), expected)
+points = np.array([[0., 0.], [3., 4.], [-3., 4.]])
+lengths = np.linalg.norm(points, axis=1)
+assert np.allclose(lengths, [0, 5, 5])
+pairwise = pairwise_distances(points, metric='euclidean')
+assert np.allclose(pairwise, [[0, 5, 5], [5, 0, 6], [5, 6, 0]])
+print('Pairwise distance table:', pairwise)
+```
+
+## 10. Visualization
+
+Each boundary contains all two-dimensional points of norm one. Euclidean distance gives a circle, L1 gives a diamond, and the maximum norm gives a square. The same horizontal and vertical scale is essential: otherwise a circle looks like an ellipse and the geometry becomes misleading. Changing the norm changes which directions are relatively expensive.
+
+```python
+import matplotlib.pyplot as plt
+from IPython.display import display
+theta = np.linspace(0, 2*np.pi, 401)
+circle = np.column_stack([np.cos(theta), np.sin(theta)])
+diamond = np.array([[1, 0], [0, 1], [-1, 0], [0, -1], [1, 0]])
+square = np.array([[1, 1], [-1, 1], [-1, -1], [1, -1], [1, 1]])
+fig, ax = plt.subplots(figsize=(6, 5))
+for boundary, label in [(circle, 'L2 = 1'), (diamond, 'L1 = 1'),
+                        (square, 'Maximum = 1')]:
+    ax.plot(boundary[:, 0], boundary[:, 1], label=label)
+ax.set(xlabel='Coordinate 1', ylabel='Coordinate 2', title='Three unit boundaries')
+ax.set_aspect('equal')
+ax.grid(alpha=.2)
+ax.legend()
+display(fig)
+plt.close(fig)
+```
+
+## 11. Synthetic product-similarity experiment
+
+A shopper requests a product costing 100 currency units with battery life 10 hours. Candidate A costs 110 and lasts 5 hours; candidate B costs 130 and lasts 10 hours. Raw Euclidean numbers favor A. If a reference difference of 100 currency units and one of 5 hours are considered equally important, scaled distance favors B. Both answers follow their definitions; neither proves the customer's preference. Reference scales are explicit assumptions, not estimates learned from test data.
+
+```python
+query = np.array([100., 10.])
+candidates = np.array([[110., 5.], [130., 10.]])
+raw = np.linalg.norm(candidates-query, axis=1)
+reference = np.array([100., 5.])
+scaled = np.linalg.norm((candidates-query)/reference, axis=1)
+assert raw.argmin() == 0
+assert scaled.argmin() == 1
+print('Raw numerical distances:', raw)
+print('Dimensionless reference-scaled distances:', scaled)
+```
+
+## 12. Configuration and future hyperparameters
+
+The chosen norm and reference scales determine similarity. They are not learned model coefficients. Later, nearest-neighbor models also choose how many neighbors to consult and how their outputs are combined. If scale estimates come from data, calculate them on training observations and reuse them for validation and testing. Tuning the distance rule on the final test results would turn the test set into part of model selection and undermine the final evaluation.
+
+## 13. Evaluation
+
+For a distance routine, test nonnegativity, symmetry, zero self-distance, known hand calculations, and shape rejection. Test the triangle inequality on examples, while remembering that finite examples do not prove a theorem. For a future application, evaluate whether the resulting similarity helps the actual task on held-out observations. A mathematically valid distance can still produce useless recommendations if important characteristics are omitted.
+
+## 14. Assumptions and limitations
+
+The formulas assume finite comparable coordinates. Missing measurements require an explicit policy. Large magnitudes can overflow simple formulas. In many dimensions, distances can become less discriminating; adding irrelevant features changes what counts as close. Standard scaling does not remove all correlations or encode domain meaning. A binary category encoded as an arbitrary integer can introduce a false ordering and misleading distances.
+
+## 15. Mistakes and debugging
+
+Do not omit the square root and still label the result Euclidean distance. Do not use matrix `ord=2` when you wanted one vector length per row: that requests a different matrix quantity. Broadcasting differently shaped points can silently create a whole table of differences, so validate shapes. Printing only the final nearest index hides why a result changed; inspect per-coordinate differences and reference scales first.
+
+## 16. Comparison with alternatives
+
+L1 reflects additive coordinate movement; L2 emphasizes larger coordinate differences within its squared sum; maximum norm focuses on the worst coordinate. Cosine similarity, introduced later, compares orientation and can ignore magnitude. Mahalanobis distance accounts for covariance but needs a suitable estimate and additional mathematical care. Squared Euclidean distance is useful in optimization but is not a metric: for scalar points 0,1,2 its direct squared distance 4 exceeds 1+1.
+
+## 17. Exercises
+
+1. **Beginner:** Compute all three norms of [-6,8].
+2. **Beginner:** Compute L2 distance between [2,2] and [2,2].
+3. **Beginner:** Explain why [3,-3] cannot have zero L1 norm.
+4. **Intermediate:** Change the battery reference scale to 50 hours. Predict which candidate wins.
+5. **Intermediate:** Verify the triangle inequality for a=[0,0], b=[3,0], c=[3,4]. Explain why equality does not hold for L2.
+6. **Challenge:** Construct a counterexample showing that squared Euclidean distance violates the triangle inequality, and explain why this does not prevent its use as a loss.
+
+## 18. Detailed solutions
+
+1. Absolute changes are 6 and 8, so L1=14, L2=sqrt(36+64)=10, and maximum=8.
+2. Subtraction produces [0,0], whose squared sum and square root are both zero.
+3. Absolute values remove cancellation: |3|+|-3|=6. Opposing directions still represent movement.
+4. Candidate A has scaled differences [.1,-.1] and length about .1414. B has [.3,0] and length .3, so A wins. Making battery changes cheaper reverses the earlier choice.
+5. Direct L2 distance is 5; the two-leg route totals 3+4=7. The legs turn a corner, so the route is longer. L1 instead gives equality because both routes require the same coordinate movement.
+6. On the number line, 0 to 2 has squared distance 4, but 0 to 1 and 1 to 2 total 2. A loss only needs to express the chosen penalty; it need not satisfy every metric axiom. Squared error is useful because larger residuals receive stronger penalties, not because it is a physical path length.
+
+```python
+assert np.allclose(three_norms([-6, 8]), [14, 10, 8])
+assert distances([2, 2], [2, 2]) == (0, 0, 0)
+assert np.linalg.norm((candidates-query)/[100., 50.], axis=1).argmin() == 0
+aa, bb, cc = np.array([0, 0]), np.array([3, 0]), np.array([3, 4])
+assert distances(aa, cc)[1] == 5
+assert distances(aa, bb)[1] + distances(bb, cc)[1] == 7
+for invalid in [[], [np.nan], [[1, 2]]]:
+    try:
+        three_norms(invalid)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('Invalid vector was accepted.')
+try:
+    distances([1, 2], [1])
+except ValueError:
+    print('Mismatched point shapes correctly rejected.')
+else:
+    raise AssertionError('Shape contract was not enforced.')
+```
+
+## 19. Knowledge check
+
+**How does distance differ from norm?** A norm measures a vector from zero; distance applies a norm to the difference between points.
+
+**Can nonzero vectors have zero norm?** Not for a valid norm.
+
+**Is maximum norm always infinite?** No; it is the largest finite absolute coordinate when inputs are finite.
+
+**Why does scaling change nearest observations?** It changes each coordinate's contribution to total separation.
+
+**Is squared distance measured in the original units?** No; it has squared units when coordinates share physical units.
+
+## 20. Interview preparation
+
+**Why scale features before distance-based learning?** Numerical units otherwise dominate contributions in ways unrelated to task importance.
+
+**Does any valid metric guarantee useful neighbors?** No; the representation may omit useful information or include irrelevant coordinates.
+
+**Why validate vector shapes?** Broadcasting can produce an unintended matrix instead of a coordinatewise difference.
+
+**Why distinguish squared error from distance?** Squared error changes units and penalties and fails the triangle inequality.
+
+**When must scaling statistics be fitted?** On training data only, with the resulting transformation reused for held-out data.
+
+## 21. Summary and next steps
+
+Norms and feature scales define the geometry of similarity. Choose them deliberately and inspect contributions before trusting a nearest observation. Continue to [eigenvalues and eigenvectors](README.md#02-15), currently planned, to find directions preserved by a transformation.

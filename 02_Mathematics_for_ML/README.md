@@ -119,7 +119,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `12_matrix_inverse_and_pseudoinverse.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](12_matrix_inverse_and_pseudoinverse.ipynb)
 
 Prerequisites: 02-11.
 Target: small CPU example with local or generated data.
@@ -129,7 +129,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `13_rank.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](13_rank.ipynb)
 
 Prerequisites: 02-12.
 Target: small CPU example with local or generated data.
@@ -139,7 +139,7 @@ Target: small CPU example with local or generated data.
 
 Intended notebook: `14_norms_and_distances.ipynb`. Study estimate: 2 hours.
 
-Status: planned; no lesson file exists yet.
+[Open notebook](14_norms_and_distances.ipynb)
 
 Prerequisites: 02-13.
 Target: small CPU example with local or generated data.

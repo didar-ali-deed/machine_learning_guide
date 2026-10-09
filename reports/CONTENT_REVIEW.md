@@ -128,3 +128,14 @@ Fresh-kernel execution passed for 02-09, 02-10, and 02-11. Hand calculations, so
 | 02-11 | Transpose preserves every observation-feature pair; flat-vector T remains flat; view edits reach only the demonstration source; reshape differs; feature Gram `[[35,44],[44,56]]` and observation Gram shapes/values checked; product-transpose identity and manual Gram reconstruction pass |
 
 Supplied prices and dimensionless coordinates are not trained models. Cosine has a stated nonzero-vector contract. Gram matrices are explicitly distinguished from covariance/correlation, and transpose is distinguished from inverse. Small scratch implementations have limited validation and numerical range rather than claims of production equivalence.
+# Inverse, rank, and distances review
+
+The authoring assistant reviewed equations, code, actual fresh-kernel outputs, exercise solutions, and every figure in [inverse_rank_distances_review.png](inverse_rank_distances_review.png). Automated section counts supplement this review; they do not establish teaching quality.
+
+| Lesson | Evidence and limitations reviewed |
+|---|---|
+| 02-12 | Both inverse identities; coefficient 1.4; residual [-.4,.2] perpendicular to [1,2]; minimum-length underdetermined solution; nearly redundant sensors amplify a 1e-6 perturbation; scratch formula limited to 2×2 matrices and scale-dependent cutoff. |
+| 02-13 | Exact rational elimination and pivot swap; zero/rank-one/full-column-rank cases; tolerance changes numerical rank; centering changes the offset-line rank; redundant coefficients produce identical outputs. |
+| 02-14 | Hand distances 7/5/4, pairwise table, circle/diamond/square boundaries; reference scaling reverses the nearest product; squared distance counterexample; invalid vectors and shape mismatch rejected. |
+| 02-11 | Only next-lesson prose link changed; fresh execution passed and previous figure/math review remains applicable. |
+

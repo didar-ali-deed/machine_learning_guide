@@ -239,4 +239,4 @@ print('Coordinate, product identity, and manual Gram exercises passed.')
 
 ## 21. Summary and next steps
 
-Transpose deliberately exchanges axes while preserving value-coordinate pairings. Track flat versus two-dimensional shapes and shared storage. Next study [matrix inverse and pseudoinverse](README.md#02-12), currently planned, to learn when a linear transformation can be reversed or solved approximately.
+Transpose deliberately exchanges axes while preserving value-coordinate pairings. Track flat versus two-dimensional shapes and shared storage. Next study [matrix inverse and pseudoinverse](12_matrix_inverse_and_pseudoinverse.ipynb) to learn when a linear transformation can be reversed or solved approximately.

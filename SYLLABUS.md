@@ -71,9 +71,9 @@ Calculate and interpret the algebra, derivatives, probabilities, and objectives 
 | <a id="02-09"></a>02-09 | [Dot products](02_Mathematics_for_ML/09_dot_products.ipynb) | 2 | [02-08](#02-08) | Dot products |
 | <a id="02-10"></a>02-10 | [Matrix multiplication](02_Mathematics_for_ML/10_matrix_multiplication.ipynb) | 2 | [02-09](#02-09) | Matrix multiplication |
 | <a id="02-11"></a>02-11 | [Matrix transpose](02_Mathematics_for_ML/11_matrix_transpose.ipynb) | 2 | [02-10](#02-10) | Matrix transpose |
-| <a id="02-12"></a>02-12 | [Matrix inverse and pseudoinverse — planned](02_Mathematics_for_ML/README.md#02-12) | 2 | [02-11](#02-11) | Matrix inverse and pseudoinverse |
-| <a id="02-13"></a>02-13 | [Rank — planned](02_Mathematics_for_ML/README.md#02-13) | 2 | [02-12](#02-12) | Rank |
-| <a id="02-14"></a>02-14 | [Norms and distances — planned](02_Mathematics_for_ML/README.md#02-14) | 2 | [02-13](#02-13) | Norms and distances |
+| <a id="02-12"></a>02-12 | [Matrix inverse and pseudoinverse](02_Mathematics_for_ML/12_matrix_inverse_and_pseudoinverse.ipynb) | 2 | [02-11](#02-11) | Matrix inverse and pseudoinverse |
+| <a id="02-13"></a>02-13 | [Rank](02_Mathematics_for_ML/13_rank.ipynb) | 2 | [02-12](#02-12) | Rank |
+| <a id="02-14"></a>02-14 | [Norms and distances](02_Mathematics_for_ML/14_norms_and_distances.ipynb) | 2 | [02-13](#02-13) | Norms and distances |
 | <a id="02-15"></a>02-15 | [Eigenvalues and eigenvectors — planned](02_Mathematics_for_ML/README.md#02-15) | 2 | [02-14](#02-14) | Eigenvalues and eigenvectors |
 | <a id="02-16"></a>02-16 | [Singular Value Decomposition — planned](02_Mathematics_for_ML/README.md#02-16) | 2 | [02-15](#02-15) | Singular Value Decomposition |
 | <a id="02-17"></a>02-17 | [Limits and continuity — planned](02_Mathematics_for_ML/README.md#02-17) | 2 | [02-16](#02-16) | Limits and continuity |

@@ -364,13 +364,46 @@
     "02-11": {
       "status": "passed",
       "path": "02_Mathematics_for_ML/11_matrix_transpose.ipynb",
-      "checked_at_utc": "2026-10-09T03:51:29.501730+00:00",
-      "source_sha256": "463948ea3408231c29da763ca9117fed5992189d995b0fa54d967024a08a906c",
+      "checked_at_utc": "2026-10-09T04:08:32.961655+00:00",
+      "source_sha256": "960ff8ceeaf5451fe039e3fb0120144f8790e37517078db2fe48ecb0d2f00e6b",
       "dependencies_sha256": {},
       "code_cells": 8,
       "figures": 1,
       "output": "reports/executed/02_Mathematics_for_ML/11_matrix_transpose.ipynb",
-      "seconds": 1.656
+      "seconds": 1.766
+    },
+    "02-12": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/12_matrix_inverse_and_pseudoinverse.ipynb",
+      "checked_at_utc": "2026-10-09T04:08:34.732763+00:00",
+      "source_sha256": "e8dea16536c7356b4ee8591bbb579fd4659b1a603847a536f09883982206e93b",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/12_matrix_inverse_and_pseudoinverse.ipynb",
+      "seconds": 1.593
+    },
+    "02-13": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/13_rank.ipynb",
+      "checked_at_utc": "2026-10-09T04:08:36.331774+00:00",
+      "source_sha256": "c5d677a9c4075eafe99745f6a3b1c075e10e3b9c0737cdb4593f95f0e3840ac6",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/13_rank.ipynb",
+      "seconds": 1.594
+    },
+    "02-14": {
+      "status": "passed",
+      "path": "02_Mathematics_for_ML/14_norms_and_distances.ipynb",
+      "checked_at_utc": "2026-10-09T04:08:37.913034+00:00",
+      "source_sha256": "928042e6371e7c338354c993f68691bb9476623ed114308ffb7087af45a4fb78",
+      "dependencies_sha256": {},
+      "code_cells": 7,
+      "figures": 1,
+      "output": "reports/executed/02_Mathematics_for_ML/14_norms_and_distances.ipynb",
+      "seconds": 3.0
     }
   },
   "environment": {
@@ -383,5 +416,5 @@
     "ipykernel": "7.4.0"
   },
   "python": "3.11.9",
-  "checked_at_utc": "2026-10-09T03:51:27.710071+00:00"
+  "checked_at_utc": "2026-10-09T04:08:32.961655+00:00"
 }

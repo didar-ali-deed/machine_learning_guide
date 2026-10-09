@@ -25,7 +25,7 @@ Each lesson includes manual arithmetic, executable examples, plots, six exercise
 
 All **21 Python foundation lessons** are authored and tested. Follow the [numbered Python index](01_Python_Foundations/README.md) from variables through NumPy, pandas, plotting, and exploratory analysis. Each lesson includes a small worked example and exercises with solutions.
 
-The first **11 mathematics lessons** are also authored and tested. Start with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb) and follow the [mathematics index](02_Mathematics_for_ML/README.md) through equations, logarithms, vectors, dot products, matrix multiplication, and transpose. The [latest batch report](reports/DOT_MATRIX_TRANSPOSE_REPORT.md) records verification and precise next steps. Remaining mathematics and later modules are still planned; consult [PROGRESS.md](PROGRESS.md) for every exact status.
+The first **14 mathematics lessons** are also authored and tested. Start with [fractions and percentages](02_Mathematics_for_ML/01_fractions_percentages_and_exponents.ipynb) and follow the [mathematics index](02_Mathematics_for_ML/README.md) through equations, logarithms, vectors, dot products, matrix multiplication, transpose, inverse matrices, rank, and distances. The [latest batch report](reports/INVERSE_RANK_DISTANCES_REPORT.md) records verification and precise next steps. Remaining mathematics and later modules are still planned; consult [PROGRESS.md](PROGRESS.md) for every exact status.
 
 ## Navigate
 

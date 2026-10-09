@@ -204,9 +204,27 @@
     "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
   },
   "02-11": {
-    "source_sha256": "463948ea3408231c29da763ca9117fed5992189d995b0fa54d967024a08a906c",
-    "reviewed_at_utc": "2026-10-09T03:52:31.395271+00:00",
+    "source_sha256": "960ff8ceeaf5451fe039e3fb0120144f8790e37517078db2fe48ecb0d2f00e6b",
+    "reviewed_at_utc": "2026-10-09T04:09:28.232054+00:00",
     "reviewer": "authoring assistant",
-    "scope": "Manual arithmetic, shapes/units, code, actual outputs, figures and worked solutions reviewed; see dot/matrix/transpose section in CONTENT_REVIEW.md. For 02-08, refreshed next link and execution checked."
+    "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
+  },
+  "02-12": {
+    "source_sha256": "e8dea16536c7356b4ee8591bbb579fd4659b1a603847a536f09883982206e93b",
+    "reviewed_at_utc": "2026-10-09T04:09:28.233044+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
+  },
+  "02-13": {
+    "source_sha256": "c5d677a9c4075eafe99745f6a3b1c075e10e3b9c0737cdb4593f95f0e3840ac6",
+    "reviewed_at_utc": "2026-10-09T04:09:28.233618+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
+  },
+  "02-14": {
+    "source_sha256": "928042e6371e7c338354c993f68691bb9476623ed114308ffb7087af45a4fb78",
+    "reviewed_at_utc": "2026-10-09T04:09:28.233618+00:00",
+    "reviewer": "authoring assistant",
+    "scope": "Manual source, equations, arithmetic, outputs, figure, limitations and worked solutions review; inverse/rank/distances batch in CONTENT_REVIEW.md. Predecessor link refreshed."
   }
 }
